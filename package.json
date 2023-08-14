@@ -3,6 +3,8 @@
     "daisyui": "^3.5.1"
   },
   "dependencies": {
+    "babel-runtime": "^9.8.1",
+    "next-navigation": "^1.0.6",
     "prop-types": "^15.8.1"
   }
 }
