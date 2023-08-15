@@ -34,15 +34,17 @@ function Home() {
             imageUrl={card.imageUrl} 
             title={card.title} 
             description={card.description} 
+            price={card.price}
             slug={card.slug}
             />
             ))}
-        </section>
+        </section>    
         {/* Testimonial list section */}
-        <section className="m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+        <section className="m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {testimonialData && testimonialData.length > 0 && testimonialData.map(testimonial => (
           <TestimonialCard 
-          key={testimonial.id} 
+          key={testimonial.id}
+          id={testimonial.id} 
           name={testimonial.name}
           date={testimonial.date}
           rating={testimonial.rating}
