@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const Card = ({ imageUrl, title, description, slug }) => {
+const carCard = ({ imageUrl, title, description, slug }) => {
   return (
     <Link href={`/cars/${slug}`}>
       <div className="card w-full bg-base-100 shadow-xl">
@@ -18,4 +18,4 @@ const Card = ({ imageUrl, title, description, slug }) => {
   );
 };
 
-export default Card;
+export default carCard;
