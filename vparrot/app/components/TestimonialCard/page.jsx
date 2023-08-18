@@ -8,6 +8,11 @@ export default function TestimonialCard({ name, date, rating, message, id }) {
     }
   };
 
+  // Check if date is a string and convert it to a Date object if it is
+  const parsedDate = typeof date === "string" ? new Date(date) : date;
+  // Format the date into a string.
+  const formattedDate = parsedDate?.toLocaleDateString();
+
   return (
     <>
       <div className="card w-full h-40 max-w-xl mx-auto bg-base-100 shadow-xl cursor-pointer">
@@ -15,9 +20,9 @@ export default function TestimonialCard({ name, date, rating, message, id }) {
           <h2 className="card-title">{name}</h2>
           <p className="clamp-2 flex-grow">{message ? message : "Aucun message fourni"}</p>
           <div className="flex justify-between items-center mb-1">
-            <span>{date}</span>
+            <span>{formattedDate}</span>
             <span>Note : {rating} ⭐</span>
-          <button onClick={openModal} className=" hidden lg:block text-end text-blue-500 hover:underline ">Lire la suite</button>
+          <button onClick={openModal} className="hidden lg:block text-end text-blue-500 hover:underline ">Lire la suite</button>
           </div>
         </div>
       </div>
@@ -28,7 +33,7 @@ export default function TestimonialCard({ name, date, rating, message, id }) {
           <p>{message ? message : "Aucun message fourni"}</p>
           <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
           <div className="flex justify-between items-center mt-4">
-            <span>{date}</span>
+            <span>{formattedDate}</span>
             <span>Note : {rating} ⭐</span>
           </div>
         </form>

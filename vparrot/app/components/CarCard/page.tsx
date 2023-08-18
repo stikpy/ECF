@@ -1,10 +1,11 @@
+
 import React from 'react';
 import Link from 'next/link';
 
-const carCard = ({ imageUrl, title, description, price, slug }) => {
+const CarCard = ({ imageUrl, title, description, price, slug }) => {
   return (
     <Link href={`/cars/${slug}`}>
-      <div className="card w-full bg-base-100 shadow-xl">
+      <div className="card w-full bg-base-100 shadow-xl cursor-pointer">
         <figure><img className="w-full" src={imageUrl} alt={title} /></figure>
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
@@ -19,4 +20,4 @@ const carCard = ({ imageUrl, title, description, price, slug }) => {
   );
 };
 
-export default carCard;
+export default CarCard;

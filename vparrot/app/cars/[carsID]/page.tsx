@@ -1,6 +1,7 @@
 import Footer from '@/app/components/Footer/page';
 import cardsCarData from '../../cardCarsData';
 
+
 const CardDetail = ({ params }: { params: { carsID: string } }) => {
     const card = cardsCarData.find(c => c.slug === params.carsID);
 
