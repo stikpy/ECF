@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 
 export default function TestimonialCard({ name, date, rating, message, id }) {

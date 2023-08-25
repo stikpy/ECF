@@ -29,10 +29,3 @@ INSERT INTO cars (title, imageUrl, description, price, slug) VALUES
 ('Mini Cooper', 'https://images.pexels.com/photos/5660840/pexels-photo-5660840.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load', 'Mini Cooper de couleur verte', 17500, '3');
 
 
-CREATE TABLE testimonial (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
-    date DATE,
-    rating INT,
-    message VARCHAR(255)
-);
