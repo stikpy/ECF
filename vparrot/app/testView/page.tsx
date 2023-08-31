@@ -1,26 +1,19 @@
 import React from 'react'
+import UserTable from '../components/UserTableView/page'
 import { PrismaClient } from '@prisma/client';
+import TestimonialTableView from '../components/TestimonialTableView/page';
 
 const prisma = new PrismaClient();
 
-async function TestView() {
-    const cars = await prisma.cars.findMany();
-    
-    return (
-        <>
-        {cars.map(car => (
-        <ul>
-    <li key={car.id}>
-      <h1>{car.title}</h1>
-      <p>{car.description}</p>
-      <p>{car.imageurl}</p> 
-      <p>{car.price}</p>
-    </li>
-</ul>))}
-    <div>TestView</div>
+function TestView() {
+
+
+  return( 
+    <>
+        <UserTable />
+        <TestimonialTableView />
 
     </>
-
   )
 }
 

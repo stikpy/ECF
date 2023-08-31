@@ -14,12 +14,26 @@ model cars {
   description String?
   price       Int?
   slug        String? @unique @db.VarChar(255)
+  km          Int?
+  year        Int?
 }
 
-model testimonial {
-  id      Int       @id @default(autoincrement())
-  name    String?   @db.VarChar(255)
-  date    DateTime? @db.Date
-  rating  Int?
-  message String?   @db.VarChar(255)
+model testimonials {
+  id          Int       @id @default(autoincrement())
+  name        String?   @db.VarChar(255)
+  date        DateTime? @db.Date
+  rating      Int?
+  message     String?   @db.VarChar(255)
+  isValidated Boolean?  @default(false)
+  status      String    @db.VarChar(20) @default("hors ligne")
+}
+
+
+model users {
+  id        Int     @id @default(autoincrement())
+  email     String? @unique @db.VarChar(255)
+  password  String? @db.VarChar(255)
+  firstname String? @db.VarChar(255)
+  lastname  String? @db.VarChar(255)
+  role      String? @db.VarChar(255)
 }

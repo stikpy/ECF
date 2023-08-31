@@ -9,10 +9,11 @@ export default function TestimonialCard({ name, date, rating, message, id }) {
     }
   };
 
-  // Check if date is a string and convert it to a Date object if it is
-  const parsedDate = typeof date === "string" ? new Date(date) : date;
-  // Format the date into a string.
-  const formattedDate = parsedDate?.toLocaleDateString();
+  const formattedDate = new Date(date).toLocaleDateString("fr-FR", {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+  });
 
   return (
     <>

@@ -5,6 +5,7 @@ import Head from 'next/head';
 import Footer from './components/Footer/page';
 import Header from './components/Header/page';
 import { Inter } from 'next/font/google'
+import Providers from './providers';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -31,10 +32,13 @@ return (
  
   
   <body className={inter.className}>
+  
   <header>
   <Header/>
   </header>
+  <Providers>
     {children}
+  </Providers>
   {/* <footer className="fixed bottom-0 w-full">
   <Footer  />
   </footer>  */}
