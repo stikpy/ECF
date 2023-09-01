@@ -52,7 +52,7 @@ function CreateUserForm() {
       <label>Rôle :</label>
       <input type="text" value={role} onChange={(e) => setRole(e.target.value)} /><br />
 
-      <button type="submit">Créer l'utilisateur</button>
+      <button type="submit">{"Créer l'utilisateur"}</button>
     </form>
   );
 }

@@ -7,7 +7,7 @@ import TestimonialTableView from '../components/TestimonialTableView/page'
 
 
 
-export const Connexion = async () => {
+export default async function Connexion () {
   const session = await getServerSession(authOptions)
 
   if (session?.user.role === "administrateur") {
@@ -49,4 +49,4 @@ export const Connexion = async () => {
   return <p>You are not authorized to view this page!</p>
 }
 
-export default Connexion;
+

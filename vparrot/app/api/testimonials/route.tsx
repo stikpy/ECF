@@ -5,14 +5,12 @@ import { NextResponse, NextRequest } from "next/server";
 const prisma = new PrismaClient();
 
 // GET /api/testimonials
-export async function getTestimonials() {
-  const testimonial = await prisma.testimonials.findMany();
-  return testimonial;
-}
+
 
 export async function GET(request: NextRequest) {
   try {
-    const testimonial = await getTestimonials();
+    const testimonial = await prisma.testimonials.findMany();
+    
     return  new NextResponse(JSON.stringify(testimonial), { status: 200 });
   } catch (err) {
     return new NextResponse(JSON.stringify({ message: 'Error fetching users' }), { status: 500 });

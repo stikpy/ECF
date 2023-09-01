@@ -6,8 +6,8 @@ import { PrismaClient } from '@prisma/client';
 import Link from 'next/link';
 
 
-async function Home (){
 const prisma = new PrismaClient();
+async function Home (){
 // revoir la logique de reception des données cars et testimonials
 const cars = await prisma.cars.findMany();
 const testimonials = await prisma.testimonials.findMany();
@@ -17,7 +17,7 @@ return (
 <main>
   
     <p className="text-center border w-3/4 mx-auto border-black-300 border-t-2">
-    Bienvenue au Garage V. Parrot, le spécialiste automobile à Toulouse depuis 2003. Passion, expertise et engagement définissent notre approche unique de l'automobile. Parce que chaque voiture a une histoire, chaque réparation raconte la nôtre.
+    Bienvenue au Garage V. Parrot, le sp&eacute;cialiste automobile &agrave; Toulouse depuis 2003. Passion, expertise et engagement d&eacute;finissent notre approche unique de l&apos;automobile. Parce que chaque voiture a une histoire, chaque r&eacute;paration raconte la n&ocirc;tre.
     </p>
     {/* Car list section */}
     <section className="m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
