@@ -1,4 +1,5 @@
 
+
 import {getServerSession} from 'next-auth/next'
 import {authOptions} from "@/app/api/auth/[...nextauth]/route"
 import SignOut from '../components/SignOut/page'
@@ -7,7 +8,7 @@ import TestimonialTableView from '../components/TestimonialTableView/page'
 
 
 
-export default async function Connexion () {
+export const Connexion = async () => {
   const session = await getServerSession(authOptions)
 
   if (session?.user.role === "administrateur") {
@@ -22,6 +23,8 @@ export default async function Connexion () {
     <section className="flex flex-col items-center justify-center ">
       <div className='w-8/10'>
         <UserTable />
+        <TestimonialTableView />
+
       </div>
     </section>
     <section>
@@ -49,4 +52,4 @@ export default async function Connexion () {
   return <p>You are not authorized to view this page!</p>
 }
 
-
+export default Connexion;
