@@ -44,14 +44,6 @@ const Home = () => {
     );
   });
 
-<<<<<<< Updated upstream
-const prisma = new PrismaClient();
-async function Home (){
-// revoir la logique de reception des données cars et testimonials
-const cars = await prisma.cars.findMany();
-const testimonials = await prisma.testimonials.findMany();
-=======
->>>>>>> Stashed changes
 
 return (
 <>
