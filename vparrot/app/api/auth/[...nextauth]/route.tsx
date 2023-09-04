@@ -1,9 +1,13 @@
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { PrismaClient } from '@prisma/client';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 
+<<<<<<< Updated upstream
 
 const prisma = new PrismaClient();
 const prismaAdapter = PrismaAdapter(prisma);
@@ -15,6 +19,14 @@ export const authOptions = {
   session: {
     strategy: 'jwt'
   },
+=======
+const prisma = new PrismaClient();
+const prismaAdapter = PrismaAdapter(prisma);
+
+export const authOptions = {
+  // adapter: prismaAdapter,
+  secret: process.env.NEXTAUTH_SECRET,
+>>>>>>> Stashed changes
   providers: [
     CredentialsProvider({
       name: 'Email and Password',
@@ -34,7 +46,11 @@ export const authOptions = {
         if (!credentials?.email || !credentials?.password) {
           return null;
         }
+<<<<<<< Updated upstream
         const user = await prisma.users.findUnique ({
+=======
+        const user = await prisma.users.findUnique({
+>>>>>>> Stashed changes
           where: {
             email: credentials.email,
           },
@@ -43,6 +59,7 @@ export const authOptions = {
         if (!user) {
           return null;
         }
+<<<<<<< Updated upstream
 
 
         return {
@@ -93,3 +110,20 @@ export const authOptions = {
 
 const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
+=======
+        return {
+          id: String(user.id),
+          name: user.firstname,
+          email: user.email,
+          role: user.role,
+        };
+      },
+    }),
+  ],
+  
+
+};
+
+const handler = NextAuth(authOptions);
+export { handler as GET, handler as POST };
+>>>>>>> Stashed changes
