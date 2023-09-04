@@ -18,7 +18,7 @@ import {
 import { Delete, Edit } from '@mui/icons-material';
 
 
-const Example = () => {
+const UserTableView = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [tableData, setTableData] = useState([]);
   const [validationErrors, setValidationErrors] = useState({});
@@ -40,12 +40,25 @@ const Example = () => {
 
   const handleSaveRowEdits = async ({ exitEditingMode, row, values }) => {
     if (!Object.keys(validationErrors).length) {
-      tableData[row.index] = values;
-      //send/receive api updates here, then refetch or update local table data for re-render
-      setTableData([...tableData]);
-      exitEditingMode(); //required to exit editing mode and close modal
+      try {
+        const response = await axios.put("/api/profite/admin", {
+          id: row.id, // ou quelque chose de similaire
+          data: values
+        });
+  
+        if (response.status === 200) {
+          tableData[row.index] = values;
+          setTableData([...tableData]);
+          exitEditingMode(); // Requis pour quitter le mode d'édition et fermer la modale
+        } else {
+          console.error("Erreur lors de la mise à jour de la ligne :", response);
+        }
+      } catch (error) {
+        console.error("Erreur lors de la mise à jour de la ligne :", error);
+      }
     }
   };
+  
 
   const handleCancelRowEdits = () => {
     setValidationErrors({});
@@ -101,8 +114,8 @@ const Example = () => {
         accessorKey: 'id',
         header: 'ID',
         enableColumnOrdering: false,
-        enableEditing: false, //disable editing on this column
-        enableSorting: false,
+        enableEditing: true, //disable editing on this column
+        enableSorting: true,
         size: 80,
       },
       {
@@ -185,7 +198,7 @@ const Example = () => {
           </Button>
         )}
       />
-      <CreateNewAccountModal
+     <CreateNewAccountModal
         columns={columns}
         open={createModalOpen}
         onClose={() => setCreateModalOpen(false)}
@@ -255,4 +268,4 @@ const validateEmail = (email) =>
     );
 
 
-export default Example;
+export default UserTableView;

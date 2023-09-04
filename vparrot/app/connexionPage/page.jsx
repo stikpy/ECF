@@ -3,7 +3,7 @@
 import {getServerSession} from 'next-auth/next'
 import {authOptions} from "@/app/api/auth/[...nextauth]/route"
 import SignOut from '../components/SignOut/page'
-import UserTable from '../components/UserTableView/page'
+import UserTableView from '../components/UserTableView/page'
 import TestimonialTableView from '../components/TestimonialTableView/page'
 
 
@@ -21,13 +21,20 @@ export const Connexion = async () => {
     <SignOut />
     </div>
     <section className="flex flex-col items-center justify-center ">
+<<<<<<< Updated upstream
       <div className='w-8/10'>
         <UserTable />
         <TestimonialTableView />
 
       </div>
+=======
+      
+        <UserTableView />
+      
+>>>>>>> Stashed changes
     </section>
-    <section>
+    <section className="flex flex-col items-center justify-center  w-8/10">
+      
       <h2>Temoignage</h2>
       <TestimonialTableView />
     </section>

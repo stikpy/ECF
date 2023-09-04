@@ -1,32 +1,66 @@
 'use client';
-import React, { useState } from 'react';
+import axios from 'axios';
+import { useState } from 'react';
+import { NextRequest, NextResponse } from 'next/server';
 
-const AddTestimonialForm = () => {
-  const [name, setName] = useState('');
-  const [message, setMessage] = useState('');
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+const TestimonialAddForm = () => {
+  const [formData, setFormData] = useState({
+    name:  '',
+    date: Date.now(),
+    rating: 0,
+    message: '',
+  });
 
-    // Envoie les données du témoignage au backend et effectue les actions nécessaires
-    // Une fois le témoignage ajouté avec succès, vous pouvez réinitialiser les champs du formulaire
-    setName('');
-    setMessage('');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    const fullData = {
+      ...formData,
+      date: Date.now(),
+      isValidated: false,
+      status: 'Hors ligne',
+      rating: Number(formData.rating), // Convertit en nombre
+    };
+  
+    console.log("Données du formulaire envoyées:", fullData);
+  
+    try {
+      const response = await axios.post('/api/testimonials', fullData);
+      if (response.status === 201) {
+        alert('Témoignage ajouté avec succès.');
+      }
+    } catch (error) {
+      console.error("Erreur lors de l'ajout du témoignage:", error);
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <label>Nom:</label>
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-      </div>
-      <div>
-        <label>Message:</label>
-        <textarea value={message} onChange={(e) => setMessage(e.target.value)} />
-      </div>
-      <button type='submit'>Valider</button>
+      {/* Vos champs de formulaire ici */}
+      <input 
+        type="text" 
+        placeholder="Nom" 
+        value={formData.name} 
+        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+      />
+   
+      <input
+        type="number"
+        placeholder="Note"
+        value={formData.rating}
+        onChange={(e) => setFormData({ ...formData, rating: e.target.value })}  
+      />
+      <input
+        type="text"
+        placeholder="Commentaire"
+        value={formData.message}
+        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+      />
+
+      <button type="submit">Soumettre</button>
     </form>
   );
 };
 
-export default AddTestimonialForm;
+export default TestimonialAddForm;

@@ -10,12 +10,12 @@ datasource db {
 model cars {
   id          Int     @id @default(autoincrement())
   title       String? @db.VarChar(255)
-  imageurl    String?
   description String?
   price       Int?
   slug        String? @unique @db.VarChar(255)
   km          Int?
   year        Int?
+  imageURL    String?
 }
 
 model testimonials {
@@ -25,9 +25,8 @@ model testimonials {
   rating      Int?
   message     String?   @db.VarChar(255)
   isValidated Boolean?  @default(false)
-  status      String    @db.VarChar(20) @default("hors ligne")
+  status      String    @default("hors ligne") @db.VarChar(20)
 }
-
 
 model users {
   id        Int     @id @default(autoincrement())

@@ -20,6 +20,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
+    console.log("Data reçue:", data);
 
     const user = await prisma.users.create({
       data: {
@@ -33,6 +34,7 @@ export async function POST(request: NextRequest) {
 
     return new NextResponse(JSON.stringify(user), { status: 200 });
   } catch (err) {
+    console.error("Erreur lors de la création de l'utilisateur:", err);
     return new NextResponse(JSON.stringify({ message: 'Error creating user' }), { status: 500 });
   }
 }

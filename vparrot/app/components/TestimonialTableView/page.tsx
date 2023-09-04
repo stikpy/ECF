@@ -137,7 +137,7 @@ export default function UserTestimonials ()  {
         positionActionsColumn="last"
         getRowId={(row) => row.id}
         muiTableProps={{
-          tableLayout: "fixed",
+         layoutMode: "grid"
         }}
         enableRowActions
         renderRowActions={({ row }) => (
