@@ -106,7 +106,6 @@ export default function UserTestimonials ()  {
       const { id, isValidated, status } = row;
       return axios.put(`/api/testimonials/${id}`, { id, isValidated, status });
     });
-    
   
     try {
       await Promise.all(updatePromises);
@@ -115,15 +114,17 @@ export default function UserTestimonials ()  {
       // Réinitialiser les états
       setSelectedRows([]);
       fetchData();
-      setPendingChanges({}); 
-      router.refresh();
-      
+      setPendingChanges({});
+  
+      // Rafraîchir la page
+      window.location.reload();
     } catch (error) {
       console.error("Erreur lors de la mise à jour des témoignages:", error);
     }
   
     console.log("Changements en attente après la mise à jour:", pendingChanges);
   };
+  
   
   return (
     <div>
@@ -136,9 +137,7 @@ export default function UserTestimonials ()  {
         data={data}
         positionActionsColumn="last"
         getRowId={(row) => row.id}
-        muiTableProps={{
-         layoutMode: "grid"
-        }}
+       
         enableRowActions
         renderRowActions={({ row }) => (
           <Box>

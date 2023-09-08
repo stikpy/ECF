@@ -12,7 +12,7 @@ import {
   TextField,
   Tooltip,
 } from '@mui/material';
-import { Delete, Edit } from '@mui/icons-material';
+import { Delete, Edit, ExpandMore, ChevronRight } from '@mui/icons-material'; // Importez les icônes d'expansion
 import axios from 'axios';
 
 const CarAds = () => {
@@ -97,6 +97,22 @@ const CarAds = () => {
         header: 'Image',
         size: 80,
       },
+      {
+        accessorKey: 'subRows', // Ajoutez une colonne pour gérer les sous-lignes
+        header: '', // Cette colonne n'a pas de titre visible
+        size: 40,
+        // Configurez la cellule pour afficher les icônes d'expansion
+        cell: (row) =>
+          row.canExpand ? (
+            <IconButton
+              size="small"
+              onClick={() => row.toggleExpanded()}
+              style={{ marginLeft: row.depth * 20 }}
+            >
+              {row.isExpanded ? <ExpandMore /> : <ChevronRight />}
+            </IconButton>
+          ) : null,
+      },
       // Ajoutez d'autres colonnes en fonction de votre modèle
     ],
     [],
@@ -119,16 +135,18 @@ const CarAds = () => {
                 gap: '1.5rem',
               }}
             >
-              {columns.map((column) => (
-                <TextField
-                  key={column.accessorKey}
-                  label={column.header}
-                  name={column.accessorKey}
-                  value={formData[column.accessorKey]}
-                  onChange={handleChange}
-                  fullWidth
-                />
-              ))}
+              {columns
+                .filter((column) => column.accessorKey !== 'subRows') // Excluez la colonne d'expansion des sous-lignes du formulaire
+                .map((column) => (
+                  <TextField
+                    key={column.accessorKey}
+                    label={column.header}
+                    name={column.accessorKey}
+                    value={formData[column.accessorKey]}
+                    onChange={handleChange}
+                    fullWidth
+                  />
+                ))}
             </Stack>
           </form>
         </DialogContent>
@@ -185,6 +203,9 @@ const CarAds = () => {
             Créer une annonce de voiture
           </Button>
         )}
+        // Activer l'expansion des sous-lignes
+        enableExpanding
+        getSubRows={(originalRow) => originalRow.subRows || []}
       />
     </div>
   );

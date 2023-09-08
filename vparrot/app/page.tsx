@@ -1,13 +1,13 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import CarCard from './components/CarCard/page';
+import CarCard from './components/CarCardView/page';
 import TestimonialCard from './components/TestimonialCardView/page';
 import Link from 'next/link';
 import axios from 'axios';
 import CarsFilter from './components/CarsFilter/page'; // Assurez-vous que ce composant existe et fonctionne correctement
 
 const Home = () => {
-  // Pas de prisma client ici. Utilisez une API ou getServerSideProps pour ça.
+
 
   const [filtres, setFiltres] = useState({
     prix: '',
@@ -60,11 +60,11 @@ return (
   return (
     <CarCard
       key={car.id}
-      imageURL={car.imageURL}
+      id={car.id}
+      imageurl={car.imageurl}
       title={car.title}
       description={car.description}
       price={car.price}
-      slug={car.slug}
       km={car.km}
       year={car.year}
     />

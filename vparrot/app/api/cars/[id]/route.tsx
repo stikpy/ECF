@@ -6,42 +6,45 @@ const prisma = new PrismaClient();
 // GET /api/cars/[id]
 export const GET = async (request: NextRequest) => {
     const id = request.url.split('cars/')[1];
+    
     try {
-        const car = await prisma.cars.findFirst({
+        const car = await prisma.carposts.findFirst({
             where: {
                 id: parseInt(id)
             }
         });
-
         if (!car) {
             return new NextResponse(JSON.stringify({ message: 'Voiture non trouvée' }), { status: 404 });
-
         }
-
         return new NextResponse(JSON.stringify(car), { status: 200 });
     } catch (err) {
-
         return new NextResponse(JSON.stringify({ message: "Erreur lors de la récupération de la voiture" }), { status: 500 });
-
     } finally {
         await prisma.$disconnect();
     }
 };
 
+
+
+
 // POST /api/cars
 export const POST = async (request: NextRequest) => {
     try {
         const body = await request.json();
-        const { title, description, price, imageURL, slug } = body;
+        const { title, description, price, imageURL } = body;
 
-        const car = await prisma.cars.create({
+        const car = await prisma.carposts.create({
             data: {
                 title,
                 description,
                 price,
-                imageURL,
-                slug
+                imageurl: imageURL,
+                
+            },
+            include: {
+                users: true
             }
+
         });
 
         return new NextResponse(JSON.stringify(car), { status: 200 });
@@ -72,10 +75,13 @@ export const PUT = async (request: NextRequest) => {
         price: body.price,
         imageurl: body.imageurl,
         slug: body.slug
-      }
+      },
+        include: {
+            user: true
+        }
     };
 
-    const car = await prisma.cars.update(updateQuery);
+    const car = await prisma.carposts.update(updateQuery);
 
     return new NextResponse(JSON.stringify(car), { status: 200 });
   } catch (err) {
@@ -88,8 +94,8 @@ export const PUT = async (request: NextRequest) => {
 // DELETE /api/cars/[id]
 export const DELETE = async (request: NextRequest) => {
     try {
-        const id = parseInt(request.url.split('cars/')[1]);
-        await prisma.cars.delete({
+        const id = parseInt(request.url.split('carsPosts/')[1]);
+        await prisma.carposts.delete({
             where: {
                 id: id
             }

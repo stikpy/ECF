@@ -7,32 +7,145 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model cars {
-  id          Int     @id @default(autoincrement())
-  title       String? @db.VarChar(255)
+model account {
+  id                 Int       @id @default(autoincrement())
+  userid             Int?
+  providertype       String?   @db.VarChar(255)
+  providerid         String?   @db.VarChar(255)
+  provideraccountid  String?   @db.VarChar(255)
+  refreshtoken       String?   @db.VarChar(255)
+  accesstoken        String?   @db.VarChar(255)
+  accesstokenexpires DateTime? @db.Timestamp(6)
+  createdat          DateTime? @default(now()) @db.Timestamp(6)
+  updatedat          DateTime? @default(now()) @db.Timestamp(6)
+  users              users?    @relation(fields: [userid], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model cardetails {
+  id                       Int            @id(map: "voiture_details_pkey") @default(autoincrement())
+  car_id                   Int?
+  provenance_id            Int?
+  date_mise_en_circulation DateTime?      @db.Date
+  controle_technique       Boolean?
+  premiere_main            Boolean?
+  energie_id               Int?
+  boite_de_vitesse_id      Int?
+  couleur_exterieur_id     Int?
+  sellerie_id              Int?
+  nb_portes                Int?
+  nb_places                Int?
+  volume_coffre            Int?
+  puissance_fiscale        Int?
+  puissance_din            Int?
+  norme_euro_id            Int?
+  crit_air_id              Int?
+  consommation_mixte       Float?
+  emission_co2_id          Int?
+  gearbox                  gearbox?       @relation(fields: [boite_de_vitesse_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_cardetails_boitedevitesse")
+  carposts                 carposts?      @relation(fields: [car_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_cardetails_carsposts")
+  exteriorcolor            exteriorcolor? @relation(fields: [couleur_exterieur_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_cardetails_couleurexterieur")
+  critair                  critair?       @relation(fields: [crit_air_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_cardetails_critair")
+  emissionco2              emissionco2?   @relation(fields: [emission_co2_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_cardetails_emissionco2")
+  energy                   energy?        @relation(fields: [energie_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_cardetails_energie")
+  eurostandard             eurostandard?  @relation(fields: [norme_euro_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_cardetails_normeeuro")
+  origin                   origin?        @relation(fields: [provenance_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_cardetails_provenance")
+  upholstery               upholstery?    @relation(fields: [sellerie_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_cardetails_sellerie")
+}
+
+model carposts {
+  id          Int          @id(map: "carsposts_pkey") @default(autoincrement())
+  title       String?      @db.VarChar(255)
   description String?
   price       Int?
-  slug        String? @unique @db.VarChar(255)
+  imageurl    String?      @db.VarChar(255)
   km          Int?
   year        Int?
-  imageURL    String?
+  createdat   DateTime?    @default(now()) @db.Timestamp(6)
+  updatedat   DateTime?    @default(now()) @db.Timestamp(6)
+  status      String?      @default("hors ligne") @db.VarChar(20)
+  user_id     Int?
+  cardetails  cardetails[]
+  users       users?       @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "carsposts_user_id_fkey")
+}
+
+model critair {
+  id         Int          @id @default(autoincrement())
+  name       String?      @db.VarChar(50)
+  cardetails cardetails[]
+}
+
+model emissionco2 {
+  id         Int          @id @default(autoincrement())
+  name       String?      @db.VarChar(50)
+  cardetails cardetails[]
+}
+
+model energy {
+  id         Int          @id(map: "energie_pkey") @default(autoincrement())
+  name       String?      @db.VarChar(50)
+  cardetails cardetails[]
+}
+
+model eurostandard {
+  id         Int          @id(map: "normeeuro_pkey") @default(autoincrement())
+  name       String?      @db.VarChar(50)
+  cardetails cardetails[]
+}
+
+model exteriorcolor {
+  id         Int          @id(map: "couleurexterieur_pkey") @default(autoincrement())
+  name       String?      @db.VarChar(50)
+  cardetails cardetails[]
+}
+
+model gearbox {
+  id         Int          @id(map: "boitedevitesse_pkey") @default(autoincrement())
+  name       String?      @db.VarChar(50)
+  cardetails cardetails[]
+}
+
+model origin {
+  id         Int          @id(map: "provenance_pkey") @default(autoincrement())
+  name       String?      @db.VarChar(50)
+  cardetails cardetails[]
+}
+
+model session {
+  id           Int       @id @default(autoincrement())
+  userid       Int?
+  expires      DateTime? @db.Timestamp(6)
+  sessiontoken String?   @db.VarChar(255)
+  accesstoken  String?   @db.VarChar(255)
+  createdat    DateTime? @default(now()) @db.Timestamp(6)
+  updatedat    DateTime? @default(now()) @db.Timestamp(6)
+  users        users?    @relation(fields: [userid], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_user_session")
 }
 
 model testimonials {
   id          Int       @id @default(autoincrement())
   name        String?   @db.VarChar(255)
-  date        DateTime? @db.Date
+  date        DateTime? @default(now()) @db.Timestamp(6)
   rating      Int?
   message     String?   @db.VarChar(255)
+  status      String?   @default("hors ligne") @db.VarChar(20)
   isValidated Boolean?  @default(false)
-  status      String    @default("hors ligne") @db.VarChar(20)
 }
 
+model upholstery {
+  id         Int          @id(map: "sellerie_pkey") @default(autoincrement())
+  name       String?      @db.VarChar(50)
+  cardetails cardetails[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model users {
-  id        Int     @id @default(autoincrement())
-  email     String? @unique @db.VarChar(255)
-  password  String? @db.VarChar(255)
-  firstname String? @db.VarChar(255)
-  lastname  String? @db.VarChar(255)
-  role      String? @db.VarChar(255)
+  id        Int        @id @default(autoincrement())
+  email     String?    @unique @db.VarChar(255)
+  password  String?    @db.VarChar(255)
+  firstname String?    @db.VarChar(255)
+  lastname  String?    @db.VarChar(255)
+  role      String?    @db.VarChar(50)
+  account   account[]
+  carposts  carposts[]
+  session   session[]
 }
