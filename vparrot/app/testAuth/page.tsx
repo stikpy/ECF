@@ -9,6 +9,8 @@ import SignOut from '../components/SignOut/page'
 
 async function TestAuth() {
   const session = await getServerSession(authOptions)
+  console.log(session);
+  
   return (
     <>
     <SignOut />

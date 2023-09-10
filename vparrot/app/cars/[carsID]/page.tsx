@@ -7,7 +7,7 @@ import axios from 'axios';
 
 type CarPropsType = {
   id: number;
-  imageurl: string;
+  imageUrl: string;
   title: string;
   description: string;
   price: number;
@@ -42,7 +42,7 @@ export default function CarDetail() {
         <h1 className='text-black-500 text-base md:text-lg lg:text-6xl font-bold mt-4 mb-2'>Détails de la voiture</h1>
         <div className='flex justify-between'>
           <div>
-          <Image src={car.imageurl} alt={car.title} width={600} height={600} style={{ width: 'auto', height: 'auto' }} />
+          <Image src={car.imageUrl} alt={car.title} width={600} height={600} style={{ width: 'auto', height: 'auto' }} />
             <h2>Nom de la voiture: {car.title}</h2>
             <p>Description de la voiture: {car.description}</p>
             <p>Prix de la voiture: {car.price}€</p>

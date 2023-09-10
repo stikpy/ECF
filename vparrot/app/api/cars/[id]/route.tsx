@@ -8,7 +8,7 @@ export const GET = async (request: NextRequest) => {
     const id = request.url.split('cars/')[1];
     
     try {
-        const car = await prisma.carposts.findFirst({
+        const car = await prisma.carPosts.findFirst({
             where: {
                 id: parseInt(id)
             }
@@ -33,7 +33,7 @@ export const POST = async (request: NextRequest) => {
         const body = await request.json();
         const { title, description, price, imageURL } = body;
 
-        const car = await prisma.carposts.create({
+        const car = await prisma.carPosts.create({
             data: {
                 title,
                 description,
@@ -81,7 +81,7 @@ export const PUT = async (request: NextRequest) => {
         }
     };
 
-    const car = await prisma.carposts.update(updateQuery);
+    const car = await prisma.carPosts.update(updateQuery);
 
     return new NextResponse(JSON.stringify(car), { status: 200 });
   } catch (err) {
@@ -95,7 +95,7 @@ export const PUT = async (request: NextRequest) => {
 export const DELETE = async (request: NextRequest) => {
     try {
         const id = parseInt(request.url.split('carsPosts/')[1]);
-        await prisma.carposts.delete({
+        await prisma.carPosts.delete({
             where: {
                 id: id
             }

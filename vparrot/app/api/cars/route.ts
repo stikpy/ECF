@@ -10,7 +10,7 @@ const prisma = new PrismaClient();
 export async function GET(request: NextRequest) {
   console.log("GET function called");
   try {
-    const cars = await prisma.carposts.findMany();
+    const cars = await prisma.carPosts.findMany();
     console.log("Cars retrieved:", cars);
     return new NextResponse(JSON.stringify(cars), { status: 200 });
   } catch (err) {
@@ -24,13 +24,13 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
-    const { title, description, price, imageURL, slug } = data;
-    const car = await prisma.carposts.create({
+    const { title, description, price, imageUrl, slug } = data;
+    const car = await prisma.carPosts.create({
       data: {
         title,
         description,
         price,
-        imageurl : imageURL,
+        imageUrl : imageUrl,
       },
       include: { 
         users: true,

@@ -24,6 +24,6 @@
       },
       "typeRoots": ["./types", "./node_modules/@types"],
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/NavBar/page.jsx", "app/components/Header/page.jsx", "app/carActions.jsx", "app/api/route.mjs", "app/contactForm/page.tsx", "app/api/sendGrid/route.tsx", "app/api/auth/[...nextauth]/route.tsx", "app/connexionPage/page.jsx", "app/connexionPage/route.js", "app/components/SignOut/page.tsx", "app/components/UserTableView/page.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/NavBar/page.jsx", "app/components/Header/page.jsx", "app/carActions.jsx", "app/api/route.mjs", "app/contactForm/page.tsx", "app/api/sendGrid/route.tsx", "app/api/auth/[...nextauth]/route.tsx", "app/connexionPage/page.tsx", "app/connexionPage/route.js", "app/components/SignOut/page.tsx", "app/components/UserTableView/page.tsx"],
   "exclude": ["node_modules"]
 }

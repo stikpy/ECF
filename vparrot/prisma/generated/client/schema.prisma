@@ -1,0 +1,157 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+enum Role {
+  ADMIN
+  USER
+}
+
+model Users {
+  id        Int        @id @default(autoincrement())
+  email     String?    @unique
+  password  String?
+  firstname String?
+  lastname  String?
+  role      String?
+  accounts  Account[]
+  carPosts  carPosts[] 
+  sessions  Session[]  @relation("UserSessions")
+}
+
+model Account {
+  id                 Int       @id @default(autoincrement())
+  userId             Int?
+  providerType       String?
+  providerId         String?
+  providerAccountId  String?
+  refreshToken       String?
+  accessToken        String?
+  accessTokenExpires DateTime?
+  createdAt          DateTime? @default(now())
+  updatedAt          DateTime? @default(now())
+  user               Users?    @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model Session {
+  id           Int       @id @default(autoincrement())
+  userId       Int?
+  expires      DateTime?
+  sessionToken String?
+  accessToken  String?
+  createdAt    DateTime? @default(now())
+  updatedAt    DateTime? @default(now())
+  user         Users?    @relation("UserSessions", fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model carPosts {
+id          Int        @id @default(autoincrement())
+title       String?
+description String?
+price       Int?
+imageUrl    String?
+km          Int?
+year        Int?
+createdAt   DateTime?  @default(now())
+updatedAt   DateTime?  @default(now())
+status      String?    @default("hors ligne")
+userId      Int?
+carDetailsId Int?
+user        Users?     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+carDetails   carDetails? @relation("carDetailsToCarPost", fields: [carDetailsId], references: [id])
+}
+
+model carDetails {
+  id                    Int            @id @default(autoincrement())
+  carId                 Int?
+  provenanceId          Int?
+  dateMiseEnCirculation DateTime?      @db.Date
+  controleTechnique     Boolean?
+  premiereMain          Boolean?
+  energieId             Int?
+  boiteDeVitesseId      Int?
+  couleurExterieurId    Int?
+  sellerieId            Int?
+  nbPortes              Int?
+  nbPlaces              Int?
+  volumeCoffre          Int?
+  puissanceFiscale      Int?
+  puissanceDin          Int?
+  normeEuroId           Int?
+  critAirId             Int?
+  consommationMixte     Float?
+  emissionCo2Id         Int?
+  gearbox               GearBox?       @relation(fields: [boiteDeVitesseId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_carDetails_boitedevitesse")
+  exteriorColor         ExteriorColor? @relation(fields: [couleurExterieurId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_carDetails_couleurexterieur")
+  critAir               CritAir?       @relation(fields: [critAirId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_carDetails_critair")
+  emissionCo2           EmissionCo2?   @relation(fields: [emissionCo2Id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_carDetails_emissionco2")
+  energy                Energy?        @relation(fields: [energieId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_carDetails_energie")
+  euroStandard          EuroStandard?  @relation(fields: [normeEuroId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_carDetails_normeeuro")
+  origin                Origin?        @relation(fields: [provenanceId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_carDetails_provenance")
+  upholstery            Upholstery?    @relation(fields: [sellerieId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_carDetails_sellerie")
+  carPosts              carPosts[]     @relation("carDetailsToCarPost")
+}
+
+model testimonials {
+  id          Int       @id @default(autoincrement())
+  name        String?
+  date        DateTime? @default(now())
+  rating      Int?
+  message     String?
+  isValidated Boolean?  @default(false)
+  status      String?   @default("hors ligne")
+  email       String?
+}
+
+model GearBox {
+  id         Int         @id @default(autoincrement())
+  name       String?
+  carDetailss carDetails[]
+}
+
+model CritAir {
+  id         Int         @id @default(autoincrement())
+  name       String?
+  carDetailss carDetails[]
+}
+
+model EmissionCo2 {
+  id         Int         @id @default(autoincrement())
+  name       String?
+  carDetailss carDetails[]
+}
+
+model Energy {
+  id         Int         @id @default(autoincrement())
+  name       String?
+  carDetailss carDetails[]
+}
+
+model EuroStandard {
+  id         Int         @id @default(autoincrement())
+  name       String?
+  carDetailss carDetails[]
+}
+
+model ExteriorColor {
+  id         Int         @id @default(autoincrement())
+  name       String?
+  carDetailss carDetails[]
+}
+
+model Origin {
+  id         Int         @id @default(autoincrement())
+  name       String?
+  carDetailss carDetails[]
+}
+
+model Upholstery {
+  id         Int         @id @default(autoincrement())
+  name       String?
+  carDetailss carDetails[]
+}

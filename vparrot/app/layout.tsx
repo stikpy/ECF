@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 import Header from './components/Header/page';
 import { Inter } from 'next/font/google'
-import Providers from './providers';
+import SessionProvider from './providers';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -35,9 +35,9 @@ return (
   <header>
   <Header/>
   </header>
-  <Providers>
+  <SessionProvider>
     {children}
-  </Providers>
+  </SessionProvider>
   {/* <footer className="fixed bottom-0 w-full">
   <Footer  />
   </footer>  */}
@@ -45,4 +45,3 @@ return (
 </html>
 )
 }
-

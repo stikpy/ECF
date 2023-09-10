@@ -6,7 +6,7 @@ import Link from 'next/link';
 import axios from 'axios';
 import CarsFilter from './components/CarsFilter/page'; // Assurez-vous que ce composant existe et fonctionne correctement
 
-const Home = () => {
+const Home =  () => {
 
 
   const [filtres, setFiltres] = useState({
@@ -61,7 +61,7 @@ return (
     <CarCard
       key={car.id}
       id={car.id}
-      imageurl={car.imageurl}
+      imageurl={car.imageUrl}
       title={car.title}
       description={car.description}
       price={car.price}

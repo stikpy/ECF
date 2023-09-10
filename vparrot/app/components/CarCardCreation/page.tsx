@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useCallback, useMemo, useState, useEffect } from 'react';
 import { MaterialReactTable } from 'material-react-table';
 import {
