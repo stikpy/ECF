@@ -1,4 +1,4 @@
-
+'use client';
 import React, { useState, useEffect } from "react";
 import CarCard from "./components/CarCardView/page";
 import TestimonialCard from "./components/TestimonialCardView/page";
