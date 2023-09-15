@@ -1,10 +1,10 @@
 'use client';
 import React, { useState, useEffect } from "react";
-import CarCard from "./components/CarCardView/page";
-import TestimonialCard from "./components/TestimonialCardView/page";
+import CarCardView from "./Components/CarCardView";
+import TestimonialCard from "./Components/TestimonialCardView";
 import Link from "next/link";
 import axios from "axios";
-import CarsFilter from "./components/CarsFilter/page";
+import CarsFilter from "./Components/CarsFilter";
 import Image from "next/image";
 
 type TestimonialProps = {
@@ -156,7 +156,7 @@ export default function Home() {
 
           <div className="m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
             {filteredCars.map((car) => (
-              <CarCard
+              <CarCardView
                 key={car.id}
                 id={car.id}
                 imageUrl={car.imageUrl}

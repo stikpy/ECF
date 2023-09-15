@@ -24,7 +24,7 @@ export default function CarDetail() {
 
   useEffect(() => {
     if (id) {
-      (async () => {
+      (async () => { 
         const { data } = await axios.get(
           `http://localhost:3000/api/cars/${id}`
         );

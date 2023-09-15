@@ -1,9 +1,9 @@
-'use client'
-import React from 'react'
-import CarFilter from '../components/CarsFilter/page'
+import CarFilter from "../Components/CarsFilter"
 
-export default function TestView() {
+export default function TestView( ) {
   return (
-  <CarFilter  />
+    <CarFilter params={{
+      slug: ""
+    }} searchParams={{}}/>
   )
 }

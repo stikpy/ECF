@@ -24,21 +24,25 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
-    const { title, description, price, imageUrl, slug } = data;
+    const { title, description, price, imageUrl, slug, userId } = data; // ajoutez userId ici
+
     const car = await prisma.carPosts.create({
       data: {
         title,
         description,
         price,
-        imageUrl : imageUrl,
+        imageUrl,
+        userId, // ajoutez userId ici
       },
       include: { 
         users: true,
       }
     });
+
     return new NextResponse(JSON.stringify(car), { status: 201 });
   } catch (err) {
     return new NextResponse(JSON.stringify({ message: "Erreur lors de la création de la voiture" }), { status: 500 });
   }
 }
+
 

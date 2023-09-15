@@ -31,21 +31,26 @@ export const GET = async (request: NextRequest) => {
 export const POST = async (request: NextRequest) => {
     try {
         const body = await request.json();
-        const { title, description, price, imageURL } = body;
+        const { title, description, price, imageUrl } = body;
 
         const car = await prisma.carPosts.create({
             data: {
                 title,
                 description,
                 price,
-                imageurl: imageURL,
-                
+                imageUrl: imageUrl,
+                users: {
+                    // votre logique pour ajouter des utilisateurs, 
+                    // par exemple, en utilisant le nom d'utilisateur de l'utilisateur connecté
+
+
+                }
             },
             include: {
                 users: true
             }
-
         });
+        
 
         return new NextResponse(JSON.stringify(car), { status: 200 });
     } catch (err) {
@@ -66,20 +71,21 @@ export const PUT = async (request: NextRequest) => {
     }
 
     const updateQuery = {
-      where: {
+    where: {
         id: body.id
-      },
-      data: {
+    },
+    data: {
         title: body.title,
         description: body.description,
         price: body.price,
-        imageurl: body.imageurl,
+        imageUrl: body.imageUrl,
         slug: body.slug
-      },
-        include: {
-            user: true
-        }
-    };
+    },
+    include: {
+        users: true
+    }
+};
+
 
     const car = await prisma.carPosts.update(updateQuery);
 

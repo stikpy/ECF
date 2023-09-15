@@ -2,10 +2,10 @@ import './globals.css';
 
 import type { Metadata } from 'next';
 
-import Header from './components/Header/page';
+import Header from './Components/Header';
 import { Inter } from 'next/font/google'
 import SessionProvider from './providers';
-import Footer from './components/Footer/page';
+import Footer from './Components/Footer';
 
 const inter = Inter({ subsets: ['latin'] })
 

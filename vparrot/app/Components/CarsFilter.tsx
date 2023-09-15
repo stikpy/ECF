@@ -1,12 +1,8 @@
+'use client';
+// CarFilter.tsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import CarCard from "../CarCardView/page";
-
-type Props = {
-  price: number;
-  year: number;
-  km: number;
-};
+import CarCardView from "./CarCardView";
 
 type CarCardProps = {
   id: number;
@@ -18,7 +14,7 @@ type CarCardProps = {
   year: number;
 };
 
-function CarFilter() {
+export default function CarFilter() {
   const [cardData, setCardData] = useState<CarCardProps[]>([]);
   const [minPrice, setMinPrice] = useState<string>("");
   const [maxPrice, setMaxPrice] = useState<string>("");
@@ -33,7 +29,7 @@ function CarFilter() {
       try {
         const response = await axios.get("/api/cars");
         setCardData(response.data);
-        setFilteredCars(response.data); // Au départ, affichez toutes les voitures
+        setFilteredCars(response.data);
       } catch (error) {
         console.error("Erreur de récupération des données:", error);
       }
@@ -43,21 +39,17 @@ function CarFilter() {
   }, []);
 
   const applyFilters = () => {
-    const filtered = cardData.filter((data: CarCardProps) => {
-      const price = data.price;
-      const year = data.year;
-      const km = data.km;
+    const filtered = cardData.filter((data) => {
       return (
-        (minPrice === "" || price >= parseFloat(minPrice)) &&
-        (maxPrice === "" || price <= parseFloat(maxPrice)) &&
-        (minYear === "" || year >= parseInt(minYear)) &&
-        (maxYear === "" || year <= parseInt(maxYear)) &&
-        (minKm === "" || km >= parseFloat(minKm)) &&
-        (maxKm === "" || km <= parseFloat(maxKm))
+        (minPrice === "" || data.price >= parseFloat(minPrice)) &&
+        (maxPrice === "" || data.price <= parseFloat(maxPrice)) &&
+        (minYear === "" || data.year >= parseInt(minYear)) &&
+        (maxYear === "" || data.year <= parseInt(maxYear)) &&
+        (minKm === "" || data.km >= parseFloat(minKm)) &&
+        (maxKm === "" || data.km <= parseFloat(maxKm))
       );
     });
-
-    setFilteredCars(filtered); // Met à jour les voitures filtrées
+    setFilteredCars(filtered);
   };
 
   const resetFilters = () => {
@@ -67,7 +59,7 @@ function CarFilter() {
     setMaxYear("");
     setMinKm("");
     setMaxKm("");
-    setFilteredCars(cardData); // Réinitialise les filtres pour afficher toutes les voitures
+    setFilteredCars(cardData);
   };
 
   return (
@@ -163,7 +155,7 @@ function CarFilter() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 text-center justify-center m-4">
         {filteredCars.map((data) => (
-          <CarCard
+          <CarCardView
             key={data.id}
             id={data.id}
             imageUrl={data.imageUrl}
@@ -179,4 +171,11 @@ function CarFilter() {
   );
 }
 
-export default CarFilter;
+
+
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-import CreateUserForm from '@/app/components/CreateUserForm/page'
+import CreateUserForm from '@/app/Components/CreateUserForm'
 import React from 'react'
 
 function AdminProfileView() {
