@@ -39,9 +39,9 @@ return (
   <SessionProvider>
     {children}
   </SessionProvider>
-  {/* <footer className="fixed bottom-0 w-full">
+  <footer className="  bottom-0  w-full">
   <Footer  />
-  </footer>  */}
+  </footer> 
   </body>
 </html>
 )

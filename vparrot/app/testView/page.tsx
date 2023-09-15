@@ -1,20 +1,9 @@
+'use client'
 import React from 'react'
-import UserTable from '../components/UserTableView/page'
-import { PrismaClient } from '@prisma/client';
-import TestimonialTableView from '../components/TestimonialTableView/page';
+import CarFilter from '../components/CarsFilter/page'
 
-const prisma = new PrismaClient();
-
-function TestView() {
-
-
-  return( 
-    <>
-        <UserTable />
-        <TestimonialTableView />
-
-    </>
+export default function TestView() {
+  return (
+  <CarFilter  />
   )
 }
-
-export default TestView

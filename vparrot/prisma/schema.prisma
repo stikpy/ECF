@@ -88,6 +88,14 @@ model OpeningHours {
 model TextContent {
   id       Int      @id @default(autoincrement())
   slug     String   @unique
-  title    String
+  title    String?
   content  String
+  imageUrl String?
+}
+
+model Services {
+  id      Int      @id @default(autoincrement())
+  title    String?
+  imageUrl String?  
+  description String?
 }

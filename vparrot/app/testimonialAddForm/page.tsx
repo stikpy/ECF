@@ -1,66 +1,44 @@
 'use client';
-import axios from 'axios';
-import { useState } from 'react';
-import { NextRequest, NextResponse } from 'next/server';
+import { useForm, SubmitHandler } from "react-hook-form"
+import React from "react" 
 
 
-const TestimonialAddForm = () => {
-  const [formData, setFormData] = useState({
-    name:  '',
-    date: Date.now(),
-    rating: 0,
-    message: '',
-  });
+type Inputs = {
+  example: string
+  exampleRequired: string
+}
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    const fullData = {
-      ...formData,
-      date: Date.now(),
-      isValidated: false,
-      status: 'Hors ligne',
-      rating: Number(formData.rating), // Convertit en nombre
-    };
-  
-    console.log("Données du formulaire envoyées:", fullData);
-  
-    try {
-      const response = await axios.post('/api/testimonials', fullData);
-      if (response.status === 201) {
-        alert('Témoignage ajouté avec succès.');
-      }
-    } catch (error) {
-      console.error("Erreur lors de l'ajout du témoignage:", error);
-    }
-  };
+
+export default function App() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<Inputs>()
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
+
+
+  console.log(watch("example")) // watch input value by passing the name of it
+
 
   return (
-    <form onSubmit={handleSubmit}>
-      {/* Vos champs de formulaire ici */}
-      <input 
-        type="text" 
-        placeholder="Nom" 
-        value={formData.name} 
-        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-      />
-   
-      <input
-        type="number"
-        placeholder="Note"
-        value={formData.rating}
-        onChange={(e) => setFormData({ ...formData, rating: e.target.value })}  
-      />
-      <input
-        type="text"
-        placeholder="Commentaire"
-        value={formData.message}
-        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-      />
+    <>
+    <div className="h-screen">
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {/* register your input into the hook by invoking the "register" function */}
+      <input defaultValue="test" {...register("example")} />
 
-      <button type="submit">Soumettre</button>
+
+      {/* include validation with required or other standard HTML validation rules */}
+      <input {...register("exampleRequired", { required: true })} />
+      {/* errors will return when field validation fails  */}
+      {errors.exampleRequired && <span>This field is required</span>}
+
+
+      <input type="submit" />
     </form>
-  );
-};
-
-export default TestimonialAddForm;
+    </div>
+    </>
+  )
+}

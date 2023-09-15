@@ -8,10 +8,10 @@ const prisma = new PrismaClient();
 
 // GET /api/cars
 export async function GET(request: NextRequest) {
-  console.log("GET function called");
+ 
   try {
     const cars = await prisma.carPosts.findMany();
-    console.log("Cars retrieved:", cars);
+    
     return new NextResponse(JSON.stringify(cars), { status: 200 });
   } catch (err) {
     console.error("Error:", err);

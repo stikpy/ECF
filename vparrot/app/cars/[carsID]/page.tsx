@@ -1,9 +1,11 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation'
-import Link from 'next/link';
-import Image from 'next/image';
-import axios from 'axios';
+"use client";
+import React, { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
+import axios from "axios";
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import ContactMailIcon from '@mui/icons-material/ContactMail';
 
 type CarPropsType = {
   id: number;
@@ -16,38 +18,68 @@ type CarPropsType = {
 };
 
 export default function CarDetail() {
-  
-  const pathname = usePathname()
-
-  const  id  = pathname.trim().split('/cars/')[1]
-
+  const pathname = usePathname();
+  const id = pathname.trim().split("/cars/")[1];
   const [car, setCar] = useState<CarPropsType | null>(null);
 
   useEffect(() => {
     if (id) {
       (async () => {
-        const { data } = await axios.get(`http://localhost:3000/api/cars/${id}`);
+        const { data } = await axios.get(
+          `http://localhost:3000/api/cars/${id}`
+        );
         setCar(data);
       })();
     }
   }, [id]);
 
   if (!car) {
-    return <p>Chargement...</p>;
+    return (
+<div className="flex h-screen justify-center items-center">
+
+<span className="loading loading-spinner loading-lg flex "></span>
+      </div>
+    );
   }
 
   return (
     <>
-      <div>
-        <h1 className='text-black-500 text-base md:text-lg lg:text-6xl font-bold mt-4 mb-2'>Détails de la voiture</h1>
-        <div className='flex justify-between'>
-          <div>
-          <Image src={car.imageUrl} alt={car.title} width={600} height={600} style={{ width: 'auto', height: 'auto' }} />
-            <h2>Nom de la voiture: {car.title}</h2>
-            <p>Description de la voiture: {car.description}</p>
-            <p>Prix de la voiture: {car.price}€</p>
+      <div className="bg-base-100">
+        <div className="card w-full  shadow-xl cursor-pointer text-center rounded-0">
+          <h1 className="card-title justify-center text-7xl m-8">
+            {car.title}
+          </h1>
+          <div className="flex justify-center items-center ">
+            <Image
+              className="rounded-3xl	"
+              src={car.imageUrl}
+              alt={car.title}
+              width={1200}
+              height={800}
+              priority
+            />
           </div>
-          <Link href={`/contactForm?id=${car.id}`}>Nous contacter</Link>
+          <p>{car.description}</p>
+          <div className="card-actions flex justify-evenly items-center mx-4  border p-2 rounded">
+  <p className=" text-lg">Prix de vente: {car.price} €</p>
+  <div className="divider divider-horizontal"></div>
+
+  <p className=" text-lg">Kilometrage: {car.km} km</p>
+  <div className="divider divider-horizontal"></div>
+
+  <p className=" text-lg">Mise en circulation: {car.year}</p>
+</div>
+
+          <div className="flex justify-evenly m-4">
+          <Link className="btn" href={`/contactForm?id=${car.id}`}>
+            <ContactMailIcon />
+           Formulaire de contact
+          </Link>
+          <a className="btn" href="tel:+33123456789">
+            <LocalPhoneIcon />
+            +33 1 23 45 67 89
+          </a>
+          </div>
         </div>
       </div>
     </>

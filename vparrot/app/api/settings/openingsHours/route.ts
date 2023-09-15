@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 export async function GET(request: NextRequest) {
 const hours = await prisma.openingHours.findMany()
-console.log('GET', hours);
+
 
 return  new NextResponse(JSON.stringify(hours), { status: 200 });
 }

@@ -1,28 +1,42 @@
-// api/settings/textContent.ts
-
 import { PrismaClient } from "@prisma/client";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
 const prisma = new PrismaClient();
 
 export const GET = async (request: NextRequest) => {
+   
+  const content = await prisma.textContent.findMany();
+  return new NextResponse(JSON.stringify(content), { status: 200 });
+};
 
+export const PUT = async (request: NextRequest) => {
+    try {
+        const body = await request.json();
+        console.log('Request body:', body);
 
-  try {
-    // Utilisez Prisma pour rechercher le contenu par slug
-    const content = await prisma.textContent.findMany();
+        if (typeof body.id !== 'number') {
+            return new NextResponse(JSON.stringify({ message: 'ID invalide fourni' }), { status: 400 });
+        }
 
-    if (!content) {
-      // Si aucun contenu n'est trouvé, renvoyez une réponse 404
-      return new NextResponse("Contenu non trouvé", { status: 404 });
+        const updateQuery = {
+            where: {
+                id: body.id
+            },
+            data: {
+                title: body.title,
+                content: body.content
+            }
+        };
+
+        console.log('Requête de mise à jour Prisma:', JSON.stringify(updateQuery, null, 2));
+
+        const updatedContent = await prisma.textContent.update(updateQuery);
+
+        await prisma.$disconnect(); // Déconnexion de Prisma après utilisation
+
+        return new NextResponse(JSON.stringify(updatedContent), { status: 200 });
+    } catch (err) {
+        console.error('Erreur lors de la mise à jour du contenu:', err);
+        return new NextResponse(JSON.stringify({ message: 'Erreur lors de la mise à jour du contenu' }), { status: 500 });
     }
-
-    // Renvoyez le contenu trouvé en réponse
-    return new NextResponse(JSON.stringify(content), { status: 200 });
-  } catch (error) {
-    console.error("Erreur lors de la récupération du contenu :", error);
-    return new NextResponse("Erreur interne du serveur", { status: 500 });
-  } finally {
-    await prisma.$disconnect();
-  }
 };

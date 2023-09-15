@@ -9,12 +9,11 @@ export const GET = async (request: NextRequest) => {
         const hours = await prisma.openingHours.findFirst(
             {
                 where: {
-                    id: parseInt(id) // Convertir en nombre entier si nécessaire
+                    id: parseInt(id) 
                 }
             }
         );
-        console.log('id', id);
-        console.log('openingsHours', hours);
+     
 
         if (!hours) {
             return new NextResponse(JSON.stringify({ message: 'Creneau non trouvé' }), { status: 404 });

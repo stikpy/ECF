@@ -17,8 +17,8 @@ export default function TestimonialCard({ name, date, rating, message, id }) {
 
   return (
     <>
-      <div className="card w-full h-40 max-w-xl mx-auto bg-base-100 shadow-xl cursor-pointer">
-        <div className="card-body">
+      <div className="card w-full  max-w-xl mx-auto bg-base-100 shadow-xl cursor-pointer">
+        <div className='m-3'>
           <h2 className="card-title">{name}</h2>
           <p className="clamp-2 flex-grow">{message ? message : "Aucun message fourni"}</p>
           <div className="flex justify-between items-center mb-1">
@@ -28,6 +28,7 @@ export default function TestimonialCard({ name, date, rating, message, id }) {
           </div>
         </div>
       </div>
+      
 
       <dialog id={`${id}`} className="modal">
         <form method="dialog" className="modal-box">

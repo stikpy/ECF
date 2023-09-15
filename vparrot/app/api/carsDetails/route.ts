@@ -19,7 +19,6 @@ export async function GET(request: NextRequest) {
             }
         });
 
-            console.log('cardetailsWithRelations', cardetailsWithRelations);
 
         return new NextResponse(JSON.stringify(cardetailsWithRelations), { status: 200 });
     } catch (err) {

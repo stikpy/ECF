@@ -6,27 +6,27 @@ const prisma = new PrismaClient();
 export const GET = async (request: NextRequest) => {
     const slug = request.url.split('textsContents/')[1];
     try {
-        const content = await prisma.textContent.findFirst(
-            {
-                where: {
-                   slug: slug
-                }
-            }
-        );
-        console.log('slug', slug);
-        console.log('content', content);
+        const content = await prisma.textContent.findFirst({
+            where: {
+               slug: slug
+            },
+                        
+        })
 
         if (!content) {
             return new NextResponse(JSON.stringify({ message: 'Contenu non trouvé' }), { status: 404 });
         }
 
-        return new NextResponse(JSON.stringify(content), { status: 200 });
-    } catch (err) {
+        if (content.length === 0) {
+            return new NextResponse(JSON.stringify({ message: 'Contenu non trouvé' }), { status: 404 });
+          }    } catch (err) {
+        console.error('Erreur lors de la récupération du contenu:', err);
         return new NextResponse(JSON.stringify({ message: 'Erreur lors de la récupération du contenu' }), { status: 500 });
     } finally {
         await prisma.$disconnect();
     }
 };
+
 
 export const PUT = async (request: NextRequest) => {
     try {
@@ -39,12 +39,12 @@ export const PUT = async (request: NextRequest) => {
 
         const updateQuery = {
             where: {
-                id: body.id
+                id: body.id,
             },
             data: {
                 title: body.title,
-                content: body.content
-            }
+                content: body.content,
+            },
         };
 
         console.log('Requête de mise à jour Prisma:', JSON.stringify(updateQuery, null, 2));

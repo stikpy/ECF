@@ -1,103 +1,216 @@
-'use client';
-import React, { useState, useEffect } from 'react';
-import CarCard from './components/CarCardView/page';
-import TestimonialCard from './components/TestimonialCardView/page';
-import Link from 'next/link';
-import axios from 'axios';
-import CarsFilter from './components/CarsFilter/page';
+
+import React, { useState, useEffect } from "react";
+import CarCard from "./components/CarCardView/page";
+import TestimonialCard from "./components/TestimonialCardView/page";
+import Link from "next/link";
+import axios from "axios";
+import CarsFilter from "./components/CarsFilter/page";
+import Image from "next/image";
+
+type TestimonialProps = {
+  id: number;
+  name: string;
+  date: string;
+  rating: number;
+  message: string;
+  isValidated: boolean;
+};
+
+type CarCardProps = {
+  id: number;
+  imageUrl: string;
+  title: string;
+  description: string;
+  price: number;
+  km: number;
+  year: number;
+};
 
 export default function Home() {
-  const [filtres, setFiltres] = useState({
-    prix: '',
-    annee: '',
-    marque: '',
+  const [filter, setFilters] = useState({
+    price: "",
+    year: "",
+    title: "",
   });
-  const [cars, setCars] = useState([]);
-  const [testimonials, setTestimonials] = useState([]);
+  const [cars, setCars] = useState<CarCardProps[]>([]);
+  const [testimonials, setTestimonials] = useState<TestimonialProps[]>([]);
   const [texts, setTexts] = useState([]);
+  const [cardData, setCardData] = useState<CarCardProps[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-				const slug = 'presentation-service';
-        const [carResponse, testimonialResponse,textContentResponse] = await Promise.all([
-          axios.get('/api/cars'),
-          axios.get('/api/testimonials'),
-					axios.get(`/api/settings/textsContents/${slug}`)
+        const [
+          carResponse,
+          testimonialResponse,
+          textContentResponse,
+          serviceResponse,
+        ] = await Promise.all([
+          axios.get("/api/cars"),
+          axios.get("/api/testimonials"),
+          axios.get(`/api/settings/textsContents`),
+          axios.get(`/api/services`),
         ]);
-       
 
         setCars(carResponse.data);
         setTestimonials(testimonialResponse.data);
         setTexts(textContentResponse.data);
+        setCardData(serviceResponse.data);
+        setFilters({ ...filter, price: carResponse.data });
 
-        console.log('texts', texts);
+      
       } catch (error) {
-        console.error('Erreur de récupération des données:', error);
+        console.error("Erreur de récupération des données:", error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [filter]); 
 
-  const carsFiltres = cars.filter((car) => {
+  function getContentBySlug(slug) {
+    const content = texts.find((item) => item.slug === slug);
+    return content ? content.content : "";
+  }
+
+  const slug = "header-text"; // Vous pouvez passer n'importe quel slug ici
+  const content = getContentBySlug(slug);
+
+  const filteredCars = cars.filter((car) => {
     return (
-      (filtres.price ? car.price <= filtres.prix : true) &&
-      (filtres.annee ? car.annee >= filtres.annee : true) &&
-      (filtres.marque ? car.marque.includes(filtres.marque) : true)
+      (filter.price ? car.price <= parseInt(filter.price) : true) &&
+      (filter.year ? car.year >= parseInt(filter.year) : true) &&
+      (filter.title ? car.title.includes(filter.title) : true)
     );
   });
-console.log('texts', texts);
+
+  let minPrice =
+    filteredCars.length > 0 ? Math.min(...filteredCars.map((car) => car.price)) : 0;
+  let maxPrice =
+    filteredCars.length > 0 ? Math.max(...filteredCars.map((car) => car.price)) : 0;
+
   return (
     <>
       <main>
-      	<p data-slug='presentation-service' className="text-center border w-3/4 mx-auto border-black-300 border-t-2">
-          {texts.content}
-        </p>
-
-        {/* Le reste de votre composant */}
-        {/* CarsFilter */}
+        {/* Hero section */}
         <section>
-          <CarsFilter setFiltres={setFiltres} />
+          <div
+            className="hero h-1/2"
+            style={{ backgroundImage: "url(/images/iStock-1407084508.jpg)" }}
+          >
+            <div className="hero-overlay bg-opacity-50"></div>
+            <div className="hero-content text-center text-neutral-content">
+              <div className="">
+                <h1 className="mb-5 text-6xl no-wrap font-bold">
+                  Garage V. Parrot
+                </h1>
+                <p data-slug="header-text" className="mb-5 text-2xl">
+                  {content}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <h2>Nos Services</h2>
+          <div className="m-6">
+            <div className="m-4 grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
+              {cardData.map((data) => (
+                <div
+                  key={data.id}
+                  className="flex flex-col items-center justify-center"
+                >
+                  <Image
+                    className="rounded-full "
+                    src={data.imageUrl}
+                    width={100}
+                    height={100}
+                    alt={data.title}
+                    priority
+                  />
+                  <p>{data.title}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
+        {/* Divider */}
+        <div className="flex-grow bg-gray-300 h-[30px]"></div>
 
         {/* Car list section */}
-        <section className="m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-          {carsFiltres && carsFiltres.length > 0 && carsFiltres.map((car) => (
-            <CarCard
-              key={car.id}
-              id={car.id}
-              imageurl={car.imageUrl}
-              title={car.title}
-              description={car.description}
-              price={car.price}
-              km={car.km}
-              year={car.year}
-            />
-          ))}
-        </section>
+        <section>
+          <CarsFilter
+            minPrice={minPrice}
+            maxPrice={maxPrice}
+            handlePriceChange={(event) => {
+              const newValue = event.target.value;
+              setFilters({ ...filter, price: newValue });
+            }}
+            handleYearChange={(event) => {
+              const newValue = event.target.value;
+              setFilters({ ...filter, year: newValue });
+            }}
+            handleTitleChange={(event) => {
+              const newValue = event.target.value;
+              setFilters({ ...filter, title: newValue });
+            }}
+          />
 
-        {/* Testimonial list section */}
-        <section className="m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {testimonials && testimonials.length > 0 && testimonials.map((testimonial) => (
-            testimonial.isValidated ? (
-              <TestimonialCard
-                key={testimonial.id}
-                id={testimonial.id}
-                name={testimonial.name}
-                date={testimonial.date}
-                rating={testimonial.rating}
-                message={testimonial.message}
+          <div className="m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+            {filteredCars.map((car) => (
+              <CarCard
+                key={car.id}
+                id={car.id}
+                imageUrl={car.imageUrl}
+                title={car.title}
+                description={car.description}
+                price={car.price}
+                km={car.km}
+                year={car.year}
               />
-            ) : null
-          ))}
+            ))}
+          </div>
         </section>
 
-        {/* Add testimonial form section */}
-        <section className="m-4">
-          <Link className="btn" href="/testimonialAddForm">
-            Laisser un commentaire
-          </Link>
+        {/* Divider */}
+        <div className="flex-grow bg-gray-300 h-[30px]"></div>
+        {/* Testimonial list section */}
+        <section className="flex flex-col justify-center flex-grow  ">
+          <div className="flex content-center	h-[200px] bg-cover bg-center bg-no-repeat  justify-evenly">
+            <Image
+              className="m-6 rounded-lg shadow-lg	"
+              src="/images/iStock-1440540891.jpg"
+              alt="car"
+              width={500}
+              height={100}
+              priority
+            />
+            <div className="flex">
+              <p className="m-6 text-lg bold self-center underline	">
+                Partager votre expérience:
+              </p>
+              <Link
+                className="btn btn-primary mx-5 self-center"
+                href="/testimonialAddForm"
+              >
+                Laisser un commentaire
+              </Link>
+            </div>
+          </div>
+          <div className="m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 justify-center">
+            {testimonials &&
+              testimonials.length > 0 &&
+              testimonials.map((testimonial) =>
+                testimonial.isValidated ? (
+                  <TestimonialCard
+                    key={testimonial.id}
+                    id={testimonial.id}
+                    name={testimonial.name}
+                    date={testimonial.date}
+                    rating={testimonial.rating}
+                    message={testimonial.message}
+                  />
+                ) : null
+              )}
+          </div>
         </section>
       </main>
     </>
