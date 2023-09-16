@@ -10,9 +10,9 @@ function CreateUserForm() {
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+  
     const userData = {
       email,
       password,

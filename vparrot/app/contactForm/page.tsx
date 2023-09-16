@@ -1,10 +1,17 @@
 'use client'
 import axios from 'axios';
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
+
+interface IFormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
 
 export default function ContactForm() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = async (data) => {
+  const { register, handleSubmit, formState: { errors } } = useForm<IFormData>();
+  const onSubmit: SubmitHandler<IFormData> = async (data) => {
     console.log('form data', data);
     await axios.post('/api/sendGrid', data);
   };

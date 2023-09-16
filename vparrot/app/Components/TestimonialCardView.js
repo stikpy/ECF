@@ -1,8 +1,10 @@
 "use client";
 import React from 'react';
 
+
+
 export default function TestimonialCard({ name, date, rating, message, id }) {
-  const openModal = () => {
+ const openModal = () => {
     const modal = document.getElementById(`${id}`);
     if (modal) {
       modal.showModal();

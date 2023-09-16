@@ -26,6 +26,13 @@ type CarCardProps = {
   year: number;
 };
 
+interface TextContent {
+  slug: string;
+  content: string;
+}
+
+
+
 export default function Home() {
   const [filter, setFilters] = useState({
     price: "",
@@ -34,7 +41,7 @@ export default function Home() {
   });
   const [cars, setCars] = useState<CarCardProps[]>([]);
   const [testimonials, setTestimonials] = useState<TestimonialProps[]>([]);
-  const [texts, setTexts] = useState([]);
+  const [texts, setTexts] = useState<TextContent[]>([]);
   const [cardData, setCardData] = useState<CarCardProps[]>([]);
 
   useEffect(() => {
@@ -67,10 +74,11 @@ export default function Home() {
     fetchData();
   }, [filter]); 
 
-  function getContentBySlug(slug) {
+  function getContentBySlug(slug: string): string {
     const content = texts.find((item) => item.slug === slug);
     return content ? content.content : "";
   }
+  
 
   const slug = "header-text"; // Vous pouvez passer n'importe quel slug ici
   const content = getContentBySlug(slug);
@@ -137,22 +145,7 @@ export default function Home() {
 
         {/* Car list section */}
         <section>
-          <CarsFilter
-            minPrice={minPrice}
-            maxPrice={maxPrice}
-            handlePriceChange={(event) => {
-              const newValue = event.target.value;
-              setFilters({ ...filter, price: newValue });
-            }}
-            handleYearChange={(event) => {
-              const newValue = event.target.value;
-              setFilters({ ...filter, year: newValue });
-            }}
-            handleTitleChange={(event) => {
-              const newValue = event.target.value;
-              setFilters({ ...filter, title: newValue });
-            }}
-          />
+          <CarsFilter/>
 
           <div className="m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
             {filteredCars.map((car) => (
