@@ -1,7 +1,7 @@
 // runtime can't be in strict mode because a global variable is assign and maybe created.
 (self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[826],{
 
-/***/ 350:
+/***/ 550:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -21,7 +21,7 @@ __webpack_require__.d(middleware_namespaceObject_0, {
   "default": () => (middleware_0)
 });
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/server/web/globals.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/server/web/globals.js
 async function registerInstrumentation() {
     if ("_ENTRIES" in globalThis && _ENTRIES.middleware_instrumentation && _ENTRIES.middleware_instrumentation.register) {
         try {
@@ -85,7 +85,7 @@ function enhanceGlobals() {
 }
 enhanceGlobals(); //# sourceMappingURL=globals.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/server/web/error.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/server/web/error.js
 class PageSignatureError extends Error {
     constructor({ page }){
         super(`The middleware "${page}" accepts an async API directly with the form:
@@ -113,9 +113,9 @@ class RemovedUAError extends Error {
     }
 } //# sourceMappingURL=error.js.map
 
-// EXTERNAL MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/server/web/utils.js
-var utils = __webpack_require__(510);
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/server/web/spec-extension/fetch-event.js
+// EXTERNAL MODULE: ./node_modules/next/dist/esm/server/web/utils.js
+var utils = __webpack_require__(982);
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/server/web/spec-extension/fetch-event.js
 
 const responseSymbol = Symbol("response");
 const passThroughSymbol = Symbol("passThrough");
@@ -163,11 +163,11 @@ class NextFetchEvent extends FetchEvent {
     }
 } //# sourceMappingURL=fetch-event.js.map
 
-// EXTERNAL MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/server/web/next-url.js + 12 modules
-var next_url = __webpack_require__(515);
-// EXTERNAL MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/server/web/spec-extension/cookies.js
-var spec_extension_cookies = __webpack_require__(678);
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/server/web/spec-extension/request.js
+// EXTERNAL MODULE: ./node_modules/next/dist/esm/server/web/next-url.js + 12 modules
+var next_url = __webpack_require__(403);
+// EXTERNAL MODULE: ./node_modules/next/dist/esm/server/web/spec-extension/cookies.js
+var spec_extension_cookies = __webpack_require__(635);
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/server/web/spec-extension/request.js
 
 
 
@@ -245,9 +245,9 @@ class NextRequest extends Request {
     }
 } //# sourceMappingURL=request.js.map
 
-// EXTERNAL MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/server/web/spec-extension/response.js
-var spec_extension_response = __webpack_require__(443);
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/shared/lib/router/utils/relativize-url.js
+// EXTERNAL MODULE: ./node_modules/next/dist/esm/server/web/spec-extension/response.js
+var spec_extension_response = __webpack_require__(984);
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/shared/lib/router/utils/relativize-url.js
 /**
  * Given a URL as a string and a base URL it will make the URL relative
  * if the parsed protocol and host is the same as the one in the base
@@ -259,7 +259,7 @@ var spec_extension_response = __webpack_require__(443);
     return relative.protocol + "//" + relative.host === origin ? relative.toString().replace(origin, "") : relative.toString();
 } //# sourceMappingURL=relativize-url.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/client/components/app-router-headers.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/client/components/app-router-headers.js
 const RSC = "RSC";
 const ACTION = "Next-Action";
 const NEXT_ROUTER_STATE_TREE = "Next-Router-State-Tree";
@@ -281,7 +281,7 @@ const FLIGHT_PARAMETERS = [
 ];
 const NEXT_RSC_UNION_QUERY = "_rsc"; //# sourceMappingURL=app-router-headers.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/server/internal-utils.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/server/internal-utils.js
 
 const INTERNAL_QUERY_NAMES = [
     "__nextFallback",
@@ -313,7 +313,7 @@ function stripInternalSearchParams(url, isEdge) {
     return isStringUrl ? instance.toString() : instance;
 } //# sourceMappingURL=internal-utils.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/shared/lib/router/utils/app-paths.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/shared/lib/router/utils/app-paths.js
 
 /**
  * Normalizes an app route so it represents the actual request path. Essentially
@@ -361,7 +361,7 @@ function stripInternalSearchParams(url, isEdge) {
     return enabled ? pathname.replace(/\.rsc($|\?)/, "$1") : pathname;
 } //# sourceMappingURL=app-paths.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/lib/constants.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/lib/constants.js
 const NEXT_QUERY_PARAM_PREFIX = "nxtP";
 const PRERENDER_REVALIDATE_HEADER = "x-prerender-revalidate";
 const PRERENDER_REVALIDATE_ONLY_GENERATED_HEADER = "x-prerender-revalidate-if-generated";
@@ -478,7 +478,7 @@ const WEBPACK_RESOURCE_QUERIES = {
     metadataImageMeta: "__next_metadata_image_meta__"
 }; //# sourceMappingURL=constants.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/server/web/spec-extension/adapters/reflect.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/server/web/spec-extension/adapters/reflect.js
 class ReflectAdapter {
     static get(target, prop, receiver) {
         const value = Reflect.get(target, prop, receiver);
@@ -498,7 +498,7 @@ class ReflectAdapter {
     }
 } //# sourceMappingURL=reflect.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/server/web/spec-extension/adapters/headers.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/server/web/spec-extension/adapters/headers.js
 
 /**
  * @internal
@@ -670,7 +670,7 @@ class HeadersAdapter extends Headers {
     }
 } //# sourceMappingURL=headers.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/server/web/spec-extension/adapters/request-cookies.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/server/web/spec-extension/adapters/request-cookies.js
 
 
 /**
@@ -788,7 +788,7 @@ class MutableRequestCookiesAdapter {
     }
 } //# sourceMappingURL=request-cookies.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/server/api-utils/index.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/server/api-utils/index.js
 
 
 /**
@@ -800,7 +800,7 @@ class MutableRequestCookiesAdapter {
         if (!cookie) {
             return {};
         }
-        const { parse: parseCookieFn } = __webpack_require__(946);
+        const { parse: parseCookieFn } = __webpack_require__(487);
         return parseCookieFn(Array.isArray(cookie) ? cookie.join("; ") : cookie);
     };
 }
@@ -851,7 +851,7 @@ function clearPreviewData(res, options = {}) {
     if (SYMBOL_CLEARED_COOKIES in res) {
         return res;
     }
-    const { serialize } = __webpack_require__(946);
+    const { serialize } = __webpack_require__(487);
     const previous = res.getHeader("Set-Cookie");
     res.setHeader(`Set-Cookie`, [
         ...typeof previous === "string" ? [
@@ -942,7 +942,7 @@ function clearPreviewData(res, options = {}) {
     });
 } //# sourceMappingURL=index.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/server/async-storage/draft-mode-provider.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/server/async-storage/draft-mode-provider.js
 
 class DraftModeProvider {
     constructor(previewProps, req, cookies, mutableCookies){
@@ -984,7 +984,7 @@ class DraftModeProvider {
     }
 } //# sourceMappingURL=draft-mode-provider.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/server/async-storage/request-async-storage-wrapper.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/server/async-storage/request-async-storage-wrapper.js
 
 
 
@@ -1060,7 +1060,7 @@ const RequestAsyncStorageWrapper = {
     }
 }; //# sourceMappingURL=request-async-storage-wrapper.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/client/components/async-local-storage.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/client/components/async-local-storage.js
 const sharedAsyncLocalStorageNotAvailableError = new Error("Invariant: AsyncLocalStorage accessed in runtime where it is not available");
 class FakeAsyncLocalStorage {
     disable() {
@@ -1088,11 +1088,11 @@ function createAsyncLocalStorage() {
     return new FakeAsyncLocalStorage();
 } //# sourceMappingURL=async-local-storage.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/client/components/request-async-storage.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/client/components/request-async-storage.js
 
 const requestAsyncStorage = createAsyncLocalStorage(); //# sourceMappingURL=request-async-storage.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/server/web/adapter.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/server/web/adapter.js
 
 
 
@@ -1347,8 +1347,8 @@ async function adapter(params) {
     };
 } //# sourceMappingURL=adapter.js.map
 
-// EXTERNAL MODULE: ./node_modules/.pnpm/next-auth@4.23.1_next@13.4.19_react-dom@18.2.0_react@18.2.0/node_modules/next-auth/middleware.js
-var middleware = __webpack_require__(352);
+// EXTERNAL MODULE: ./node_modules/next-auth/middleware.js
+var middleware = __webpack_require__(248);
 ;// CONCATENATED MODULE: ./middleware.tsx
 
 /* harmony default export */ const middleware_0 = ((0,middleware.withAuth)(async function middleware(req) {
@@ -1365,7 +1365,7 @@ const config = {
     ]
 };
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/build/webpack/loaders/next-middleware-loader.js?absolutePagePath=private-next-root-dir%2Fmiddleware.tsx&page=%2Fmiddleware&rootDir=%2FUsers%2Fgabrielkhaldi%2FDesktop%2FStudi%2FGit%2FStudi%2FECF%2Fvparrot&matchers=W3sicmVnZXhwIjoiXig%2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL2Nvbm5leGlvblBhZ2UoLmpzb24pP1tcXC8jXFw%2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvY29ubmV4aW9uUGFnZSJ9XQ%3D%3D&preferredRegion=&middlewareConfig=eyJtYXRjaGVycyI6W3sicmVnZXhwIjoiXig%2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL2Nvbm5leGlvblBhZ2UoLmpzb24pP1tcXC8jXFw%2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvY29ubmV4aW9uUGFnZSJ9XX0%3D!
+;// CONCATENATED MODULE: ./node_modules/next/dist/build/webpack/loaders/next-middleware-loader.js?absolutePagePath=private-next-root-dir%2Fmiddleware.tsx&page=%2Fmiddleware&rootDir=%2FUsers%2Fgabrielkhaldi%2FDesktop%2FStudi%2FGit%2FStudi%2FECF%2Fvparrot&matchers=W3sicmVnZXhwIjoiXig%2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL2Nvbm5leGlvblBhZ2UoLmpzb24pP1tcXC8jXFw%2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvY29ubmV4aW9uUGFnZSJ9XQ%3D%3D&preferredRegion=&middlewareConfig=eyJtYXRjaGVycyI6W3sicmVnZXhwIjoiXig%2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL2Nvbm5leGlvblBhZ2UoLmpzb24pP1tcXC8jXFw%2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvY29ubmV4aW9uUGFnZSJ9XX0%3D!
 
         
         
@@ -1389,19 +1389,19 @@ const config = {
 
 /***/ }),
 
-/***/ 159:
+/***/ 435:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
-var _interopRequireDefault = __webpack_require__(340);
+var _interopRequireDefault = __webpack_require__(735);
 Object.defineProperty(exports, "__esModule", ({
     value: true
 }));
 exports.SessionStore = void 0;
 exports.defaultCookies = defaultCookies;
-var _classPrivateFieldGet3 = _interopRequireDefault(__webpack_require__(516));
-var _classPrivateFieldSet2 = _interopRequireDefault(__webpack_require__(939));
+var _classPrivateFieldGet3 = _interopRequireDefault(__webpack_require__(590));
+var _classPrivateFieldSet2 = _interopRequireDefault(__webpack_require__(188));
 function _classPrivateMethodInitSpec(obj, privateSet) {
     _checkPrivateRedeclaration(obj, privateSet);
     privateSet.add(obj);
@@ -1601,12 +1601,12 @@ function _clean2() {
 
 /***/ }),
 
-/***/ 727:
+/***/ 349:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
-var _interopRequireDefault = __webpack_require__(340);
+var _interopRequireDefault = __webpack_require__(735);
 Object.defineProperty(exports, "__esModule", ({
     value: true
 }));
@@ -1618,11 +1618,11 @@ var _exportNames = {
 exports.decode = decode;
 exports.encode = encode;
 exports.getToken = getToken;
-var _jose = __webpack_require__(379);
-var _hkdf = _interopRequireDefault(__webpack_require__(517));
-var _uuid = __webpack_require__(471);
-var _cookie = __webpack_require__(159);
-var _types = __webpack_require__(576);
+var _jose = __webpack_require__(81);
+var _hkdf = _interopRequireDefault(__webpack_require__(57));
+var _uuid = __webpack_require__(644);
+var _cookie = __webpack_require__(435);
+var _types = __webpack_require__(686);
 Object.keys(_types).forEach(function(key) {
     if (key === "default" || key === "__esModule") return;
     if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
@@ -1690,7 +1690,7 @@ async function getDerivedEncryptionKey(secret) {
 
 /***/ }),
 
-/***/ 576:
+/***/ 686:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -1702,7 +1702,7 @@ Object.defineProperty(exports, "__esModule", ({
 
 /***/ }),
 
-/***/ 352:
+/***/ 248:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
@@ -1717,7 +1717,7 @@ Object.defineProperty(exports, "default", ({
         return _middleware.default;
     }
 }));
-var _middleware = _interopRequireWildcard(__webpack_require__(481));
+var _middleware = _interopRequireWildcard(__webpack_require__(897));
 Object.keys(_middleware).forEach(function(key) {
     if (key === "default" || key === "__esModule") return;
     if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
@@ -1772,21 +1772,21 @@ function _interopRequireWildcard(obj, nodeInterop) {
 
 /***/ }),
 
-/***/ 481:
+/***/ 897:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
-const NextResponse = (__webpack_require__(443)/* .NextResponse */ .x);
-var _interopRequireDefault = __webpack_require__(340);
+const NextResponse = (__webpack_require__(984)/* .NextResponse */ .x);
+var _interopRequireDefault = __webpack_require__(735);
 Object.defineProperty(exports, "__esModule", ({
     value: true
 }));
 exports["default"] = void 0;
 exports.withAuth = withAuth;
 ;
-var _jwt = __webpack_require__(727);
-var _parseUrl = _interopRequireDefault(__webpack_require__(962));
+var _jwt = __webpack_require__(349);
+var _parseUrl = _interopRequireDefault(__webpack_require__(51));
 async function handleMiddleware(req, options, onSuccess) {
     var _options$pages$signIn, _options$pages, _options$pages$error, _options$pages2, _options$secret, _options$jwt, _options$cookies, _options$cookies$sess, _await$options$callba, _options$callbacks, _options$callbacks$au;
     const { pathname, search, origin, basePath } = req.nextUrl;
@@ -1848,7 +1848,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 962:
+/***/ 51:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -1878,7 +1878,7 @@ function parseUrl(url) {
 
 /***/ }),
 
-/***/ 759:
+/***/ 865:
 /***/ ((module) => {
 
 "use strict";
@@ -2233,7 +2233,7 @@ function normalizeCookie(cookie = {
 
 /***/ }),
 
-/***/ 946:
+/***/ 487:
 /***/ ((module) => {
 
 "use strict";
@@ -2361,7 +2361,7 @@ var __dirname = "/";
 
 /***/ }),
 
-/***/ 515:
+/***/ 403:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2371,7 +2371,7 @@ __webpack_require__.d(__webpack_exports__, {
   c: () => (/* binding */ NextURL)
 });
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/shared/lib/i18n/detect-domain-locale.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/shared/lib/i18n/detect-domain-locale.js
 function detectDomainLocale(domainItems, hostname, detectedLocale) {
     if (!domainItems) return;
     if (detectedLocale) {
@@ -2387,7 +2387,7 @@ function detectDomainLocale(domainItems, hostname, detectedLocale) {
     }
 } //# sourceMappingURL=detect-domain-locale.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/shared/lib/router/utils/remove-trailing-slash.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/shared/lib/router/utils/remove-trailing-slash.js
 /**
  * Removes the trailing slash for a given route or page path. Preserves the
  * root page. Examples:
@@ -2398,7 +2398,7 @@ function detectDomainLocale(domainItems, hostname, detectedLocale) {
     return route.replace(/\/$/, "") || "/";
 } //# sourceMappingURL=remove-trailing-slash.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/shared/lib/router/utils/parse-path.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/shared/lib/router/utils/parse-path.js
 /**
  * Given a path this function will find the pathname, query and hash and return
  * them. This is useful to parse full paths on the client side.
@@ -2421,7 +2421,7 @@ function detectDomainLocale(domainItems, hostname, detectedLocale) {
     };
 } //# sourceMappingURL=parse-path.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/shared/lib/router/utils/add-path-prefix.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/shared/lib/router/utils/add-path-prefix.js
 
 /**
  * Adds the provided prefix to the given path. It first ensures that the path
@@ -2434,7 +2434,7 @@ function detectDomainLocale(domainItems, hostname, detectedLocale) {
     return "" + prefix + pathname + query + hash;
 } //# sourceMappingURL=add-path-prefix.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/shared/lib/router/utils/add-path-suffix.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/shared/lib/router/utils/add-path-suffix.js
 
 /**
  * Similarly to `addPathPrefix`, this function adds a suffix at the end on the
@@ -2448,7 +2448,7 @@ function detectDomainLocale(domainItems, hostname, detectedLocale) {
     return "" + pathname + suffix + query + hash;
 } //# sourceMappingURL=add-path-suffix.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/shared/lib/router/utils/path-has-prefix.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/shared/lib/router/utils/path-has-prefix.js
 
 /**
  * Checks if a given path starts with a given prefix. It ensures it matches
@@ -2464,7 +2464,7 @@ function detectDomainLocale(domainItems, hostname, detectedLocale) {
     return pathname === prefix || pathname.startsWith(prefix + "/");
 } //# sourceMappingURL=path-has-prefix.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/shared/lib/router/utils/add-locale.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/shared/lib/router/utils/add-locale.js
 
 
 /**
@@ -2486,7 +2486,7 @@ function detectDomainLocale(domainItems, hostname, detectedLocale) {
     return addPathPrefix(path, "/" + locale);
 } //# sourceMappingURL=add-locale.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/shared/lib/router/utils/format-next-pathname-info.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/shared/lib/router/utils/format-next-pathname-info.js
 
 
 
@@ -2503,7 +2503,7 @@ function formatNextPathnameInfo(info) {
     return !info.buildId && info.trailingSlash ? !pathname.endsWith("/") ? addPathSuffix(pathname, "/") : pathname : removeTrailingSlash(pathname);
 } //# sourceMappingURL=format-next-pathname-info.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/shared/lib/get-hostname.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/shared/lib/get-hostname.js
 /**
  * Takes an object with a hostname property (like a parsed URL) and some
  * headers that may contain Host and returns the preferred hostname.
@@ -2521,7 +2521,7 @@ function formatNextPathnameInfo(info) {
     return hostname.toLowerCase();
 } //# sourceMappingURL=get-hostname.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/shared/lib/i18n/normalize-locale-path.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/shared/lib/i18n/normalize-locale-path.js
 /**
  * For a pathname that may include a locale from a list of locales, it
  * removes the locale from the pathname returning it alongside with the
@@ -2549,7 +2549,7 @@ function formatNextPathnameInfo(info) {
     };
 } //# sourceMappingURL=normalize-locale-path.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/shared/lib/router/utils/remove-path-prefix.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/shared/lib/router/utils/remove-path-prefix.js
 
 /**
  * Given a path and a prefix it will remove the prefix when it exists in the
@@ -2585,7 +2585,7 @@ function formatNextPathnameInfo(info) {
     return "/" + withoutPrefix;
 } //# sourceMappingURL=remove-path-prefix.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/shared/lib/router/utils/get-next-pathname-info.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/shared/lib/router/utils/get-next-pathname-info.js
 
 
 
@@ -2622,7 +2622,7 @@ function getNextPathnameInfo(pathname, options) {
     return info;
 } //# sourceMappingURL=get-next-pathname-info.js.map
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/esm/server/web/next-url.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/server/web/next-url.js
 
 
 
@@ -2806,7 +2806,7 @@ class NextURL {
 
 /***/ }),
 
-/***/ 678:
+/***/ 635:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2814,23 +2814,23 @@ class NextURL {
 /* harmony export */   n: () => (/* reexport safe */ next_dist_compiled_edge_runtime_cookies__WEBPACK_IMPORTED_MODULE_0__.ResponseCookies),
 /* harmony export */   q: () => (/* reexport safe */ next_dist_compiled_edge_runtime_cookies__WEBPACK_IMPORTED_MODULE_0__.RequestCookies)
 /* harmony export */ });
-/* harmony import */ var next_dist_compiled_edge_runtime_cookies__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(759);
+/* harmony import */ var next_dist_compiled_edge_runtime_cookies__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(865);
 /* harmony import */ var next_dist_compiled_edge_runtime_cookies__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_dist_compiled_edge_runtime_cookies__WEBPACK_IMPORTED_MODULE_0__);
  //# sourceMappingURL=cookies.js.map
 
 
 /***/ }),
 
-/***/ 443:
+/***/ 984:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   x: () => (/* binding */ NextResponse)
 /* harmony export */ });
-/* harmony import */ var _next_url__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(515);
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(510);
-/* harmony import */ var _cookies__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(678);
+/* harmony import */ var _next_url__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(403);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(982);
+/* harmony import */ var _cookies__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(635);
 
 
 
@@ -2927,7 +2927,7 @@ class NextResponse extends Response {
 
 /***/ }),
 
-/***/ 510:
+/***/ 982:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3064,7 +3064,7 @@ class NextResponse extends Response {
 
 /***/ }),
 
-/***/ 471:
+/***/ 644:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3084,7 +3084,7 @@ __webpack_require__.d(__webpack_exports__, {
   version: () => (/* reexport */ esm_browser_version)
 });
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-browser/rng.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/rng.js
 // Unique ID creation requires a high quality random # generator. In the browser we therefore
 // require the crypto API and do not support built-in fallback to lower quality random number
 // generators (like Math.random()).
@@ -3103,17 +3103,17 @@ function rng() {
     return getRandomValues(rnds8);
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-browser/regex.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/regex.js
 /* harmony default export */ const regex = (/^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-browser/validate.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/validate.js
 
 function validate(uuid) {
     return typeof uuid === "string" && regex.test(uuid);
 }
 /* harmony default export */ const esm_browser_validate = (validate);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-browser/stringify.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/stringify.js
 
 /**
  * Convert array of 16 byte values to UUID string format of the form:
@@ -3138,7 +3138,7 @@ function stringify(arr) {
 }
 /* harmony default export */ const esm_browser_stringify = (stringify);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-browser/v1.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/v1.js
 
  // **`v1()` - Generate time-based UUID**
 //
@@ -3214,7 +3214,7 @@ function v1(options, buf, offset) {
 }
 /* harmony default export */ const esm_browser_v1 = (v1);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-browser/parse.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/parse.js
 
 function parse(uuid) {
     if (!esm_browser_validate(uuid)) {
@@ -3243,7 +3243,7 @@ function parse(uuid) {
 }
 /* harmony default export */ const esm_browser_parse = (parse);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-browser/v35.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/v35.js
 
 
 function stringToBytes(str) {
@@ -3292,7 +3292,7 @@ var URL = "6ba7b811-9dad-11d1-80b4-00c04fd430c8";
     return generateUUID;
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-browser/md5.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/md5.js
 /*
  * Browser-compatible JavaScript MD5
  *
@@ -3476,13 +3476,13 @@ function md5ii(a, b, c, d, x, s, t) {
 }
 /* harmony default export */ const esm_browser_md5 = (md5);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-browser/v3.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/v3.js
 
 
 var v3 = v35("v3", 0x30, esm_browser_md5);
 /* harmony default export */ const esm_browser_v3 = (v3);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-browser/v4.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/v4.js
 
 
 function v4(options, buf, offset) {
@@ -3501,7 +3501,7 @@ function v4(options, buf, offset) {
 }
 /* harmony default export */ const esm_browser_v4 = (v4);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-browser/sha1.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/sha1.js
 // Adapted from Chris Veness' SHA1 code at
 // http://www.movable-type.co.uk/scripts/sha1.html
 function f(s, x, y, z) {
@@ -3610,16 +3610,16 @@ function sha1(bytes) {
 }
 /* harmony default export */ const esm_browser_sha1 = (sha1);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-browser/v5.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/v5.js
 
 
 var v5 = v35("v5", 0x50, esm_browser_sha1);
 /* harmony default export */ const esm_browser_v5 = (v5);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-browser/nil.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/nil.js
 /* harmony default export */ const nil = ("00000000-0000-0000-0000-000000000000");
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-browser/version.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/version.js
 
 function version(uuid) {
     if (!esm_browser_validate(uuid)) {
@@ -3629,7 +3629,7 @@ function version(uuid) {
 }
 /* harmony default export */ const esm_browser_version = (version);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-browser/index.js
+;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/index.js
 
 
 
@@ -3643,7 +3643,7 @@ function version(uuid) {
 
 /***/ }),
 
-/***/ 357:
+/***/ 503:
 /***/ ((module) => {
 
 "use strict";
@@ -3659,7 +3659,7 @@ module.exports = _classApplyDescriptorGet, module.exports.__esModule = true, mod
 
 /***/ }),
 
-/***/ 397:
+/***/ 262:
 /***/ ((module) => {
 
 "use strict";
@@ -3679,7 +3679,7 @@ module.exports = _classApplyDescriptorSet, module.exports.__esModule = true, mod
 
 /***/ }),
 
-/***/ 643:
+/***/ 943:
 /***/ ((module) => {
 
 "use strict";
@@ -3695,13 +3695,13 @@ module.exports = _classExtractFieldDescriptor, module.exports.__esModule = true,
 
 /***/ }),
 
-/***/ 516:
+/***/ 590:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
-var classApplyDescriptorGet = __webpack_require__(357);
-var classExtractFieldDescriptor = __webpack_require__(643);
+var classApplyDescriptorGet = __webpack_require__(503);
+var classExtractFieldDescriptor = __webpack_require__(943);
 function _classPrivateFieldGet(receiver, privateMap) {
     var descriptor = classExtractFieldDescriptor(receiver, privateMap, "get");
     return classApplyDescriptorGet(receiver, descriptor);
@@ -3711,13 +3711,13 @@ module.exports = _classPrivateFieldGet, module.exports.__esModule = true, module
 
 /***/ }),
 
-/***/ 939:
+/***/ 188:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
-var classApplyDescriptorSet = __webpack_require__(397);
-var classExtractFieldDescriptor = __webpack_require__(643);
+var classApplyDescriptorSet = __webpack_require__(262);
+var classExtractFieldDescriptor = __webpack_require__(943);
 function _classPrivateFieldSet(receiver, privateMap, value) {
     var descriptor = classExtractFieldDescriptor(receiver, privateMap, "set");
     classApplyDescriptorSet(receiver, descriptor, value);
@@ -3728,7 +3728,7 @@ module.exports = _classPrivateFieldSet, module.exports.__esModule = true, module
 
 /***/ }),
 
-/***/ 340:
+/***/ 735:
 /***/ ((module) => {
 
 "use strict";
@@ -3743,7 +3743,7 @@ module.exports = _interopRequireDefault, module.exports.__esModule = true, modul
 
 /***/ }),
 
-/***/ 517:
+/***/ 57:
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3756,7 +3756,7 @@ __webpack_require__.d(__webpack_exports__, {
   hkdf: () => (/* binding */ web_hkdf)
 });
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/@panva+hkdf@1.1.1/node_modules/@panva/hkdf/dist/web/runtime/hkdf.js
+;// CONCATENATED MODULE: ./node_modules/@panva/hkdf/dist/web/runtime/hkdf.js
 const getGlobal = ()=>{
     if (typeof globalThis !== "undefined") return globalThis;
     if (typeof self !== "undefined") return self;
@@ -3775,7 +3775,7 @@ const getGlobal = ()=>{
     ]), keylen << 3));
 });
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/@panva+hkdf@1.1.1/node_modules/@panva/hkdf/dist/web/index.js
+;// CONCATENATED MODULE: ./node_modules/@panva/hkdf/dist/web/index.js
 
 function normalizeDigest(digest) {
     switch(digest){
@@ -3823,7 +3823,7 @@ async function web_hkdf(digest, ikm, salt, info, keylen) {
 
 /***/ }),
 
-/***/ 379:
+/***/ 81:
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3869,7 +3869,7 @@ __webpack_require__.d(__webpack_exports__, {
   jwtVerify: () => (/* reexport */ jwtVerify)
 });
 
-// NAMESPACE OBJECT: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/util/errors.js
+// NAMESPACE OBJECT: ./node_modules/jose/dist/browser/util/errors.js
 var errors_namespaceObject = {};
 __webpack_require__.r(errors_namespaceObject);
 __webpack_require__.d(errors_namespaceObject, {
@@ -3890,7 +3890,7 @@ __webpack_require__.d(errors_namespaceObject, {
   JWTInvalid: () => (JWTInvalid)
 });
 
-// NAMESPACE OBJECT: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/util/base64url.js
+// NAMESPACE OBJECT: ./node_modules/jose/dist/browser/util/base64url.js
 var util_base64url_namespaceObject = {};
 __webpack_require__.r(util_base64url_namespaceObject);
 __webpack_require__.d(util_base64url_namespaceObject, {
@@ -3898,11 +3898,11 @@ __webpack_require__.d(util_base64url_namespaceObject, {
   encode: () => (base64url_encode)
 });
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/webcrypto.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/webcrypto.js
 /* harmony default export */ const webcrypto = (crypto);
 const isCryptoKey = (key)=>key instanceof CryptoKey;
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/digest.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/digest.js
 
 const digest = async (algorithm, data)=>{
     const subtleDigest = `SHA-${algorithm.slice(-3)}`;
@@ -3910,7 +3910,7 @@ const digest = async (algorithm, data)=>{
 };
 /* harmony default export */ const runtime_digest = (digest);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/lib/buffer_utils.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/lib/buffer_utils.js
 
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();
@@ -3970,7 +3970,7 @@ async function concatKdf(secret, bits, value) {
     return res.slice(0, bits >> 3);
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/base64url.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/base64url.js
 
 const encodeBase64 = (input)=>{
     let unencoded = input;
@@ -4008,7 +4008,7 @@ const decode = (input)=>{
     }
 };
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/util/errors.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/util/errors.js
 class JOSEError extends Error {
     static get code() {
         return "ERR_JOSE_GENERIC";
@@ -4158,11 +4158,11 @@ class JWSSignatureVerificationFailed extends JOSEError {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/random.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/random.js
 
 /* harmony default export */ const random = (webcrypto.getRandomValues.bind(webcrypto));
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/lib/iv.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/lib/iv.js
 
 
 function bitLength(alg) {
@@ -4184,7 +4184,7 @@ function bitLength(alg) {
 }
 /* harmony default export */ const lib_iv = ((alg)=>random(new Uint8Array(bitLength(alg) >> 3)));
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/lib/check_iv_length.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/lib/check_iv_length.js
 
 
 const checkIvLength = (enc, iv)=>{
@@ -4194,7 +4194,7 @@ const checkIvLength = (enc, iv)=>{
 };
 /* harmony default export */ const check_iv_length = (checkIvLength);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/check_cek_length.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/check_cek_length.js
 
 const checkCekLength = (cek, expected)=>{
     const actual = cek.byteLength << 3;
@@ -4204,7 +4204,7 @@ const checkCekLength = (cek, expected)=>{
 };
 /* harmony default export */ const check_cek_length = (checkCekLength);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/timing_safe_equal.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/timing_safe_equal.js
 const timingSafeEqual = (a, b)=>{
     if (!(a instanceof Uint8Array)) {
         throw new TypeError("First argument must be a buffer");
@@ -4225,7 +4225,7 @@ const timingSafeEqual = (a, b)=>{
 };
 /* harmony default export */ const timing_safe_equal = (timingSafeEqual);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/lib/crypto_key.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/lib/crypto_key.js
 function unusable(name, prop = "algorithm.name") {
     return new TypeError(`CryptoKey does not support this operation, its ${prop} must be ${name}`);
 }
@@ -4371,7 +4371,7 @@ function checkEncCryptoKey(key, alg, ...usages) {
     checkUsage(key, usages);
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/lib/invalid_key_input.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/lib/invalid_key_input.js
 function message(msg, actual, ...types) {
     if (types.length > 2) {
         const last = types.pop();
@@ -4399,7 +4399,7 @@ function withAlg(alg, actual, ...types) {
     return message(`Key for the ${alg} algorithm must be `, actual, ...types);
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/is_key_like.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/is_key_like.js
 
 /* harmony default export */ const is_key_like = ((key)=>{
     return isCryptoKey(key);
@@ -4408,7 +4408,7 @@ const types = [
     "CryptoKey"
 ];
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/decrypt.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/decrypt.js
 
 
 
@@ -4496,7 +4496,7 @@ const decrypt = async (enc, cek, ciphertext, iv, tag, aad)=>{
 };
 /* harmony default export */ const runtime_decrypt = (decrypt);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/zlib.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/zlib.js
 
 const inflate = async ()=>{
     throw new JOSENotSupported('JWE "zip" (Compression Algorithm) Header Parameter is not supported by your javascript runtime. You need to use the `inflateRaw` decrypt option to provide Inflate Raw implementation.');
@@ -4505,7 +4505,7 @@ const deflate = async ()=>{
     throw new JOSENotSupported('JWE "zip" (Compression Algorithm) Header Parameter is not supported by your javascript runtime. You need to use the `deflateRaw` encrypt option to provide Deflate Raw implementation.');
 };
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/lib/is_disjoint.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/lib/is_disjoint.js
 const isDisjoint = (...headers)=>{
     const sources = headers.filter(Boolean);
     if (sources.length === 0 || sources.length === 1) {
@@ -4529,7 +4529,7 @@ const isDisjoint = (...headers)=>{
 };
 /* harmony default export */ const is_disjoint = (isDisjoint);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/lib/is_object.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/lib/is_object.js
 function isObjectLike(value) {
     return typeof value === "object" && value !== null;
 }
@@ -4547,7 +4547,7 @@ function isObject(input) {
     return Object.getPrototypeOf(input) === proto;
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/bogus.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/bogus.js
 const bogusWebCrypto = [
     {
         hash: "SHA-256",
@@ -4560,7 +4560,7 @@ const bogusWebCrypto = [
 ];
 /* harmony default export */ const bogus = (bogusWebCrypto);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/aeskw.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/aeskw.js
 
 
 
@@ -4596,7 +4596,7 @@ const unwrap = async (alg, key, encryptedKey)=>{
     return new Uint8Array(await webcrypto.subtle.exportKey("raw", cryptoKeyCek));
 };
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/ecdhes.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/ecdhes.js
 
 
 
@@ -4645,7 +4645,7 @@ function ecdhAllowed(key) {
     ].includes(key.algorithm.namedCurve) || key.algorithm.name === "X25519" || key.algorithm.name === "X448";
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/lib/check_p2s.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/lib/check_p2s.js
 
 function checkP2s(p2s) {
     if (!(p2s instanceof Uint8Array) || p2s.length < 8) {
@@ -4653,7 +4653,7 @@ function checkP2s(p2s) {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/pbes2kw.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/pbes2kw.js
 
 
 
@@ -4715,7 +4715,7 @@ const pbes2kw_decrypt = async (alg, key, encryptedKey, p2c, p2s)=>{
     return unwrap(alg.slice(-6), derived, encryptedKey);
 };
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/subtle_rsaes.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/subtle_rsaes.js
 
 function subtleRsaEs(alg) {
     switch(alg){
@@ -4729,7 +4729,7 @@ function subtleRsaEs(alg) {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/check_key_length.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/check_key_length.js
 /* harmony default export */ const check_key_length = ((alg, key)=>{
     if (alg.startsWith("RS") || alg.startsWith("PS")) {
         const { modulusLength } = key.algorithm;
@@ -4739,7 +4739,7 @@ function subtleRsaEs(alg) {
     }
 });
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/rsaes.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/rsaes.js
 
 
 
@@ -4778,7 +4778,7 @@ const rsaes_decrypt = async (alg, key, encryptedKey)=>{
     throw new TypeError('RSA-OAEP key "usages" must include "decrypt" or "unwrapKey" for this operation');
 };
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/lib/cek.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/lib/cek.js
 
 
 function cek_bitLength(alg) {
@@ -4800,13 +4800,13 @@ function cek_bitLength(alg) {
 }
 /* harmony default export */ const lib_cek = ((alg)=>random(new Uint8Array(cek_bitLength(alg) >> 3)));
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/lib/format_pem.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/lib/format_pem.js
 /* harmony default export */ const format_pem = ((b64, descriptor)=>{
     const newlined = (b64.match(/.{1,64}/g) || []).join("\n");
     return `-----BEGIN ${descriptor}-----\n${newlined}\n-----END ${descriptor}-----`;
 });
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/asn1.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/asn1.js
 
 
 
@@ -5097,7 +5097,7 @@ const fromX509 = (pem, alg, options)=>{
     return fromSPKI(spki, alg, options);
 };
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/jwk_to_key.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/jwk_to_key.js
 
 
 
@@ -5327,7 +5327,7 @@ const parse = async (jwk)=>{
 };
 /* harmony default export */ const jwk_to_key = (parse);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/key/import.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/key/import.js
 
 
 
@@ -5386,7 +5386,7 @@ async function importJWK(jwk, alg, octAsKeyObject) {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/lib/check_key_type.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/lib/check_key_type.js
 
 
 const symmetricTypeCheck = (alg, key)=>{
@@ -5428,7 +5428,7 @@ const checkKeyType = (alg, key, usage)=>{
 };
 /* harmony default export */ const check_key_type = (checkKeyType);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/encrypt.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/encrypt.js
 
 
 
@@ -5507,7 +5507,7 @@ const encrypt_encrypt = async (enc, plaintext, cek, iv, aad)=>{
 };
 /* harmony default export */ const runtime_encrypt = (encrypt_encrypt);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/lib/aesgcmkw.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/lib/aesgcmkw.js
 
 
 
@@ -5527,7 +5527,7 @@ async function aesgcmkw_unwrap(alg, key, encryptedKey, iv, tag) {
     return runtime_decrypt(jweAlgorithm, key, encryptedKey, iv, tag, new Uint8Array(0));
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/lib/decrypt_key_management.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/lib/decrypt_key_management.js
 
 
 
@@ -5641,7 +5641,7 @@ async function decryptKeyManagement(alg, key, encryptedKey, joseHeader, options)
 }
 /* harmony default export */ const decrypt_key_management = (decryptKeyManagement);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/lib/validate_crit.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/lib/validate_crit.js
 
 function validateCrit(Err, recognizedDefault, recognizedOption, protectedHeader, joseHeader) {
     if (joseHeader.crit !== undefined && protectedHeader.crit === undefined) {
@@ -5676,7 +5676,7 @@ function validateCrit(Err, recognizedDefault, recognizedOption, protectedHeader,
 }
 /* harmony default export */ const validate_crit = (validateCrit);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/lib/validate_algorithms.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/lib/validate_algorithms.js
 const validateAlgorithms = (option, algorithms)=>{
     if (algorithms !== undefined && (!Array.isArray(algorithms) || algorithms.some((s)=>typeof s !== "string"))) {
         throw new TypeError(`"${option}" option must be an array of strings`);
@@ -5688,7 +5688,7 @@ const validateAlgorithms = (option, algorithms)=>{
 };
 /* harmony default export */ const validate_algorithms = (validateAlgorithms);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jwe/flattened/decrypt.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jwe/flattened/decrypt.js
 
 
 
@@ -5852,7 +5852,7 @@ async function flattenedDecrypt(jwe, key, options) {
     return result;
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jwe/compact/decrypt.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jwe/compact/decrypt.js
 
 
 
@@ -5887,7 +5887,7 @@ async function compactDecrypt(jwe, key, options) {
     return result;
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jwe/general/decrypt.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jwe/general/decrypt.js
 
 
 
@@ -5918,7 +5918,7 @@ async function generalDecrypt(jwe, key, options) {
     throw new JWEDecryptionFailed();
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/key_to_jwk.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/key_to_jwk.js
 
 
 
@@ -5941,7 +5941,7 @@ const keyToJWK = async (key)=>{
 };
 /* harmony default export */ const key_to_jwk = (keyToJWK);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/key/export.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/key/export.js
 
 
 
@@ -5955,7 +5955,7 @@ async function exportJWK(key) {
     return key_to_jwk(key);
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/lib/encrypt_key_management.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/lib/encrypt_key_management.js
 
 
 
@@ -6058,7 +6058,7 @@ async function encryptKeyManagement(alg, enc, key, providedCek, providedParamete
 }
 /* harmony default export */ const encrypt_key_management = (encryptKeyManagement);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jwe/flattened/encrypt.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jwe/flattened/encrypt.js
 
 
 
@@ -6234,7 +6234,7 @@ class FlattenedEncrypt {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jwe/general/encrypt.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jwe/general/encrypt.js
 
 
 
@@ -6405,7 +6405,7 @@ class GeneralEncrypt {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/subtle_dsa.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/subtle_dsa.js
 
 function subtleDsa(alg, algorithm) {
     const hash = `SHA-${alg.slice(-3)}`;
@@ -6449,7 +6449,7 @@ function subtleDsa(alg, algorithm) {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/get_sign_verify_key.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/get_sign_verify_key.js
 
 
 
@@ -6473,7 +6473,7 @@ function get_sign_verify_key_getCryptoKey(alg, key, usage) {
     throw new TypeError(invalid_key_input(key, ...types, "Uint8Array"));
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/verify.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/verify.js
 
 
 
@@ -6490,7 +6490,7 @@ const verify = async (alg, key, signature, data)=>{
 };
 /* harmony default export */ const runtime_verify = (verify);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jws/flattened/verify.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jws/flattened/verify.js
 
 
 
@@ -6611,7 +6611,7 @@ async function flattenedVerify(jws, key, options) {
     return result;
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jws/compact/verify.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jws/compact/verify.js
 
 
 
@@ -6644,7 +6644,7 @@ async function compactVerify(jws, key, options) {
     return result;
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jws/general/verify.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jws/general/verify.js
 
 
 
@@ -6668,10 +6668,10 @@ async function generalVerify(jws, key, options) {
     throw new JWSSignatureVerificationFailed();
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/lib/epoch.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/lib/epoch.js
 /* harmony default export */ const epoch = ((date)=>Math.floor(date.getTime() / 1000));
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/lib/secs.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/lib/secs.js
 const minute = 60;
 const hour = minute * 60;
 const day = hour * 24;
@@ -6717,7 +6717,7 @@ const REGEX = /^(\d+|\d+\.\d+) ?(seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h
     }
 });
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/lib/jwt_claims_set.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/lib/jwt_claims_set.js
 
 
 
@@ -6816,7 +6816,7 @@ const checkAudiencePresence = (audPayload, audOption)=>{
     return payload;
 });
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jwt/verify.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jwt/verify.js
 
 
 
@@ -6840,7 +6840,7 @@ async function jwtVerify(jwt, key, options) {
     return result;
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jwt/decrypt.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jwt/decrypt.js
 
 
 
@@ -6870,7 +6870,7 @@ async function jwtDecrypt(jwt, key, options) {
     return result;
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jwe/compact/encrypt.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jwe/compact/encrypt.js
 
 class CompactEncrypt {
     constructor(plaintext){
@@ -6904,7 +6904,7 @@ class CompactEncrypt {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/sign.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/sign.js
 
 
 
@@ -6917,7 +6917,7 @@ const sign = async (alg, key, data)=>{
 };
 /* harmony default export */ const runtime_sign = (sign);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jws/flattened/sign.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jws/flattened/sign.js
 
 
 
@@ -7004,7 +7004,7 @@ class FlattenedSign {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jws/compact/sign.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jws/compact/sign.js
 
 class CompactSign {
     constructor(payload){
@@ -7023,7 +7023,7 @@ class CompactSign {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jws/general/sign.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jws/general/sign.js
 
 
 class IndividualSignature {
@@ -7091,7 +7091,7 @@ class GeneralSign {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jwt/produce.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jwt/produce.js
 
 
 
@@ -7174,7 +7174,7 @@ class ProduceJWT {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jwt/sign.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jwt/sign.js
 
 
 
@@ -7195,7 +7195,7 @@ class SignJWT extends ProduceJWT {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jwt/encrypt.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jwt/encrypt.js
 
 
 
@@ -7274,7 +7274,7 @@ class EncryptJWT extends ProduceJWT {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jwk/thumbprint.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jwk/thumbprint.js
 
 
 
@@ -7343,7 +7343,7 @@ async function calculateJwkThumbprintUri(jwk, digestAlgorithm) {
     return `urn:ietf:params:oauth:jwk-thumbprint:sha-${digestAlgorithm.slice(-3)}:${thumbprint}`;
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jwk/embedded.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jwk/embedded.js
 
 
 
@@ -7365,7 +7365,7 @@ async function EmbeddedJWK(protectedHeader, token) {
     return key;
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jwks/local.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jwks/local.js
 
 
 
@@ -7484,7 +7484,7 @@ function createLocalJWKSet(jwks) {
     };
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/fetch_jwks.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/fetch_jwks.js
 
 const fetchJwks = async (url, timeout, options)=>{
     let controller;
@@ -7517,7 +7517,7 @@ const fetchJwks = async (url, timeout, options)=>{
 };
 /* harmony default export */ const fetch_jwks = (fetchJwks);
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jwks/remote.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jwks/remote.js
 
 
 
@@ -7591,7 +7591,7 @@ function createRemoteJWKSet(url, options) {
     };
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/jwt/unsecured.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/jwt/unsecured.js
 
 
 
@@ -7628,12 +7628,12 @@ class UnsecuredJWT extends ProduceJWT {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/util/base64url.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/util/base64url.js
 
 const base64url_encode = encode;
 const base64url_decode = decode;
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/util/decode_protected_header.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/util/decode_protected_header.js
 
 
 
@@ -7666,7 +7666,7 @@ function decodeProtectedHeader(token) {
     }
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/util/decode_jwt.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/util/decode_jwt.js
 
 
 
@@ -7693,7 +7693,7 @@ function decodeJwt(jwt) {
     return result;
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/runtime/generate.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/runtime/generate.js
 
 
 
@@ -7911,19 +7911,19 @@ async function generateKeyPair(alg, options) {
     return webcrypto.subtle.generateKey(algorithm, (_c = options === null || options === void 0 ? void 0 : options.extractable) !== null && _c !== void 0 ? _c : false, keyUsages);
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/key/generate_key_pair.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/key/generate_key_pair.js
 
 async function generate_key_pair_generateKeyPair(alg, options) {
     return generateKeyPair(alg, options);
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/key/generate_secret.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/key/generate_secret.js
 
 async function generate_secret_generateSecret(alg, options) {
     return generateSecret(alg, options);
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/jose@4.14.6/node_modules/jose/dist/browser/index.js
+;// CONCATENATED MODULE: ./node_modules/jose/dist/browser/index.js
 
 
 
@@ -7962,7 +7962,7 @@ async function generate_secret_generateSecret(alg, options) {
 },
 /******/ __webpack_require__ => { // webpackRuntimeModules
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ var __webpack_exports__ = (__webpack_exec__(350));
+/******/ var __webpack_exports__ = (__webpack_exec__(550));
 /******/ (_ENTRIES = typeof _ENTRIES === "undefined" ? {} : _ENTRIES).middleware_middleware = __webpack_exports__;
 /******/ }
 ]);

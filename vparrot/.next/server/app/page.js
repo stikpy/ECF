@@ -340,7 +340,7 @@ module.exports = require("zlib");
 
 /***/ }),
 
-/***/ 5295:
+/***/ 33004:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -353,12 +353,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   routeModule: () => (/* binding */ routeModule),
 /* harmony export */   tree: () => (/* binding */ tree)
 /* harmony export */ });
-/* harmony import */ var next_dist_server_future_route_modules_app_page_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(64633);
+/* harmony import */ var next_dist_server_future_route_modules_app_page_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7262);
 /* harmony import */ var next_dist_server_future_route_modules_app_page_module__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_dist_server_future_route_modules_app_page_module__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_dist_server_future_route_kind__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(19916);
-/* harmony import */ var next_dist_client_components_error_boundary__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(81140);
+/* harmony import */ var next_dist_server_future_route_kind__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(19513);
+/* harmony import */ var next_dist_client_components_error_boundary__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(31823);
 /* harmony import */ var next_dist_client_components_error_boundary__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_dist_client_components_error_boundary__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_dist_server_app_render_entry_base__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(63028);
+/* harmony import */ var next_dist_server_app_render_entry_base__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(12502);
 /* harmony import */ var next_dist_server_app_render_entry_base__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_dist_server_app_render_entry_base__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
 /* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in next_dist_server_app_render_entry_base__WEBPACK_IMPORTED_MODULE_3__) if(["default","tree","pages","GlobalError","originalPathname","__next_app__","routeModule"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => next_dist_server_app_render_entry_base__WEBPACK_IMPORTED_MODULE_3__[__WEBPACK_IMPORT_KEY__]
@@ -374,9 +374,9 @@ const tree = {
         '',
         {
         children: ['__PAGE__', {}, {
-          page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4957)), "/Users/gabrielkhaldi/Desktop/Studi/Git/Studi/ECF/vparrot/app/page.tsx"],
+          page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 92838)), "/Users/gabrielkhaldi/Desktop/Studi/Git/Studi/ECF/vparrot/app/page.tsx"],
           metadata: {
-    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 75609))).default(props))],
+    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 57481))).default(props))],
     apple: [],
     openGraph: [],
     twitter: [],
@@ -385,10 +385,10 @@ const tree = {
         }]
       },
         {
-        'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 47865)), "/Users/gabrielkhaldi/Desktop/Studi/Git/Studi/ECF/vparrot/app/layout.tsx"],
-'not-found': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 62583, 23)), "next/dist/client/components/not-found-error"],
+        'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 52297)), "/Users/gabrielkhaldi/Desktop/Studi/Git/Studi/ECF/vparrot/app/layout.tsx"],
+'not-found': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 95493, 23)), "next/dist/client/components/not-found-error"],
         metadata: {
-    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 75609))).default(props))],
+    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 57481))).default(props))],
     apple: [],
     openGraph: [],
     twitter: [],
@@ -429,14 +429,14 @@ const routeModule = new AppPageRouteModule({
 
 /***/ }),
 
-/***/ 61074:
+/***/ 8002:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 32879))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 94490))
 
 /***/ }),
 
-/***/ 32879:
+/***/ 94490:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -453,7 +453,7 @@ var jsx_runtime_ = __webpack_require__(56786);
 // EXTERNAL MODULE: external "next/dist/compiled/react"
 var react_ = __webpack_require__(18038);
 // EXTERNAL MODULE: ./app/Components/CarCardView.tsx
-var CarCardView = __webpack_require__(89669);
+var CarCardView = __webpack_require__(40948);
 ;// CONCATENATED MODULE: ./app/Components/TestimonialCardView.js
 /* __next_internal_client_entry_do_not_use__ default auto */ 
 
@@ -556,15 +556,15 @@ function TestimonialCard({ name, date, rating, message, id }) {
     });
 }
 
-// EXTERNAL MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/link.js
-var next_link = __webpack_require__(30748);
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__(11440);
 var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
-// EXTERNAL MODULE: ./node_modules/.pnpm/axios@1.5.0_debug@4.3.4/node_modules/axios/lib/axios.js + 46 modules
-var axios = __webpack_require__(86397);
+// EXTERNAL MODULE: ./node_modules/axios/lib/axios.js + 46 modules
+var axios = __webpack_require__(93258);
 // EXTERNAL MODULE: ./app/Components/CarsFilter.tsx
-var CarsFilter = __webpack_require__(38760);
-// EXTERNAL MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/image.js
-var next_image = __webpack_require__(46023);
+var CarsFilter = __webpack_require__(24978);
+// EXTERNAL MODULE: ./node_modules/next/image.js
+var next_image = __webpack_require__(52451);
 var image_default = /*#__PURE__*/__webpack_require__.n(next_image);
 ;// CONCATENATED MODULE: ./app/page.tsx
 /* __next_internal_client_entry_do_not_use__ default auto */ 
@@ -614,7 +614,7 @@ function Home() {
         const content = texts.find((item)=>item.slug === slug);
         return content ? content.content : "";
     }
-    const slug = "header-text"; // Vous pouvez passer n'importe quel slug ici
+    const slug = "header-text";
     const content = getContentBySlug(slug);
     const filteredCars = cars.filter((car)=>{
         return (filter.price ? car.price <= parseInt(filter.price) : true) && (filter.year ? car.year >= parseInt(filter.year) : true) && (filter.title ? car.title.includes(filter.title) : true);
@@ -624,36 +624,39 @@ function Home() {
     return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
         children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("main", {
             children: [
-                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("section", {
-                    children: [
-                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                            className: "hero h-1/2",
-                            style: {
-                                backgroundImage: "url(/images/iStock-1407084508.jpg)"
-                            },
-                            children: [
-                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                    className: "hero-overlay bg-opacity-50"
-                                }),
-                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                    className: "hero-content text-center text-neutral-content",
-                                    children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                        className: "",
-                                        children: [
-                                            /*#__PURE__*/ jsx_runtime_.jsx("h1", {
-                                                className: "mb-5 text-6xl no-wrap font-bold",
-                                                children: "Garage V. Parrot"
-                                            }),
-                                            /*#__PURE__*/ jsx_runtime_.jsx("p", {
-                                                "data-slug": "header-text",
-                                                className: "mb-5 text-2xl",
-                                                children: content
-                                            })
-                                        ]
-                                    })
+                /*#__PURE__*/ jsx_runtime_.jsx("section", {
+                    children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                        className: "hero h-1/2",
+                        style: {
+                            backgroundImage: "url(/images/iStock-1407084508.jpg)"
+                        },
+                        children: [
+                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                className: "hero-overlay bg-opacity-50"
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                className: "hero-content text-center text-neutral-content",
+                                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                    className: "",
+                                    children: [
+                                        /*#__PURE__*/ jsx_runtime_.jsx("h1", {
+                                            className: "mb-5 text-6xl no-wrap font-bold",
+                                            children: "Garage V. Parrot"
+                                        }),
+                                        /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                                            "data-slug": "header-text",
+                                            className: "mb-5 text-2xl",
+                                            children: content
+                                        })
+                                    ]
                                 })
-                            ]
-                        }),
+                            })
+                        ]
+                    })
+                }),
+                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("section", {
+                    className: "flex flex-col justify-center flex-grow  ",
+                    children: [
                         /*#__PURE__*/ jsx_runtime_.jsx("h2", {
                             children: "Nos Services"
                         }),
@@ -758,7 +761,7 @@ function Home() {
 
 /***/ }),
 
-/***/ 4957:
+/***/ 92838:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -768,7 +771,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   __esModule: () => (/* binding */ __esModule),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(55690);
+/* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(61363);
 
 const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/gabrielkhaldi/Desktop/Studi/Git/Studi/ECF/vparrot/app/page.tsx`)
 
@@ -791,7 +794,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [386,3694,6023,5011,8760], () => (__webpack_exec__(5295)));
+var __webpack_exports__ = __webpack_require__.X(0, [3587,2396,2451,1440,4978], () => (__webpack_exec__(33004)));
 module.exports = __webpack_exports__;
 
 })();

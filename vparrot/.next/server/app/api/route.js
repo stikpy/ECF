@@ -89,7 +89,7 @@ module.exports = require("zlib");
 
 /***/ }),
 
-/***/ 40081:
+/***/ 65443:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 // ESM COMPAT FLAG
@@ -113,18 +113,18 @@ __webpack_require__.d(route_namespaceObject, {
   GET: () => (GET)
 });
 
-// EXTERNAL MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/server/node-polyfill-headers.js
-var node_polyfill_headers = __webpack_require__(53088);
-// EXTERNAL MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/server/future/route-modules/app-route/module.js
-var app_route_module = __webpack_require__(17358);
-// EXTERNAL MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/server/future/route-kind.js
-var route_kind = __webpack_require__(19916);
-// EXTERNAL MODULE: ./node_modules/.pnpm/next-auth@4.23.1_next@13.4.19_react-dom@18.2.0_react@18.2.0/node_modules/next-auth/next/index.js
-var next = __webpack_require__(85396);
-// EXTERNAL MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/server/web/exports/next-response.js
-var next_response = __webpack_require__(32198);
+// EXTERNAL MODULE: ./node_modules/next/dist/server/node-polyfill-headers.js
+var node_polyfill_headers = __webpack_require__(42394);
+// EXTERNAL MODULE: ./node_modules/next/dist/server/future/route-modules/app-route/module.js
+var app_route_module = __webpack_require__(69692);
+// EXTERNAL MODULE: ./node_modules/next/dist/server/future/route-kind.js
+var route_kind = __webpack_require__(19513);
+// EXTERNAL MODULE: ./node_modules/next-auth/next/index.js
+var next = __webpack_require__(17185);
+// EXTERNAL MODULE: ./node_modules/next/dist/server/web/exports/next-response.js
+var next_response = __webpack_require__(89335);
 // EXTERNAL MODULE: ./app/api/auth/[...nextauth]/route.ts
-var route = __webpack_require__(64187);
+var route = __webpack_require__(35904);
 ;// CONCATENATED MODULE: ./app/api/route.ts
 
 
@@ -136,7 +136,7 @@ async function GET(request) {
     });
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/build/webpack/loaders/next-app-loader.js?page=%2Fapi%2Froute&name=app%2Fapi%2Froute&pagePath=private-next-app-dir%2Fapi%2Froute.ts&appDir=%2FUsers%2Fgabrielkhaldi%2FDesktop%2FStudi%2FGit%2FStudi%2FECF%2Fvparrot%2Fapp&appPaths=%2Fapi%2Froute&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!
+;// CONCATENATED MODULE: ./node_modules/next/dist/build/webpack/loaders/next-app-loader.js?page=%2Fapi%2Froute&name=app%2Fapi%2Froute&pagePath=private-next-app-dir%2Fapi%2Froute.ts&appDir=%2FUsers%2Fgabrielkhaldi%2FDesktop%2FStudi%2FGit%2FStudi%2FECF%2Fvparrot%2Fapp&appPaths=%2Fapi%2Froute&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!
 
 // @ts-ignore this need to be imported from next/dist to be external
 
@@ -177,7 +177,7 @@ const originalPathname = "/api/route";
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [386,6042,7009,2198,5408,4114,4187], () => (__webpack_exec__(40081)));
+var __webpack_exports__ = __webpack_require__.X(0, [3587,4937,5501,9335,7874,6810,5904], () => (__webpack_exec__(65443)));
 module.exports = __webpack_exports__;
 
 })();

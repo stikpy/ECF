@@ -1,5 +1,8 @@
 {
     "dataworkspace.excludedProjects": [
         "ecf/ecf.sqlproj"
+    ],
+    "cSpell.words": [
+        "Financement"
     ]
 }

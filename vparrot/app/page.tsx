@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react";
 import CarCardView from "./Components/CarCardView";
 import TestimonialCard from "./Components/TestimonialCardView";
 import Link from "next/link";
@@ -30,8 +30,6 @@ interface TextContent {
   slug: string;
   content: string;
 }
-
-
 
 export default function Home() {
   const [filter, setFilters] = useState({
@@ -73,31 +71,29 @@ export default function Home() {
   }, [filter]);
 
   function getContentBySlug(slug: string): string {
-    const content = texts.find((item: TextContent) => item.slug === slug); 
+    const content = texts.find((item: TextContent) => item.slug === slug);
     return content ? content.content : "";
   }
-  
 
-  const slug = "header-text"; // Vous pouvez passer n'importe quel slug ici
+  const slug = "header-text";
   const content = getContentBySlug(slug);
 
-  const filteredCars = cars.filter((car: CarCardProps) => { 
+  const filteredCars = cars.filter((car: CarCardProps) => {
     return (
       (filter.price ? car.price <= parseInt(filter.price) : true) &&
       (filter.year ? car.year >= parseInt(filter.year) : true) &&
       (filter.title ? car.title.includes(filter.title) : true)
     );
   });
-  
 
   let minPrice =
-  filteredCars.length > 0
-    ? Math.min(...filteredCars.map((car: CarCardProps) => car.price)) 
-    : 0;
-let maxPrice =
-  filteredCars.length > 0
-    ? Math.max(...filteredCars.map((car: CarCardProps) => car.price)) 
-    : 0;
+    filteredCars.length > 0
+      ? Math.min(...filteredCars.map((car: CarCardProps) => car.price))
+      : 0;
+  let maxPrice =
+    filteredCars.length > 0
+      ? Math.max(...filteredCars.map((car: CarCardProps) => car.price))
+      : 0;
 
   return (
     <>
@@ -120,12 +116,17 @@ let maxPrice =
               </div>
             </div>
           </div>
+        </section>
 
+        <section className="flex flex-col justify-center flex-grow  ">
           <h2>Nos Services</h2>
           <div className="m-6">
             <div className="m-4 grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
-            {cardData.map((data: CarCardProps) => (
-  <div key={data.id} className="flex flex-col items-center justify-center">                
+              {cardData.map((data: CarCardProps) => (
+                <div
+                  key={data.id}
+                  className="flex flex-col items-center justify-center"
+                >
                   <Image
                     className="rounded-full "
                     src={data.imageUrl}
@@ -148,7 +149,7 @@ let maxPrice =
           <CarsFilter />
 
           <div className="m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-            {filteredCars.map((car : CarCardProps) => (
+            {filteredCars.map((car: CarCardProps) => (
               <CarCardView
                 key={car.id}
                 id={car.id}

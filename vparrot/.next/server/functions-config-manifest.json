@@ -1,12 +1,12 @@
 {
   "version": 1,
   "functions": {
-    "/api/auth/[...nextauth]": {},
     "/api/auth/profile/admin/[id]": {},
     "/api/cars/[id]": {},
-    "/api/settings/openingsHours/[id]": {},
+    "/api/auth/[...nextauth]": {},
     "/api/settings/textsContents/[id]": {},
     "/api/settings/textsContents": {},
-    "/api/testimonials/[id]": {}
+    "/api/testimonials/[id]": {},
+    "/api/settings/openingsHours/[id]": {}
   }
 }

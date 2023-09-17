@@ -89,7 +89,7 @@ module.exports = require("zlib");
 
 /***/ }),
 
-/***/ 72551:
+/***/ 84629:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -102,12 +102,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   staticGenerationAsyncStorage: () => (/* binding */ staticGenerationAsyncStorage),
 /* harmony export */   staticGenerationBailout: () => (/* binding */ staticGenerationBailout)
 /* harmony export */ });
-/* harmony import */ var next_dist_server_node_polyfill_headers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(53088);
+/* harmony import */ var next_dist_server_node_polyfill_headers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(42394);
 /* harmony import */ var next_dist_server_node_polyfill_headers__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_dist_server_node_polyfill_headers__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_dist_server_future_route_modules_app_route_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(17358);
+/* harmony import */ var next_dist_server_future_route_modules_app_route_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(69692);
 /* harmony import */ var next_dist_server_future_route_modules_app_route_module__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_dist_server_future_route_modules_app_route_module__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var next_dist_server_future_route_kind__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(19916);
-/* harmony import */ var _Users_gabrielkhaldi_Desktop_Studi_Git_Studi_ECF_vparrot_app_api_auth_nextauth_route_ts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(64187);
+/* harmony import */ var next_dist_server_future_route_kind__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(19513);
+/* harmony import */ var _Users_gabrielkhaldi_Desktop_Studi_Git_Studi_ECF_vparrot_app_api_auth_nextauth_route_ts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(35904);
 
 // @ts-ignore this need to be imported from next/dist to be external
 
@@ -148,7 +148,7 @@ const originalPathname = "/api/auth/[...nextauth]/route";
 var __webpack_require__ = require("../../../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [386,6042,7009,5408,4114,4187], () => (__webpack_exec__(72551)));
+var __webpack_exports__ = __webpack_require__.X(0, [3587,4937,5501,7874,6810,5904], () => (__webpack_exec__(84629)));
 module.exports = __webpack_exports__;
 
 })();

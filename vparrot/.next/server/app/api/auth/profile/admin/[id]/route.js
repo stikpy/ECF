@@ -19,7 +19,7 @@ module.exports = require("os");
 
 /***/ }),
 
-/***/ 98023:
+/***/ 77423:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 // ESM COMPAT FLAG
@@ -45,16 +45,16 @@ __webpack_require__.d(route_namespaceObject, {
   PUT: () => (PUT)
 });
 
-// EXTERNAL MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/server/node-polyfill-headers.js
-var node_polyfill_headers = __webpack_require__(53088);
-// EXTERNAL MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/server/future/route-modules/app-route/module.js
-var app_route_module = __webpack_require__(17358);
-// EXTERNAL MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/server/future/route-kind.js
-var route_kind = __webpack_require__(19916);
+// EXTERNAL MODULE: ./node_modules/next/dist/server/node-polyfill-headers.js
+var node_polyfill_headers = __webpack_require__(42394);
+// EXTERNAL MODULE: ./node_modules/next/dist/server/future/route-modules/app-route/module.js
+var app_route_module = __webpack_require__(69692);
+// EXTERNAL MODULE: ./node_modules/next/dist/server/future/route-kind.js
+var route_kind = __webpack_require__(19513);
 // EXTERNAL MODULE: external "@prisma/client"
 var client_ = __webpack_require__(53524);
-// EXTERNAL MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/server/web/exports/next-response.js
-var next_response = __webpack_require__(32198);
+// EXTERNAL MODULE: ./node_modules/next/dist/server/web/exports/next-response.js
+var next_response = __webpack_require__(89335);
 ;// CONCATENATED MODULE: ./app/api/auth/profile/admin/[id]/route.tsx
 
 
@@ -152,7 +152,7 @@ const DELETE = async (request)=>{
     }
 };
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/next@13.4.19_@babel+core@7.22.20_react-dom@18.2.0_react@18.2.0/node_modules/next/dist/build/webpack/loaders/next-app-loader.js?page=%2Fapi%2Fauth%2Fprofile%2Fadmin%2F%5Bid%5D%2Froute&name=app%2Fapi%2Fauth%2Fprofile%2Fadmin%2F%5Bid%5D%2Froute&pagePath=private-next-app-dir%2Fapi%2Fauth%2Fprofile%2Fadmin%2F%5Bid%5D%2Froute.tsx&appDir=%2FUsers%2Fgabrielkhaldi%2FDesktop%2FStudi%2FGit%2FStudi%2FECF%2Fvparrot%2Fapp&appPaths=%2Fapi%2Fauth%2Fprofile%2Fadmin%2F%5Bid%5D%2Froute&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!
+;// CONCATENATED MODULE: ./node_modules/next/dist/build/webpack/loaders/next-app-loader.js?page=%2Fapi%2Fauth%2Fprofile%2Fadmin%2F%5Bid%5D%2Froute&name=app%2Fapi%2Fauth%2Fprofile%2Fadmin%2F%5Bid%5D%2Froute&pagePath=private-next-app-dir%2Fapi%2Fauth%2Fprofile%2Fadmin%2F%5Bid%5D%2Froute.tsx&appDir=%2FUsers%2Fgabrielkhaldi%2FDesktop%2FStudi%2FGit%2FStudi%2FECF%2Fvparrot%2Fapp&appPaths=%2Fapi%2Fauth%2Fprofile%2Fadmin%2F%5Bid%5D%2Froute&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!
 
 // @ts-ignore this need to be imported from next/dist to be external
 
@@ -193,7 +193,7 @@ const originalPathname = "/api/auth/profile/admin/[id]/route";
 var __webpack_require__ = require("../../../../../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [386,6042,7009,2198], () => (__webpack_exec__(98023)));
+var __webpack_exports__ = __webpack_require__.X(0, [3587,4937,5501,9335], () => (__webpack_exec__(77423)));
 module.exports = __webpack_exports__;
 
 })();
