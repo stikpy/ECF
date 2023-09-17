@@ -25,6 +25,7 @@
     "@types/react-dom": "^18.2.7",
     "axios": "^1.5.0",
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "debug": "^4.3.4",
     "material-react-table": "^1.14.0",
     "next": "^13.4.19",
@@ -48,7 +49,7 @@
     "dev": "next dev",
     "generate": "prisma generate",
     "studio": "prisma studio",
-    "build": "prisma generate && next build", 
+    "build": "prisma generate && next build",
     "start": "next start",
     "push": "prisma db push"
   }

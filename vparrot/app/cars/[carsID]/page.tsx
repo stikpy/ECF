@@ -24,24 +24,25 @@ export default function CarDetail() {
 
   useEffect(() => {
     if (id) {
-      (async () => { 
-        const { data } = await axios.get(
-          `http://localhost:3000/api/cars/${id}`
-        );
-        setCar(data);
+      (async () => {
+        try {
+          const response = await axios.get(`/api/cars/${id}`);
+          const data = response.data;
+          setCar(data);
+        } catch (error) {
+          console.error("Error fetching car data:", error);
+        }
       })();
     }
   }, [id]);
 
   if (!car) {
     return (
-<div className="flex h-screen justify-center items-center">
-
-<span className="loading loading-spinner loading-lg flex "></span>
+      <div className="flex h-screen justify-center items-center">
+        <span className="loading loading-spinner loading-lg flex "></span>
       </div>
     );
   }
-
   return (
     <>
       <div className="bg-base-100">
