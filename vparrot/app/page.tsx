@@ -178,7 +178,7 @@ export default function Home() {
               height={100}
               priority
             />
-            <div className="flex">
+            <div className="">
               <p className="m-6 text-lg bold self-center underline	">
                 Partager votre expérience:
               </p>

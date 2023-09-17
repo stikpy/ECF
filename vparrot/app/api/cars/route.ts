@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
         description,
         price,
         imageUrl,
-        userId, // ajoutez userId ici
+        userId, 
       },
       include: { 
         users: true,

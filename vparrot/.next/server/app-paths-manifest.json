@@ -1,6 +1,9 @@
 {
-  "/cars/[carsID]/page": "app/cars/[carsID]/page.js",
+  "/page": "app/page.js",
+  "/api/cars/route": "app/api/cars/route.js",
+  "/api/testimonials/route": "app/api/testimonials/route.js",
+  "/api/services/route": "app/api/services/route.js",
   "/api/settings/openingsHours/route": "app/api/settings/openingsHours/route.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/api/cars/[id]/route": "app/api/cars/[id]/route.js"
+  "/api/settings/textsContents/route": "app/api/settings/textsContents/route.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
 }
