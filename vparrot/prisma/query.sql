@@ -21,10 +21,6 @@ INSERT INTO testimonials (id, name, date, rating, message) VALUES
 (3, 'Pierre Lemoine', '2023-07-15 00:00:00', 4.5, NULL),
 (4, 'Emilie Bernard', '2023-06-20 00:00:00', 5, 'J''ai acheté des pièces détachées pour ma voiture. Bon rapport qualité-prix et personnel serviable.');
 
-INSERT INTO carPosts (title, imageUrl, description, price) VALUES
-('Voiture de sport rouge', 'https://images.pexels.com/photos/2684219/pexels-photo-2684219.jpeg?auto=compress&cs=tinysrgb&w=1200', 'Voiture de sport rouge avec des roues noires', 29000, '1'),
-('Nissan GTR de nuit', 'https://images.pexels.com/photos/4674344/pexels-photo-4674344.jpeg?auto=compress&cs=tinysrgb&w=1200', 'Nissan GTR de nuit avec des lumières bleues', 48000, '2'),
-('Mini Cooper', 'https://images.pexels.com/photos/5660840/pexels-photo-5660840.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load', 'Mini Cooper de couleur verte', 17500, '3');
 
 
 INSERT INTO users (email, password, lastname, firstname, role) VALUES

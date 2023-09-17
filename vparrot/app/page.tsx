@@ -1,5 +1,5 @@
-'use client';
-import React, { useState, useEffect } from "react";
+"use client";
+import React, { useState, useEffect } from "react"
 import CarCardView from "./Components/CarCardView";
 import TestimonialCard from "./Components/TestimonialCardView";
 import Link from "next/link";
@@ -64,18 +64,16 @@ export default function Home() {
         setTexts(textContentResponse.data);
         setCardData(serviceResponse.data);
         setFilters({ ...filter, price: carResponse.data });
-
-      
       } catch (error) {
         console.error("Erreur de récupération des données:", error);
       }
     };
 
     fetchData();
-  }, [filter]); 
+  }, [filter]);
 
   function getContentBySlug(slug: string): string {
-    const content = texts.find((item) => item.slug === slug);
+    const content = texts.find((item: TextContent) => item.slug === slug); 
     return content ? content.content : "";
   }
   
@@ -83,18 +81,23 @@ export default function Home() {
   const slug = "header-text"; // Vous pouvez passer n'importe quel slug ici
   const content = getContentBySlug(slug);
 
-  const filteredCars = cars.filter((car) => {
+  const filteredCars = cars.filter((car: CarCardProps) => { 
     return (
       (filter.price ? car.price <= parseInt(filter.price) : true) &&
       (filter.year ? car.year >= parseInt(filter.year) : true) &&
       (filter.title ? car.title.includes(filter.title) : true)
     );
   });
+  
 
   let minPrice =
-    filteredCars.length > 0 ? Math.min(...filteredCars.map((car) => car.price)) : 0;
-  let maxPrice =
-    filteredCars.length > 0 ? Math.max(...filteredCars.map((car) => car.price)) : 0;
+  filteredCars.length > 0
+    ? Math.min(...filteredCars.map((car: CarCardProps) => car.price)) 
+    : 0;
+let maxPrice =
+  filteredCars.length > 0
+    ? Math.max(...filteredCars.map((car: CarCardProps) => car.price)) 
+    : 0;
 
   return (
     <>
@@ -121,11 +124,8 @@ export default function Home() {
           <h2>Nos Services</h2>
           <div className="m-6">
             <div className="m-4 grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
-              {cardData.map((data) => (
-                <div
-                  key={data.id}
-                  className="flex flex-col items-center justify-center"
-                >
+            {cardData.map((data: CarCardProps) => (
+  <div key={data.id} className="flex flex-col items-center justify-center">                
                   <Image
                     className="rounded-full "
                     src={data.imageUrl}
@@ -145,10 +145,10 @@ export default function Home() {
 
         {/* Car list section */}
         <section>
-          <CarsFilter/>
+          <CarsFilter />
 
           <div className="m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-            {filteredCars.map((car) => (
+            {filteredCars.map((car : CarCardProps) => (
               <CarCardView
                 key={car.id}
                 id={car.id}
@@ -169,6 +169,7 @@ export default function Home() {
         <section className="flex flex-col justify-center flex-grow  ">
           <div className="flex content-center	h-[200px] bg-cover bg-center bg-no-repeat  justify-evenly">
             <Image
+              style={{ width: "auto", height: "auto" }}
               className="m-6 rounded-lg shadow-lg	"
               src="/images/iStock-1440540891.jpg"
               alt="car"
@@ -191,7 +192,7 @@ export default function Home() {
           <div className="m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 justify-center">
             {testimonials &&
               testimonials.length > 0 &&
-              testimonials.map((testimonial) =>
+              testimonials.map((testimonial: TestimonialProps) =>
                 testimonial.isValidated ? (
                   <TestimonialCard
                     key={testimonial.id}
@@ -201,7 +202,7 @@ export default function Home() {
                     rating={testimonial.rating}
                     message={testimonial.message}
                   />
-                ) : null
+                ) : null,
               )}
           </div>
         </section>
