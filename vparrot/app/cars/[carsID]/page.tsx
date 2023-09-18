@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import ContactMailIcon from '@mui/icons-material/ContactMail';
+import ContactMailIcon from "@mui/icons-material/ContactMail";
 
 type CarPropsType = {
   id: number;
@@ -62,24 +62,32 @@ export default function CarDetail() {
           </div>
           <p>{car.description}</p>
           <div className="card-actions flex justify-evenly items-center mx-4  border p-2 rounded">
-  <p className=" text-lg">Prix de vente: {car.price} €</p>
-  <div className="divider divider-horizontal"></div>
+            <p className=" text-lg">Prix de vente: {car.price} €</p>
+            <div className="divider divider-horizontal"></div>
 
-  <p className=" text-lg">Kilometrage: {car.km} km</p>
-  <div className="divider divider-horizontal"></div>
+            <p className=" text-lg">Kilometrage: {car.km} km</p>
+            <div className="divider divider-horizontal"></div>
 
-  <p className=" text-lg">Mise en circulation: {car.year}</p>
-</div>
+            <p className=" text-lg">Mise en circulation: {car.year}</p>
+          </div>
 
           <div className="flex justify-evenly m-4">
-          <Link className="btn" href={`/contactForm?id=${car.id}`}>
-            <ContactMailIcon />
-           Formulaire de contact
-          </Link>
-          <a className="btn" href="tel:+33123456789">
-            <LocalPhoneIcon />
-            +33 1 23 45 67 89
-          </a>
+            <Link
+              className="btn"
+              href={`/contactForm?id=${car.id}`}
+              title="Formulmaire de renseignement"
+            >
+              <ContactMailIcon />
+              Formulaire de contact
+            </Link>
+            <a
+              className="btn"
+              href="tel:+33123456789"
+              title="telephone de garage"
+            >
+              <LocalPhoneIcon />
+              +33 1 23 45 67 89
+            </a>
           </div>
         </div>
       </div>

@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
-import { type } from "os";
 
 type Props = {
   id: number;
@@ -56,16 +55,16 @@ export default function Footer() {
         <span className="footer-title">Contact</span>
         <ul >
         <li> <span className="underline">Adresse:</span> <br/> 7 impasse du levant, <br/> 78330 Fontenay le fleury</li>
-        <li> <a href="tel:+123456789">  <span className="underline">Telephone:</span><br/> +33 6 23 45 67 89 </a></li>
-        <li> <a href="mailto: contact@vparrot.online ">  <span className="underline">E-mail:</span><br/> contact@vparrot.online</a></li>
+        <li> <a href="tel:+123456789" title="Telephone du garage">  <span className="underline">Telephone:</span><br/> +33 6 23 45 67 89 </a></li>
+        <li> <a href="mailto: contact@vparrot.online " title="Mail du garage">  <span className="underline">E-mail:</span><br/> contact@vparrot.online</a></li>
         </ul>
       </div>
 
       <div>
         <span className="footer-title">Legal</span>
-        <Link href="cguv" className="link link-hover">Conditions générale d'utilisation</Link>
-        <a className="link link-hover">Privacy policy</a>
-        <a className="link link-hover">Cookie policy</a>
+        <Link href="cguv" className="link link-hover" title="Conditions générale d'utilisation">Conditions générale d'utilisation</Link>
+        
+        <Link href="#" title="Gestion des cookies" className="link link-hover">Cookie policy</Link>
       </div>
     </footer>
   );

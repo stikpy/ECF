@@ -17,7 +17,7 @@ const CarCardView: React.FC<CarCardProps> = ({ id, imageUrl, title, description,
   const newHref = `/cars/${id}`;
 
   return (
-    <Link href={newHref}>
+    <Link href={newHref} title="Détails de l'annonce">
       <div className="card w-full bg-base-100 shadow-xl cursor-pointer">
         <h2 className="card-title">{title}</h2>
         <Image className="card-image" src={imageUrl} alt={title} width={1200} height={800} priority />
