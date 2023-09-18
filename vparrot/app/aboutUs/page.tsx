@@ -3,22 +3,18 @@ import React from 'react';
 
 function AboutUs() {
   return (
-    <div className="relative"> {/* Div parent avec position relative */}
-      
-      {/* Div pour l'image de fond avec positionnement absolu */}
+    <div className="pt-16 min-h-screen relative overflow-auto">
       <div className="absolute inset-0 bg-[url('/images/pexels-cottonbro-studio-4482037.jpg')] bg-cover bg-opacity-60 z-0"></div>
-      
-      {/* Contenu du site avec positionnement relatif par-dessus l'image */}
-      <div className="container mx-auto p-8 z-10 relative bg-white bg-opacity-80">
-        
-        <h1 className="font-bold text-5xl text-center mb-12">Notre histoire</h1>
+
+      <div className="container mx-auto p-8 z-10 relative min-h-screen bg-white bg-opacity-80 pt-32">
+        <h1 className="font-bold text-5xl text-center mb-12">À propos de nous</h1>
 
         <section className="mb-12">
           <p className="text-xl leading-7">
-            Le garage V. Parrot est une entreprise familiale fondée en 1980 par Vincent Parrot. Forts de plus de quatre décennies d'expérience, nous avons bâti une réputation basée sur l'excellence, l'intégrité et la satisfaction de la clientèle.
+            Bienvenue au Garage V. Parrot, votre partenaire de confiance à Toulouse pour tous vos besoins automobiles. Fondé en 2021 par Vincent Parrot, un professionnel du secteur avec 15 ans d'expérience, notre garage s'engage à fournir des services de réparation et d'entretien automobiles de la plus haute qualité.
           </p>
           <p className="text-xl leading-7 mt-4">
-            Nous avons adopté les dernières technologies de diagnostic et de réparation pour offrir un service rapide et fiable, garantissant ainsi votre satisfaction.
+            Notre philosophie est simple : votre voiture mérite le meilleur. C'est pourquoi nous offrons une large gamme de services, y compris la réparation de carrosserie, l'entretien mécanique et même la vente de véhicules d'occasion. Chaque service que nous proposons est adapté à vos besoins spécifiques, car votre satisfaction est notre priorité absolue.
           </p>
         </section>
 
@@ -45,7 +41,6 @@ function AboutUs() {
             </div>
           </div>
         </section>
-
       </div>
     </div>
   );

@@ -4,7 +4,6 @@ import Image from "next/image";
 import axios from "axios";
 import { usePathname } from "next/navigation";
 
-
 type ServicePropsType = {
   id: number;
   imageUrl: string;
@@ -24,10 +23,13 @@ export default function ServiceDetail() {
           const response = await axios.get(`/api/services/${id}`);
           const data = response.data;
           console.log("data", data);
-          
+
           setService(data);
         } catch (error) {
-          console.error("Erreur lors de la récupération des données du service :", error);
+          console.error(
+            "Erreur lors de la récupération des données du service :",
+            error,
+          );
         }
       })();
     }
@@ -43,25 +45,25 @@ export default function ServiceDetail() {
 
   return (
     <>
-      <div className=" flex flex-col h-full bg-base-100">
-          <h1 className="card-title justify-center text-7xl m-8">
-            {service.title}
-          </h1>
+    <div className="flex flex-col h-full bg-base-100 pt-60"> {/* pt-20 ajouté ici */}
+        <h1 className="card-title justify-center text-7xl m-8">
+          {service.title}
+        </h1>
 
-          <div className="flex justify-center items-center mb-36 gap-10 ">
-            <Image
-              className="rounded-3xl m-4 "
-              src={service.imageUrl}
-              alt={service.title}
-              width={600}
-              height={800}
-              priority
-            />
-          <p className="m-4 text-center">{service.description}</p>
-          </div>
-          
+        <div className="flex justify-center items-center mb-36 gap-4 flex-col md:flex-row ">
+          <Image
+            className="rounded-3xl m-4 "
+            src={service.imageUrl}
+            alt={service.title}
+            width={600}
+            height={800}
+            priority
+          />
+          <p className="m-4 text-center text-lg font-medium text-gray-700 leading-relaxed tracking-wide">
+            {service.description}
+          </p>
         </div>
-
+      </div>
     </>
   );
 }

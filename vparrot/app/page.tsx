@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 import React, { useState, useEffect } from "react";
 import CarCardView from "./Components/CarCardView";
@@ -6,7 +7,10 @@ import Link from "next/link";
 import axios from "axios";
 import CarsFilter from "./Components/CarsFilter";
 import Image from "next/image";
-import CarService from "./Components/CarService";
+import ServiceData from "./Components/CarService";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 type TestimonialProps = {
   id: number;
@@ -31,14 +35,14 @@ interface TextContent {
   slug: string;
   content: string;
 }
-type CarServiceProps = {
+
+type ServiceDataProps = {
   imageUrl: string;
   title: string;
   descriptionShort: string;
   slug: string;
   id: number;
 };
-
 
 export default function Home() {
   const [filter, setFilters] = useState({
@@ -49,7 +53,7 @@ export default function Home() {
   const [cars, setCars] = useState<CarCardProps[]>([]);
   const [testimonials, setTestimonials] = useState<TestimonialProps[]>([]);
   const [texts, setTexts] = useState<TextContent[]>([]);
-  const [cardData, setCardData] = useState<CarServiceProps[]>([]);
+  const [servicesData, setservicesData] = useState<ServiceDataProps[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -69,7 +73,7 @@ export default function Home() {
         setCars(carResponse.data);
         setTestimonials(testimonialResponse.data);
         setTexts(textContentResponse.data);
-        setCardData(serviceResponse.data);
+        setservicesData(serviceResponse.data);
         setFilters({ ...filter, price: carResponse.data });
       } catch (error) {
         console.error("Erreur de récupération des données:", error);
@@ -84,14 +88,16 @@ export default function Home() {
     return content ? content.content : "";
   }
 
-  function getCarDataByTitle(title: string): CarServiceProps | null {
-    const card = cardData.find((item: CarServiceProps) => item.title === title);
+  function getCarDataByTitle(title: string): ServiceDataProps | null {
+    const card = servicesData.find((item: ServiceDataProps) => item.title === title);
     return card ? card : null;
   }
-  const titles = ["Diagnostiques électronique", "Maintenance et Réparations Mécaniques", "Services de Carrosserie et Esthétique "];
-  const descriptionShort = titles.map(title => getCarDataByTitle(title));
-  
-  
+  const titles = [
+    "Diagnostiques électronique",
+    "Maintenance et Réparations Mécaniques",
+    "Services de Carrosserie et Esthétique ",
+  ];
+  const descriptionShort = titles.map((title) => getCarDataByTitle(title));
 
   const slug = "header-text";
   const content = getContentBySlug(slug);
@@ -113,51 +119,77 @@ export default function Home() {
       ? Math.max(...filteredCars.map((car: CarCardProps) => car.price))
       : 0;
 
+      const settings = {
+        className: "center",
+        centerMode: true,
+        infinite: true,
+        centerPadding: "60px",
+        slidesToShow: 3,
+        speed: 500,
+        autoplay: true,
+        responsive: [
+          {
+            breakpoint: 1024, 
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              infinite: true
+            }
+          },
+          {
+            breakpoint: 768, 
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      };
+      
+
   return (
     <>
       <main>
         {/* Hero section */}
         <section>
-  <div className="hero h-screen bg-[url('/images/iStock-865559764.jpg')] bg-cover bg-center">
-    <div className="hero-overlay bg-opacity-50"></div>
-    <div className="flex hero-content text-center text-neutral-content flex-col justify-evenly">
-      <h1 className="mb-5 text-8xl no-wrap font-bold">
-        Garage V. Parrot
-      </h1>
-      <p data-slug="header-text" className="mt-10 text-2xl sm:hidden md:block"> 
-        {content}
-      </p>
-    </div>
-  </div>
-</section>
+          <div className="hero h-screen bg-[url('/images/iStock-865559764.jpg')] bg-cover bg-center">
+            <div className="hero-overlay bg-opacity-50"></div>
+            <div className="flex hero-content text-center text-neutral-content flex-col justify-evenly">
+              <h1 className="mb-5 text-8xl no-wrap font-bold">
+                Garage V. Parrot
+              </h1>
+              <p
+                data-slug="header-text"
+                className="mt-10 text-2xl sm:hidden md:block"
+              >
+                {content}
+              </p>
+            </div>
+          </div>
+        </section>
 
-
-<section className="flex flex-col justify-center flex-grow">
-  <h2 className="text-center text-3xl">SERVICES</h2>
-  {descriptionShort.map((descriptionShort, index) => {
-    return descriptionShort ? (
-   <>
-   
-      <CarService
-        key={index}
+        <section id="services" className="flex flex-col justify-center flex-grow">
+          <h2 className="text-center text-3xl">SERVICES</h2>
+          {descriptionShort.map((descriptionShort: ServiceDataProps | null) => {
+  return descriptionShort ? (
+    <>
+      <ServiceData
+        key={descriptionShort.id}
         imageUrl={descriptionShort.imageUrl}
         descriptionShort={descriptionShort.descriptionShort}
         title={descriptionShort.title}
-        id={index + 1}
+        id={descriptionShort.id }
       />
-      
-</>
-    ) : null;
-  })}
-</section>
+    </>
+  ) : null;
+})}
 
-
-
-        {/* Divider */}
-        <div className="flex-grow bg-gray-300 h-[30px]"></div>
+        </section>
 
         {/* Car list section */}
         <section>
+          <h2 className="text-center text-3xl" id="carsPosts">VEHICULES D'OCCASION</h2>
+
           <CarsFilter />
 
           <div className="m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
@@ -176,48 +208,50 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Divider */}
-        <div className="flex-grow bg-gray-300 h-[30px]"></div>
         {/* Testimonial list section */}
-        <section className="flex flex-col justify-center flex-grow">
-  <div className="flex flex-col content-center bg-cover bg-center bg-no-repeat  justify-evenly lg:flex-row  ">
-    <Image
-      style={{ width: "auto", height: "auto" }}
-      className="rounded-lg shadow-lg " 
-      src="/images/iStock-1440540891.jpg"
-      alt="car"
-      width={500}
-      height={100}
-      priority
-    />
-    <div className="flex flex-col sm:flex-row">
-      <p className="m-6 text-lg bold self-center underline lg:block">
-        Partager votre expérience:
-      </p>
-      <Link className="btn btn-primary  self-center" href="/testimonialAddForm" title="Formulaire de témoignage ">
-        Laisser un commentaire
-      </Link>
-    </div>
-  </div>
-  <div className="m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 justify-center">
-    {testimonials &&
-      testimonials.length > 0 &&
-      testimonials.map((testimonial: TestimonialProps) =>
-        testimonial.isValidated ? (
-          <TestimonialCard
-            key={testimonial.id}
-            id={testimonial.id}
-            name={testimonial.name}
-            date={testimonial.date}
-            rating={testimonial.rating}
-            message={testimonial.message}
-          />
-        ) : null,
-      )}
-  </div>
-</section>
-
-
+        <section className="flex flex-col justify-center flex-grow" id="testimonials">
+          <div className="flex flex-col bg-cover bg-center bg-no-repeat justify-evenly alignItems-center lg:flex-row">
+            <Image
+              className="rounded-lg shadow-lg m-4"
+              src="/images/iStock-1440540891.jpg"
+              alt="car"
+              width={500}
+              height={100}
+              priority
+            />
+            <div className="flex flex-row sm:flex-col m-4">
+              <p className="text-lg font-bold self-center mb-20 underline">
+                Partager votre expérience:
+              </p>
+              <Link
+                className="btn btn-primary self-center mt-4 sm:mt-0"
+                href="/testimonialAddForm"
+                title="Formulaire de témoignage"
+              >
+                Laisser un commentaire
+              </Link>
+            </div>
+          </div>
+          <div className="">
+            <Slider {...settings}>
+              {testimonials &&
+                testimonials.length > 0 &&
+                testimonials.map((testimonial: TestimonialProps) =>
+                  testimonial.isValidated ? (
+                    <div key={testimonial.id} className="m-4">
+                      <TestimonialCard
+                        id={testimonial.id}
+                        name={testimonial.name}
+                        date={testimonial.date}
+                        rating={testimonial.rating}
+                        message={testimonial.message}
+                      />
+                    </div>
+                  ) : null,
+                )}
+            </Slider>
+          </div>
+        </section>
       </main>
     </>
   );

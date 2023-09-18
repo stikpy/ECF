@@ -6,6 +6,7 @@ import Header from './Components/Header';
 import { Inter } from 'next/font/google'
 import SessionProvider from './providers';
 import Footer from './Components/Footer';
+import ReturnTop from './Components/ReturnTop';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,8 +26,9 @@ return (
 <html lang="fr">
 
   <body className={inter.className}>
+  <ReturnTop/>
   
-  <header>
+  <header className='sticky w-full '>
   <Header/>
   </header>
   <SessionProvider>

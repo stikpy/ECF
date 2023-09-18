@@ -1,17 +1,50 @@
+/* eslint-disable react/no-unescaped-entities */
+"use client";
+import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function NavBar() {
+  useEffect(() => {
+    const scrollFunction = () => {
+      const navlist = document.getElementById("navlist");
+      const logo = document.getElementById("logo");
+
+      if (
+        document.body.scrollTop > 60 ||
+        document.documentElement.scrollTop > 60
+      ) {
+        if (navlist) navlist.style.padding = "15px 10px";
+        if (logo) {
+          (logo.style.height = "90px"), (logo.style.width = "90px");
+        }
+      } else {
+        if (navlist) navlist.style.padding = "30px 10px";
+        if (logo) {
+          (logo.style.height = "180px"), (logo.style.width = "180px");
+        }
+      }
+    };
+
+    window.addEventListener("scroll", scrollFunction);
+
+    return () => {
+      window.removeEventListener("scroll", scrollFunction);
+    };
+  }, []);
+
   return (
     <>
-      <nav className="flex justify-between navbar bg-gradient-to-r from-cyan-100 to-gray-200 ">
-        <Link href={"/"} >
+      <nav id="navlist" className=" flex justify-between navbar bg-gradient-to-r from-cyan-100 to-gray-200  top-0 w-full">
+
+        <Link href="/">
           <Image
+            id="logo"
             src="/logo.jpg"
             alt="logo"
-            width={200}
-            height={200}
-            className="rounded-full ml-10"
+            width={180}
+            height={180}
+            className="rounded-full object-cover	 ml-10  transition-all duration-300"
           />
         </Link>
 
@@ -37,10 +70,22 @@ export default function NavBar() {
               tabIndex={0}
               className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
+              <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
+                <Link href="/">Accueil</Link>
+              </li>
+              <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
+                <Link href="/#carsPosts">Véhuicules d'occasion</Link>
+              </li>
+              <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
+                <Link href="/#testimonials">Avis</Link>
+              </li>
+              <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
+                <Link href="/#services">Services</Link>
+              </li>
+              <li className="hover:underline underline-offset-8 shadow-2xl hover:scale-110 ">
                 <Link href="aboutUs">A propos de nous</Link>
               </li>
-              <li>
+              <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
                 <Link href="connexionPage">Connexion</Link>
               </li>
             </ul>
@@ -49,16 +94,26 @@ export default function NavBar() {
 
         {/* Desktop display */}
         <div className="flex justify-end gap-10 hidden px-2 mx-2 md:flex">
-  
-            <ul className="flex  gap-10 ">
-              <li className="hover:underline underline-offset-8 shadow-2xl hover:scale-110 ">
-                <Link href="aboutUs">A propos de nous</Link>
-              </li>
-              <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
-                <Link href="connexionPage" >Connexion</Link>
-              </li>
-            </ul>
-        
+          <ul className="flex  gap-10 ">
+            <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
+              <Link href="/">Accueil</Link>
+            </li>
+            <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
+              <Link href="/#carsPosts">Véhuicules d'occasion</Link>
+            </li>
+            <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
+              <Link href="/#testimonials">Avis</Link>
+            </li>
+            <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
+              <Link href="/#services">Services</Link>
+            </li>
+            <li className="hover:underline underline-offset-8 shadow-2xl hover:scale-110 ">
+              <Link href="aboutUs">A propos de nous</Link>
+            </li>
+            <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
+              <Link href="connexionPage">Connexion</Link>
+            </li>
+          </ul>
         </div>
       </nav>
     </>

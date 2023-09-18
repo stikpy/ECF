@@ -54,7 +54,7 @@ export default function Footer() {
       <div>
         <span className="footer-title">Contact</span>
         <ul >
-        <li> <span className="underline">Adresse:</span> <br/> 7 impasse du levant, <br/> 78330 Fontenay le fleury</li>
+        <li> <span className="underline">Adresse:</span> <br/> 7 impasse du levant, <br/> 31000 Toulouse</li>
         <li> <a href="tel:+123456789" title="Telephone du garage">  <span className="underline">Telephone:</span><br/> +33 6 23 45 67 89 </a></li>
         <li> <a href="mailto: contact@vparrot.online " title="Mail du garage">  <span className="underline">E-mail:</span><br/> contact@vparrot.online</a></li>
         </ul>

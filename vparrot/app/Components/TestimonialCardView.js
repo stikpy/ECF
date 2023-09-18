@@ -19,11 +19,11 @@ export default function TestimonialCard({ name, date, rating, message, id }) {
 
   return (
     <>
-      <div className="card w-full  max-w-xl mx-auto bg-base-100 shadow-xl cursor-pointer">
-        <div className='m-3'>
-          <h2 className="card-title">{name}</h2>
-          <p className="clamp-2 flex-grow">{message ? message : "Aucun message fourni"}</p>
-          <div className="flex justify-between items-center mb-1">
+       <div className="m-4 ">  
+      <div className="card w-full max-w-xl mx-4 mx-auto bg-base-100 shadow-xl cursor-pointer">
+        <h2 className="card-title">{name}</h2>
+          <p className="clamp-2 ml-4 flex-grow">{message ? message : "Aucun message fourni"}</p>
+          <div className=" m-4 flex justify-between items-center">
             <span>{formattedDate}</span>
             <span>Note : {rating} ⭐</span>
           <button onClick={openModal} className="hidden lg:block text-end text-blue-500 hover:underline ">Lire la suite</button>

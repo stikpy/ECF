@@ -64,11 +64,11 @@ export default function CarFilter() {
 
   return (
     <div className="m-4">
-      <div className="collapse collapse-arrow bg-base-200">
+      <div className="collapse collapse-arrow  bg-base-200">
         <input type="checkbox" />
-        <p className="collapse-title text-xl font-medium">Filtrer les annonces</p>
+        <p className="collapse-title text-2xl hover:scale-125 font-medium">Filtrer les annonces</p>
         <div className="collapse-content">
-          <div className="flex gap-4">
+          <div className="flex flex-col md:flex-row gap-4">
             <div>
               <label htmlFor="minPrice">Prix Minimum:</label>
               <input
