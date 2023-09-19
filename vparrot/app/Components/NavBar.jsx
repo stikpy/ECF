@@ -35,7 +35,7 @@ export default function NavBar() {
 
   return (
     <>
-      <nav id="navlist" className=" flex justify-between navbar bg-gradient-to-r from-cyan-100 to-gray-200  top-0 w-full">
+      <nav id="navlist" className=" flex justify-between navbar bg-gradient-to-r  z-70 top-0 p-5 w-full">
 
         <Link href="/">
           <Image
@@ -49,7 +49,7 @@ export default function NavBar() {
         </Link>
 
         {/* Mobile display */}
-        <div className="flex-none md:hidden">
+        <div className="flex-none md:hidden z-30">
           <div className="dropdown dropdown-hover dropdown-bottom dropdown-end ">
             <label tabIndex={0} className="btn m-1">
               <svg
@@ -70,22 +70,22 @@ export default function NavBar() {
               tabIndex={0}
               className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
+              <li className="">
                 <Link href="/">Accueil</Link>
               </li>
-              <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
-                <Link href="/#carsPosts">Véhuicules d'occasion</Link>
+              <li className="">
+                <Link href="/#carsPosts">Véhicules d'occasion</Link>
               </li>
-              <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
+              <li className="">
                 <Link href="/#testimonials">Avis</Link>
               </li>
-              <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
+              <li className="">
                 <Link href="/#services">Services</Link>
               </li>
-              <li className="hover:underline underline-offset-8 shadow-2xl hover:scale-110 ">
+              <li className="">
                 <Link href="aboutUs">A propos de nous</Link>
               </li>
-              <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
+              <li className="">
                 <Link href="connexionPage">Connexion</Link>
               </li>
             </ul>

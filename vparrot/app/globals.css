@@ -53,3 +53,11 @@ h3 {
  
 }
 
+img {
+  width: auto;
+  height: auto;
+}
+
+.selected {
+  background-color: lightgrey; /* Couleur d'arrière-plan pour le bouton sélectionné */
+}

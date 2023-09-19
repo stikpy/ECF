@@ -1,9 +1,8 @@
-// CarCard.tsx
 import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
 
-type CarCardProps = {
+interface CarCardProps {
   id: number;
   imageUrl: string;
   title: string;
@@ -11,9 +10,9 @@ type CarCardProps = {
   price: number;
   km: number;
   year: number;
-};
+}
 
-const CarCardView: React.FC<CarCardProps> = ({ id, imageUrl, title, description, price, km, year }) => {
+function CarCardView({ id, imageUrl, title, description, price, km, year }: CarCardProps) {
   const newHref = `/cars/${id}`;
 
   return (
@@ -31,6 +30,6 @@ const CarCardView: React.FC<CarCardProps> = ({ id, imageUrl, title, description,
       </div>
     </Link>
   );
-};
+}
 
 export default CarCardView;

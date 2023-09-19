@@ -128,10 +128,6 @@ export default function UserTestimonials ()  {
   
   return (
     <div>
-      <h1>Liste des Témoignages</h1>
-      <Button className="btn" onClick={applyChanges}>
-        Appliquer les changements
-      </Button>
       <MaterialReactTable
         columns={columns}
         data={data}
@@ -160,6 +156,10 @@ export default function UserTestimonials ()  {
 </Box>
         )}
       />
+
+<Button className="btn btn-primary m-4" onClick={applyChanges}>
+Appliquer les changements
+</Button>
     </div>
   );
 }

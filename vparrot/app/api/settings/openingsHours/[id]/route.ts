@@ -13,7 +13,7 @@ export const GET = async (request: NextRequest) => {
                 }
             }
         );
-     
+
 
         if (!hours) {
             return new NextResponse(JSON.stringify({ message: 'Creneau non trouvé' }), { status: 404 });

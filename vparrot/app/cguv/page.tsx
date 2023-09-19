@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 // conditions générales d'utilisation
 import React from 'react';
 
@@ -7,7 +8,7 @@ export default function Cguv() {
       <ul>
         <li>
           <h1 className="text-3xl underline font-bold">MENTIONS LÉGALES</h1>
-          <p>Le site <a href="#">http://www.vparrot.online</a> est édité par :</p>
+          <p>Le site <a href="http://www.vparrot.online">http://www.vparrot.online</a> est édité par :</p>
           <p><strong>Gabriel KHALDI</strong></p>
           <p>Apprenant STUDI</p>
           <p>Siège social : 78330 Fontenay le Fleury</p>

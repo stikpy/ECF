@@ -1,6 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import React, { useState, useEffect } from "react";
+
+import { usePathname, useSearchParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import CarCardView from "./Components/CarCardView";
 import TestimonialCard from "./Components/TestimonialCardView";
 import Link from "next/link";
@@ -45,6 +47,8 @@ type ServiceDataProps = {
 };
 
 export default function Home() {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [filter, setFilters] = useState({
     price: "",
     year: "",
@@ -81,7 +85,7 @@ export default function Home() {
     };
 
     fetchData();
-  }, [filter]);
+  }, [pathname, searchParams, filter]);
 
   function getContentBySlug(slug: string): string {
     const content = texts.find((item: TextContent) => item.slug === slug);
@@ -89,7 +93,9 @@ export default function Home() {
   }
 
   function getCarDataByTitle(title: string): ServiceDataProps | null {
-    const card = servicesData.find((item: ServiceDataProps) => item.title === title);
+    const card = servicesData.find(
+      (item: ServiceDataProps) => item.title === title,
+    );
     return card ? card : null;
   }
   const titles = [
@@ -119,33 +125,32 @@ export default function Home() {
       ? Math.max(...filteredCars.map((car: CarCardProps) => car.price))
       : 0;
 
-      const settings = {
-        className: "center",
-        centerMode: true,
-        infinite: true,
-        centerPadding: "60px",
-        slidesToShow: 3,
-        speed: 500,
-        autoplay: true,
-        responsive: [
-          {
-            breakpoint: 1024, 
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
-              infinite: true
-            }
-          },
-          {
-            breakpoint: 768, 
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1
-            }
-          }
-        ]
-      };
-      
+  const settings = {
+    className: "center",
+    centerMode: true,
+    infinite: true,
+    centerPadding: "60px",
+    slidesToShow: 3,
+    speed: 500,
+    autoplay: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
   return (
     <>
@@ -168,27 +173,31 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="services" className="flex flex-col justify-center flex-grow">
+        <section
+          id="services"
+          className="flex flex-col justify-center flex-grow"
+        >
           <h2 className="text-center text-3xl">SERVICES</h2>
           {descriptionShort.map((descriptionShort: ServiceDataProps | null) => {
-  return descriptionShort ? (
-    <>
-      <ServiceData
-        key={descriptionShort.id}
-        imageUrl={descriptionShort.imageUrl}
-        descriptionShort={descriptionShort.descriptionShort}
-        title={descriptionShort.title}
-        id={descriptionShort.id }
-      />
-    </>
-  ) : null;
-})}
-
+            return descriptionShort ? (
+              <>
+                <ServiceData
+                  key={descriptionShort.id}
+                  imageUrl={descriptionShort.imageUrl}
+                  descriptionShort={descriptionShort.descriptionShort}
+                  title={descriptionShort.title}
+                  id={descriptionShort.id}
+                />
+              </>
+            ) : null;
+          })}
         </section>
 
         {/* Car list section */}
         <section>
-          <h2 className="text-center text-3xl" id="carsPosts">VEHICULES D'OCCASION</h2>
+          <h2 className="text-center text-3xl" id="carsPosts">
+            VEHICULES D'OCCASION
+          </h2>
 
           <CarsFilter />
 
@@ -209,7 +218,10 @@ export default function Home() {
         </section>
 
         {/* Testimonial list section */}
-        <section className="flex flex-col justify-center flex-grow" id="testimonials">
+        <section
+          className="flex flex-col justify-center flex-grow"
+          id="testimonials"
+        >
           <div className="flex flex-col bg-cover bg-center bg-no-repeat justify-evenly alignItems-center lg:flex-row">
             <Image
               className="rounded-lg shadow-lg m-4"
@@ -225,7 +237,7 @@ export default function Home() {
               </p>
               <Link
                 className="btn btn-primary self-center mt-4 sm:mt-0"
-                href="/testimonialAddForm"
+                href="/TestimonialForm"
                 title="Formulaire de témoignage"
               >
                 Laisser un commentaire
@@ -237,7 +249,7 @@ export default function Home() {
               {testimonials &&
                 testimonials.length > 0 &&
                 testimonials.map((testimonial: TestimonialProps) =>
-                  testimonial.isValidated ? (
+                  testimonial.isValidated && testimonial.id ? (
                     <div key={testimonial.id} className="m-4">
                       <TestimonialCard
                         id={testimonial.id}

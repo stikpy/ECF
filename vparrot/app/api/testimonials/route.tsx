@@ -24,16 +24,19 @@ export async function POST(request: NextRequest) {
 
     const { name, date, rating, message } = data;
 
-    const testimonial = await prisma.testimonials.create({
-      data: {
-        name,
-        date: new Date(date),
-        rating,
-        message,
-        isValidated: false,
-        status: 'Hors ligne'
-      },
-    });
+const parsedDate = new Date(date);
+
+const testimonial = await prisma.testimonials.create({
+  data: {
+    name,
+    date: parsedDate.toString() === "Invalid Date" ? new Date() : parsedDate,
+    rating: Number(rating),
+    message,
+    isValidated: false,
+    status: 'Hors ligne'
+  },
+});
+
 
     return new NextResponse(JSON.stringify(testimonial), { status: 201 });
 
@@ -42,4 +45,3 @@ export async function POST(request: NextRequest) {
     return new NextResponse(JSON.stringify({ message: 'Erreur lors de la création du témoignage' }), { status: 500 });
   }
 }
-
