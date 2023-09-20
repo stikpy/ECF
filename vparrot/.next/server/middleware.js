@@ -1,7 +1,7 @@
 // runtime can't be in strict mode because a global variable is assign and maybe created.
 (self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[826],{
 
-/***/ 474:
+/***/ 967:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -10,7 +10,7 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ next_middleware_loaderabsolutePagePath_private_next_root_dir_2Fmiddleware_ts_page_2Fmiddleware_rootDir_2FUsers_2Fgabrielkhaldi_2FDesktop_2FStudi_2FGit_2FStudi_2FECF_2Fvparrot_matchers_W3sicmVnZXhwIjoiXig_2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL2Nvbm5leGlvblBhZ2UoLmpzb24pP1tcXC8jXFw_2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvY29ubmV4aW9uUGFnZSJ9XQ_3D_3D_preferredRegion_middlewareConfig_eyJtYXRjaGVycyI6W3sicmVnZXhwIjoiXig_2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL2Nvbm5leGlvblBhZ2UoLmpzb24pP1tcXC8jXFw_2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvY29ubmV4aW9uUGFnZSJ9XX0_3D_)
+  "default": () => (/* binding */ next_middleware_loaderabsolutePagePath_private_next_root_dir_2Fmiddleware_ts_page_2Fmiddleware_rootDir_2FUsers_2Fgabrielkhaldi_2FDesktop_2FStudi_2FGit_2FStudi_2FECF_2Fvparrot_matchers_W3sicmVnZXhwIjoiXig_2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL2Nvbm5leGlvblBhZ2UoLmpzb24pP1tcXC8jXFw_2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvY29ubmV4aW9uUGFnZSJ9LHsicmVnZXhwIjoiXig_2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL3NldHRpbmcoLmpzb24pP1tcXC8jXFw_2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvc2V0dGluZyJ9XQ_3D_3D_preferredRegion_middlewareConfig_eyJtYXRjaGVycyI6W3sicmVnZXhwIjoiXig_2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL2Nvbm5leGlvblBhZ2UoLmpzb24pP1tcXC8jXFw_2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvY29ubmV4aW9uUGFnZSJ9LHsicmVnZXhwIjoiXig_2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL3NldHRpbmcoLmpzb24pP1tcXC8jXFw_2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvc2V0dGluZyJ9XX0_3D_)
 });
 
 // NAMESPACE OBJECT: ./middleware.ts
@@ -114,7 +114,7 @@ class RemovedUAError extends Error {
 } //# sourceMappingURL=error.js.map
 
 // EXTERNAL MODULE: ./node_modules/next/dist/esm/server/web/utils.js
-var utils = __webpack_require__(982);
+var utils = __webpack_require__(181);
 ;// CONCATENATED MODULE: ./node_modules/next/dist/esm/server/web/spec-extension/fetch-event.js
 
 const responseSymbol = Symbol("response");
@@ -164,9 +164,9 @@ class NextFetchEvent extends FetchEvent {
 } //# sourceMappingURL=fetch-event.js.map
 
 // EXTERNAL MODULE: ./node_modules/next/dist/esm/server/web/next-url.js + 12 modules
-var next_url = __webpack_require__(403);
+var next_url = __webpack_require__(479);
 // EXTERNAL MODULE: ./node_modules/next/dist/esm/server/web/spec-extension/cookies.js
-var spec_extension_cookies = __webpack_require__(635);
+var spec_extension_cookies = __webpack_require__(423);
 ;// CONCATENATED MODULE: ./node_modules/next/dist/esm/server/web/spec-extension/request.js
 
 
@@ -246,7 +246,7 @@ class NextRequest extends Request {
 } //# sourceMappingURL=request.js.map
 
 // EXTERNAL MODULE: ./node_modules/next/dist/esm/server/web/spec-extension/response.js
-var spec_extension_response = __webpack_require__(984);
+var spec_extension_response = __webpack_require__(723);
 ;// CONCATENATED MODULE: ./node_modules/next/dist/esm/shared/lib/router/utils/relativize-url.js
 /**
  * Given a URL as a string and a base URL it will make the URL relative
@@ -265,7 +265,6 @@ const ACTION = "Next-Action";
 const NEXT_ROUTER_STATE_TREE = "Next-Router-State-Tree";
 const NEXT_ROUTER_PREFETCH = "Next-Router-Prefetch";
 const NEXT_URL = "Next-Url";
-const FETCH_CACHE_HEADER = "x-vercel-sc-headers";
 const RSC_CONTENT_TYPE_HEADER = "text/x-component";
 const RSC_VARY_HEADER = RSC + ", " + NEXT_ROUTER_STATE_TREE + ", " + NEXT_ROUTER_PREFETCH + ", " + NEXT_URL;
 const FLIGHT_PARAMETERS = [
@@ -311,9 +310,30 @@ function stripInternalSearchParams(url, isEdge) {
         }
     }
     return isStringUrl ? instance.toString() : instance;
+}
+/**
+ * Headers that are set by the Next.js server and should be stripped from the
+ * request headers going to the user's application.
+ */ const INTERNAL_HEADERS = (/* unused pure expression or super */ null && ([
+    "x-invoke-path",
+    "x-invoke-status",
+    "x-invoke-error",
+    "x-invoke-query",
+    "x-invoke-output",
+    "x-middleware-invoke"
+]));
+/**
+ * Strip internal headers from the request headers.
+ *
+ * @param headers the headers to strip of internal headers
+ */ function stripInternalHeaders(headers) {
+    for (const key of INTERNAL_HEADERS){
+        delete headers[key];
+    }
 } //# sourceMappingURL=internal-utils.js.map
 
 ;// CONCATENATED MODULE: ./node_modules/next/dist/esm/shared/lib/router/utils/app-paths.js
+
 
 /**
  * Normalizes an app route so it represents the actual request path. Essentially
@@ -340,7 +360,7 @@ function stripInternalSearchParams(url, isEdge) {
             return pathname;
         }
         // Groups are ignored.
-        if (segment[0] === "(" && segment.endsWith(")")) {
+        if (isGroupSegment(segment)) {
             return pathname;
         }
         // Parallel segments are ignored.
@@ -365,6 +385,13 @@ function stripInternalSearchParams(url, isEdge) {
 const NEXT_QUERY_PARAM_PREFIX = "nxtP";
 const PRERENDER_REVALIDATE_HEADER = "x-prerender-revalidate";
 const PRERENDER_REVALIDATE_ONLY_GENERATED_HEADER = "x-prerender-revalidate-if-generated";
+const NEXT_CACHE_TAGS_HEADER = "x-next-cache-tags";
+const NEXT_CACHE_SOFT_TAGS_HEADER = "x-next-cache-soft-tags";
+const NEXT_CACHE_REVALIDATED_TAGS_HEADER = "x-next-revalidated-tags";
+const NEXT_CACHE_REVALIDATE_TAG_TOKEN_HEADER = "x-next-revalidate-tag-token";
+const NEXT_CACHE_TAG_MAX_LENGTH = 256;
+const NEXT_CACHE_SOFT_TAG_MAX_LENGTH = 1024;
+const NEXT_CACHE_IMPLICIT_TAG_ID = "_N_T_";
 // in seconds
 const CACHE_ONE_YEAR = 31536000;
 // Patterns to detect middleware files
@@ -394,17 +421,13 @@ const UNSTABLE_REVALIDATE_RENAME_ERROR = (/* unused pure expression or super */ 
 const GSSP_COMPONENT_MEMBER_ERROR = (/* unused pure expression or super */ null && (`can not be attached to a page's component and must be exported from the page. See more info here: https://nextjs.org/docs/messages/gssp-component-member`));
 const NON_STANDARD_NODE_ENV = (/* unused pure expression or super */ null && (`You are using a non-standard "NODE_ENV" value in your environment. This creates inconsistencies in the project and is strongly advised against. Read more: https://nextjs.org/docs/messages/non-standard-node-env`));
 const SSG_FALLBACK_EXPORT_ERROR = (/* unused pure expression or super */ null && (`Pages with \`fallback\` enabled in \`getStaticPaths\` can not be exported. See more info here: https://nextjs.org/docs/messages/ssg-fallback-true-export`));
-// Consolidate this consts when the `appDir` will be stable.
-const ESLINT_DEFAULT_DIRS = [
+const ESLINT_DEFAULT_DIRS = (/* unused pure expression or super */ null && ([
+    "app",
     "pages",
     "components",
     "lib",
     "src"
-];
-const ESLINT_DEFAULT_DIRS_WITH_APP = [
-    "app",
-    ...ESLINT_DEFAULT_DIRS
-];
+]));
 const ESLINT_PROMPT_VALUES = [
     {
         title: "Strict",
@@ -440,11 +463,11 @@ const SERVER_RUNTIME = {
    * React Server Components layer (rsc).
    */ reactServerComponents: "rsc",
     /**
-   * Server Side Rendering layer (ssr).
+   * Server Side Rendering layer for app (ssr).
    */ serverSideRendering: "ssr",
     /**
    * The browser client bundle layer for actions.
-   */ actionBrowser: "actionBrowser",
+   */ actionBrowser: "action-browser",
     /**
    * The layer for the API routes.
    */ api: "api",
@@ -459,7 +482,10 @@ const SERVER_RUNTIME = {
    */ appPagesBrowser: "app-pages-browser",
     /**
    * The server bundle layer for metadata routes.
-   */ appMetadataRoute: "app-metadata-route"
+   */ appMetadataRoute: "app-metadata-route",
+    /**
+   * The layer for the server bundle for App Route handlers.
+   */ appRouteHandler: "app-route-handler"
 };
 const WEBPACK_LAYERS = {
     ...WEBPACK_LAYERS_NAMES,
@@ -467,7 +493,21 @@ const WEBPACK_LAYERS = {
         server: [
             WEBPACK_LAYERS_NAMES.reactServerComponents,
             WEBPACK_LAYERS_NAMES.actionBrowser,
-            WEBPACK_LAYERS_NAMES.appMetadataRoute
+            WEBPACK_LAYERS_NAMES.appMetadataRoute,
+            WEBPACK_LAYERS_NAMES.appRouteHandler
+        ],
+        nonClientServerTarget: [
+            // plus middleware and pages api
+            WEBPACK_LAYERS_NAMES.middleware,
+            WEBPACK_LAYERS_NAMES.api
+        ],
+        app: [
+            WEBPACK_LAYERS_NAMES.reactServerComponents,
+            WEBPACK_LAYERS_NAMES.actionBrowser,
+            WEBPACK_LAYERS_NAMES.appMetadataRoute,
+            WEBPACK_LAYERS_NAMES.appRouteHandler,
+            WEBPACK_LAYERS_NAMES.serverSideRendering,
+            WEBPACK_LAYERS_NAMES.appPagesBrowser
         ]
     }
 };
@@ -476,7 +516,8 @@ const WEBPACK_RESOURCE_QUERIES = {
     metadata: "__next_metadata__",
     metadataRoute: "__next_metadata_route__",
     metadataImageMeta: "__next_metadata_image_meta__"
-}; //# sourceMappingURL=constants.js.map
+};
+ //# sourceMappingURL=constants.js.map
 
 ;// CONCATENATED MODULE: ./node_modules/next/dist/esm/server/web/spec-extension/adapters/reflect.js
 class ReflectAdapter {
@@ -713,7 +754,7 @@ function appendMutableCookies(headers, mutableCookies) {
         return false;
     }
     // Return a new response that extends the response with
-    // the modified cookies as fallbacks. `res`' cookies
+    // the modified cookies as fallbacks. `res` cookies
     // will still take precedence.
     const resCookies = new ResponseCookies(headers);
     const returnedCookies = resCookies.getAll();
@@ -738,7 +779,7 @@ class MutableRequestCookiesAdapter {
         const updateResponseCookies = ()=>{
             var _fetch___nextGetStaticStore;
             // TODO-APP: change method of getting staticGenerationAsyncStore
-            const staticGenerationAsyncStore = fetch.__nextGetStaticStore == null ? void 0 : (_fetch___nextGetStaticStore = fetch.__nextGetStaticStore()) == null ? void 0 : _fetch___nextGetStaticStore.getStore();
+            const staticGenerationAsyncStore = fetch.__nextGetStaticStore == null ? void 0 : (_fetch___nextGetStaticStore = fetch.__nextGetStaticStore.call(fetch)) == null ? void 0 : _fetch___nextGetStaticStore.getStore();
             if (staticGenerationAsyncStore) {
                 staticGenerationAsyncStore.pathWasRevalidated = true;
             }
@@ -792,19 +833,6 @@ class MutableRequestCookiesAdapter {
 
 
 /**
- * Parse cookies from the `headers` of request
- * @param req request object
- */ function getCookieParser(headers) {
-    return function parseCookie() {
-        const { cookie } = headers;
-        if (!cookie) {
-            return {};
-        }
-        const { parse: parseCookieFn } = __webpack_require__(487);
-        return parseCookieFn(Array.isArray(cookie) ? cookie.join("; ") : cookie);
-    };
-}
-/**
  *
  * @param res response object
  * @param statusCode `HTTP` status code of response
@@ -851,7 +879,7 @@ function clearPreviewData(res, options = {}) {
     if (SYMBOL_CLEARED_COOKIES in res) {
         return res;
     }
-    const { serialize } = __webpack_require__(487);
+    const { serialize } = __webpack_require__(104);
     const previous = res.getHeader("Set-Cookie");
     res.setHeader(`Set-Cookie`, [
         ...typeof previous === "string" ? [
@@ -1088,9 +1116,9 @@ function createAsyncLocalStorage() {
     return new FakeAsyncLocalStorage();
 } //# sourceMappingURL=async-local-storage.js.map
 
-;// CONCATENATED MODULE: ./node_modules/next/dist/esm/client/components/request-async-storage.js
+;// CONCATENATED MODULE: ./node_modules/next/dist/esm/client/components/request-async-storage.external.js
 
-const requestAsyncStorage = createAsyncLocalStorage(); //# sourceMappingURL=request-async-storage.js.map
+const requestAsyncStorage = createAsyncLocalStorage(); //# sourceMappingURL=request-async-storage.external.js.map
 
 ;// CONCATENATED MODULE: ./node_modules/next/dist/esm/server/web/adapter.js
 
@@ -1138,9 +1166,6 @@ const adapter_FLIGHT_PARAMETERS = [
     ],
     [
         NEXT_ROUTER_PREFETCH
-    ],
-    [
-        FETCH_CACHE_HEADER
     ]
 ];
 async function adapter(params) {
@@ -1243,7 +1268,8 @@ async function adapter(params) {
     let response;
     let cookiesFromResponse;
     // we only care to make async storage available for middleware
-    if (params.page === "/middleware") {
+    const isMiddleware = params.page === "/middleware" || params.page === "/src/middleware";
+    if (isMiddleware) {
         response = await RequestAsyncStorageWrapper.wrap(requestAsyncStorage, {
             req: request,
             renderOpts: {
@@ -1348,7 +1374,7 @@ async function adapter(params) {
 } //# sourceMappingURL=adapter.js.map
 
 // EXTERNAL MODULE: ./node_modules/next-auth/middleware.js
-var middleware = __webpack_require__(248);
+var middleware = __webpack_require__(585);
 ;// CONCATENATED MODULE: ./middleware.ts
 // middleware/auth.js
 
@@ -1362,11 +1388,12 @@ var middleware = __webpack_require__(248);
 }));
 const config = {
     matcher: [
-        "/connexionPage"
+        "/connexionPage",
+        "/setting"
     ]
 };
 
-;// CONCATENATED MODULE: ./node_modules/next/dist/build/webpack/loaders/next-middleware-loader.js?absolutePagePath=private-next-root-dir%2Fmiddleware.ts&page=%2Fmiddleware&rootDir=%2FUsers%2Fgabrielkhaldi%2FDesktop%2FStudi%2FGit%2FStudi%2FECF%2Fvparrot&matchers=W3sicmVnZXhwIjoiXig%2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL2Nvbm5leGlvblBhZ2UoLmpzb24pP1tcXC8jXFw%2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvY29ubmV4aW9uUGFnZSJ9XQ%3D%3D&preferredRegion=&middlewareConfig=eyJtYXRjaGVycyI6W3sicmVnZXhwIjoiXig%2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL2Nvbm5leGlvblBhZ2UoLmpzb24pP1tcXC8jXFw%2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvY29ubmV4aW9uUGFnZSJ9XX0%3D!
+;// CONCATENATED MODULE: ./node_modules/next/dist/build/webpack/loaders/next-middleware-loader.js?absolutePagePath=private-next-root-dir%2Fmiddleware.ts&page=%2Fmiddleware&rootDir=%2FUsers%2Fgabrielkhaldi%2FDesktop%2FStudi%2FGit%2FStudi%2FECF%2Fvparrot&matchers=W3sicmVnZXhwIjoiXig%2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL2Nvbm5leGlvblBhZ2UoLmpzb24pP1tcXC8jXFw%2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvY29ubmV4aW9uUGFnZSJ9LHsicmVnZXhwIjoiXig%2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL3NldHRpbmcoLmpzb24pP1tcXC8jXFw%2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvc2V0dGluZyJ9XQ%3D%3D&preferredRegion=&middlewareConfig=eyJtYXRjaGVycyI6W3sicmVnZXhwIjoiXig%2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL2Nvbm5leGlvblBhZ2UoLmpzb24pP1tcXC8jXFw%2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvY29ubmV4aW9uUGFnZSJ9LHsicmVnZXhwIjoiXig%2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL3NldHRpbmcoLmpzb24pP1tcXC8jXFw%2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvc2V0dGluZyJ9XX0%3D!
 
         
         
@@ -1379,7 +1406,7 @@ const config = {
           throw new Error('The Middleware "pages/middleware" must export a `middleware` or a `default` function');
         }
 
-        /* harmony default export */ function next_middleware_loaderabsolutePagePath_private_next_root_dir_2Fmiddleware_ts_page_2Fmiddleware_rootDir_2FUsers_2Fgabrielkhaldi_2FDesktop_2FStudi_2FGit_2FStudi_2FECF_2Fvparrot_matchers_W3sicmVnZXhwIjoiXig_2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL2Nvbm5leGlvblBhZ2UoLmpzb24pP1tcXC8jXFw_2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvY29ubmV4aW9uUGFnZSJ9XQ_3D_3D_preferredRegion_middlewareConfig_eyJtYXRjaGVycyI6W3sicmVnZXhwIjoiXig_2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL2Nvbm5leGlvblBhZ2UoLmpzb24pP1tcXC8jXFw_2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvY29ubmV4aW9uUGFnZSJ9XX0_3D_(opts) {
+        /* harmony default export */ function next_middleware_loaderabsolutePagePath_private_next_root_dir_2Fmiddleware_ts_page_2Fmiddleware_rootDir_2FUsers_2Fgabrielkhaldi_2FDesktop_2FStudi_2FGit_2FStudi_2FECF_2Fvparrot_matchers_W3sicmVnZXhwIjoiXig_2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL2Nvbm5leGlvblBhZ2UoLmpzb24pP1tcXC8jXFw_2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvY29ubmV4aW9uUGFnZSJ9LHsicmVnZXhwIjoiXig_2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL3NldHRpbmcoLmpzb24pP1tcXC8jXFw_2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvc2V0dGluZyJ9XQ_3D_3D_preferredRegion_middlewareConfig_eyJtYXRjaGVycyI6W3sicmVnZXhwIjoiXig_2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL2Nvbm5leGlvblBhZ2UoLmpzb24pP1tcXC8jXFw_2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvY29ubmV4aW9uUGFnZSJ9LHsicmVnZXhwIjoiXig_2FOlxcLyhfbmV4dFxcL2RhdGFcXC9bXi9dezEsfSkpP1xcL3NldHRpbmcoLmpzb24pP1tcXC8jXFw_2FXT8kIiwib3JpZ2luYWxTb3VyY2UiOiIvc2V0dGluZyJ9XX0_3D_(opts) {
           return adapter({
             ...opts,
             page: "/middleware",
@@ -1390,19 +1417,19 @@ const config = {
 
 /***/ }),
 
-/***/ 435:
+/***/ 712:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
-var _interopRequireDefault = __webpack_require__(735);
+var _interopRequireDefault = __webpack_require__(846);
 Object.defineProperty(exports, "__esModule", ({
     value: true
 }));
 exports.SessionStore = void 0;
 exports.defaultCookies = defaultCookies;
-var _classPrivateFieldGet3 = _interopRequireDefault(__webpack_require__(590));
-var _classPrivateFieldSet2 = _interopRequireDefault(__webpack_require__(188));
+var _classPrivateFieldGet3 = _interopRequireDefault(__webpack_require__(278));
+var _classPrivateFieldSet2 = _interopRequireDefault(__webpack_require__(780));
 function _classPrivateMethodInitSpec(obj, privateSet) {
     _checkPrivateRedeclaration(obj, privateSet);
     privateSet.add(obj);
@@ -1602,12 +1629,12 @@ function _clean2() {
 
 /***/ }),
 
-/***/ 349:
+/***/ 32:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
-var _interopRequireDefault = __webpack_require__(735);
+var _interopRequireDefault = __webpack_require__(846);
 Object.defineProperty(exports, "__esModule", ({
     value: true
 }));
@@ -1619,11 +1646,11 @@ var _exportNames = {
 exports.decode = decode;
 exports.encode = encode;
 exports.getToken = getToken;
-var _jose = __webpack_require__(81);
-var _hkdf = _interopRequireDefault(__webpack_require__(57));
-var _uuid = __webpack_require__(644);
-var _cookie = __webpack_require__(435);
-var _types = __webpack_require__(686);
+var _jose = __webpack_require__(319);
+var _hkdf = _interopRequireDefault(__webpack_require__(947));
+var _uuid = __webpack_require__(693);
+var _cookie = __webpack_require__(712);
+var _types = __webpack_require__(209);
 Object.keys(_types).forEach(function(key) {
     if (key === "default" || key === "__esModule") return;
     if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
@@ -1691,7 +1718,7 @@ async function getDerivedEncryptionKey(secret) {
 
 /***/ }),
 
-/***/ 686:
+/***/ 209:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -1703,7 +1730,7 @@ Object.defineProperty(exports, "__esModule", ({
 
 /***/ }),
 
-/***/ 248:
+/***/ 585:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
@@ -1718,7 +1745,7 @@ Object.defineProperty(exports, "default", ({
         return _middleware.default;
     }
 }));
-var _middleware = _interopRequireWildcard(__webpack_require__(897));
+var _middleware = _interopRequireWildcard(__webpack_require__(867));
 Object.keys(_middleware).forEach(function(key) {
     if (key === "default" || key === "__esModule") return;
     if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
@@ -1773,21 +1800,21 @@ function _interopRequireWildcard(obj, nodeInterop) {
 
 /***/ }),
 
-/***/ 897:
+/***/ 867:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
-const NextResponse = (__webpack_require__(984)/* .NextResponse */ .x);
-var _interopRequireDefault = __webpack_require__(735);
+const NextResponse = (__webpack_require__(723)/* .NextResponse */ .x);
+var _interopRequireDefault = __webpack_require__(846);
 Object.defineProperty(exports, "__esModule", ({
     value: true
 }));
 exports["default"] = void 0;
 exports.withAuth = withAuth;
 ;
-var _jwt = __webpack_require__(349);
-var _parseUrl = _interopRequireDefault(__webpack_require__(51));
+var _jwt = __webpack_require__(32);
+var _parseUrl = _interopRequireDefault(__webpack_require__(935));
 async function handleMiddleware(req, options, onSuccess) {
     var _options$pages$signIn, _options$pages, _options$pages$error, _options$pages2, _options$secret, _options$jwt, _options$cookies, _options$cookies$sess, _await$options$callba, _options$callbacks, _options$callbacks$au;
     const { pathname, search, origin, basePath } = req.nextUrl;
@@ -1849,7 +1876,586 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 51:
+/***/ 693:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  NIL: () => (/* reexport */ nil),
+  parse: () => (/* reexport */ esm_browser_parse),
+  stringify: () => (/* reexport */ esm_browser_stringify),
+  v1: () => (/* reexport */ esm_browser_v1),
+  v3: () => (/* reexport */ esm_browser_v3),
+  v4: () => (/* reexport */ esm_browser_v4),
+  v5: () => (/* reexport */ esm_browser_v5),
+  validate: () => (/* reexport */ esm_browser_validate),
+  version: () => (/* reexport */ esm_browser_version)
+});
+
+;// CONCATENATED MODULE: ./node_modules/next-auth/node_modules/uuid/dist/esm-browser/rng.js
+// Unique ID creation requires a high quality random # generator. In the browser we therefore
+// require the crypto API and do not support built-in fallback to lower quality random number
+// generators (like Math.random()).
+var getRandomValues;
+var rnds8 = new Uint8Array(16);
+function rng() {
+    // lazy load so that environments that need to polyfill have a chance to do so
+    if (!getRandomValues) {
+        // getRandomValues needs to be invoked in a context where "this" is a Crypto implementation. Also,
+        // find the complete implementation of crypto (msCrypto) on IE11.
+        getRandomValues = typeof crypto !== "undefined" && crypto.getRandomValues && crypto.getRandomValues.bind(crypto) || typeof msCrypto !== "undefined" && typeof msCrypto.getRandomValues === "function" && msCrypto.getRandomValues.bind(msCrypto);
+        if (!getRandomValues) {
+            throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");
+        }
+    }
+    return getRandomValues(rnds8);
+}
+
+;// CONCATENATED MODULE: ./node_modules/next-auth/node_modules/uuid/dist/esm-browser/regex.js
+/* harmony default export */ const regex = (/^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i);
+
+;// CONCATENATED MODULE: ./node_modules/next-auth/node_modules/uuid/dist/esm-browser/validate.js
+
+function validate(uuid) {
+    return typeof uuid === "string" && regex.test(uuid);
+}
+/* harmony default export */ const esm_browser_validate = (validate);
+
+;// CONCATENATED MODULE: ./node_modules/next-auth/node_modules/uuid/dist/esm-browser/stringify.js
+
+/**
+ * Convert array of 16 byte values to UUID string format of the form:
+ * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+ */ var byteToHex = [];
+for(var i = 0; i < 256; ++i){
+    byteToHex.push((i + 0x100).toString(16).substr(1));
+}
+function stringify(arr) {
+    var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+    // Note: Be careful editing this code!  It's been tuned for performance
+    // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
+    var uuid = (byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + "-" + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + "-" + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + "-" + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + "-" + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]]).toLowerCase(); // Consistency check for valid UUID.  If this throws, it's likely due to one
+    // of the following:
+    // - One or more input array values don't map to a hex octet (leading to
+    // "undefined" in the uuid)
+    // - Invalid input values for the RFC `version` or `variant` fields
+    if (!esm_browser_validate(uuid)) {
+        throw TypeError("Stringified UUID is invalid");
+    }
+    return uuid;
+}
+/* harmony default export */ const esm_browser_stringify = (stringify);
+
+;// CONCATENATED MODULE: ./node_modules/next-auth/node_modules/uuid/dist/esm-browser/v1.js
+
+ // **`v1()` - Generate time-based UUID**
+//
+// Inspired by https://github.com/LiosK/UUID.js
+// and http://docs.python.org/library/uuid.html
+var _nodeId;
+var _clockseq; // Previous uuid creation time
+var _lastMSecs = 0;
+var _lastNSecs = 0; // See https://github.com/uuidjs/uuid for API details
+function v1(options, buf, offset) {
+    var i = buf && offset || 0;
+    var b = buf || new Array(16);
+    options = options || {};
+    var node = options.node || _nodeId;
+    var clockseq = options.clockseq !== undefined ? options.clockseq : _clockseq; // node and clockseq need to be initialized to random values if they're not
+    // specified.  We do this lazily to minimize issues related to insufficient
+    // system entropy.  See #189
+    if (node == null || clockseq == null) {
+        var seedBytes = options.random || (options.rng || rng)();
+        if (node == null) {
+            // Per 4.5, create and 48-bit node id, (47 random bits + multicast bit = 1)
+            node = _nodeId = [
+                seedBytes[0] | 0x01,
+                seedBytes[1],
+                seedBytes[2],
+                seedBytes[3],
+                seedBytes[4],
+                seedBytes[5]
+            ];
+        }
+        if (clockseq == null) {
+            // Per 4.2.2, randomize (14 bit) clockseq
+            clockseq = _clockseq = (seedBytes[6] << 8 | seedBytes[7]) & 0x3fff;
+        }
+    } // UUID timestamps are 100 nano-second units since the Gregorian epoch,
+    // (1582-10-15 00:00).  JSNumbers aren't precise enough for this, so
+    // time is handled internally as 'msecs' (integer milliseconds) and 'nsecs'
+    // (100-nanoseconds offset from msecs) since unix epoch, 1970-01-01 00:00.
+    var msecs = options.msecs !== undefined ? options.msecs : Date.now(); // Per 4.2.1.2, use count of uuid's generated during the current clock
+    // cycle to simulate higher resolution clock
+    var nsecs = options.nsecs !== undefined ? options.nsecs : _lastNSecs + 1; // Time since last uuid creation (in msecs)
+    var dt = msecs - _lastMSecs + (nsecs - _lastNSecs) / 10000; // Per 4.2.1.2, Bump clockseq on clock regression
+    if (dt < 0 && options.clockseq === undefined) {
+        clockseq = clockseq + 1 & 0x3fff;
+    } // Reset nsecs if clock regresses (new clockseq) or we've moved onto a new
+    // time interval
+    if ((dt < 0 || msecs > _lastMSecs) && options.nsecs === undefined) {
+        nsecs = 0;
+    } // Per 4.2.1.2 Throw error if too many uuids are requested
+    if (nsecs >= 10000) {
+        throw new Error("uuid.v1(): Can't create more than 10M uuids/sec");
+    }
+    _lastMSecs = msecs;
+    _lastNSecs = nsecs;
+    _clockseq = clockseq; // Per 4.1.4 - Convert from unix epoch to Gregorian epoch
+    msecs += 12219292800000; // `time_low`
+    var tl = ((msecs & 0xfffffff) * 10000 + nsecs) % 0x100000000;
+    b[i++] = tl >>> 24 & 0xff;
+    b[i++] = tl >>> 16 & 0xff;
+    b[i++] = tl >>> 8 & 0xff;
+    b[i++] = tl & 0xff; // `time_mid`
+    var tmh = msecs / 0x100000000 * 10000 & 0xfffffff;
+    b[i++] = tmh >>> 8 & 0xff;
+    b[i++] = tmh & 0xff; // `time_high_and_version`
+    b[i++] = tmh >>> 24 & 0xf | 0x10; // include version
+    b[i++] = tmh >>> 16 & 0xff; // `clock_seq_hi_and_reserved` (Per 4.2.2 - include variant)
+    b[i++] = clockseq >>> 8 | 0x80; // `clock_seq_low`
+    b[i++] = clockseq & 0xff; // `node`
+    for(var n = 0; n < 6; ++n){
+        b[i + n] = node[n];
+    }
+    return buf || esm_browser_stringify(b);
+}
+/* harmony default export */ const esm_browser_v1 = (v1);
+
+;// CONCATENATED MODULE: ./node_modules/next-auth/node_modules/uuid/dist/esm-browser/parse.js
+
+function parse(uuid) {
+    if (!esm_browser_validate(uuid)) {
+        throw TypeError("Invalid UUID");
+    }
+    var v;
+    var arr = new Uint8Array(16); // Parse ########-....-....-....-............
+    arr[0] = (v = parseInt(uuid.slice(0, 8), 16)) >>> 24;
+    arr[1] = v >>> 16 & 0xff;
+    arr[2] = v >>> 8 & 0xff;
+    arr[3] = v & 0xff; // Parse ........-####-....-....-............
+    arr[4] = (v = parseInt(uuid.slice(9, 13), 16)) >>> 8;
+    arr[5] = v & 0xff; // Parse ........-....-####-....-............
+    arr[6] = (v = parseInt(uuid.slice(14, 18), 16)) >>> 8;
+    arr[7] = v & 0xff; // Parse ........-....-....-####-............
+    arr[8] = (v = parseInt(uuid.slice(19, 23), 16)) >>> 8;
+    arr[9] = v & 0xff; // Parse ........-....-....-....-############
+    // (Use "/" to avoid 32-bit truncation when bit-shifting high-order bytes)
+    arr[10] = (v = parseInt(uuid.slice(24, 36), 16)) / 0x10000000000 & 0xff;
+    arr[11] = v / 0x100000000 & 0xff;
+    arr[12] = v >>> 24 & 0xff;
+    arr[13] = v >>> 16 & 0xff;
+    arr[14] = v >>> 8 & 0xff;
+    arr[15] = v & 0xff;
+    return arr;
+}
+/* harmony default export */ const esm_browser_parse = (parse);
+
+;// CONCATENATED MODULE: ./node_modules/next-auth/node_modules/uuid/dist/esm-browser/v35.js
+
+
+function stringToBytes(str) {
+    str = unescape(encodeURIComponent(str)); // UTF8 escape
+    var bytes = [];
+    for(var i = 0; i < str.length; ++i){
+        bytes.push(str.charCodeAt(i));
+    }
+    return bytes;
+}
+var DNS = "6ba7b810-9dad-11d1-80b4-00c04fd430c8";
+var URL = "6ba7b811-9dad-11d1-80b4-00c04fd430c8";
+/* harmony default export */ function v35(name, version, hashfunc) {
+    function generateUUID(value, namespace, buf, offset) {
+        if (typeof value === "string") {
+            value = stringToBytes(value);
+        }
+        if (typeof namespace === "string") {
+            namespace = esm_browser_parse(namespace);
+        }
+        if (namespace.length !== 16) {
+            throw TypeError("Namespace must be array-like (16 iterable integer values, 0-255)");
+        } // Compute hash of namespace and value, Per 4.3
+        // Future: Use spread syntax when supported on all platforms, e.g. `bytes =
+        // hashfunc([...namespace, ... value])`
+        var bytes = new Uint8Array(16 + value.length);
+        bytes.set(namespace);
+        bytes.set(value, namespace.length);
+        bytes = hashfunc(bytes);
+        bytes[6] = bytes[6] & 0x0f | version;
+        bytes[8] = bytes[8] & 0x3f | 0x80;
+        if (buf) {
+            offset = offset || 0;
+            for(var i = 0; i < 16; ++i){
+                buf[offset + i] = bytes[i];
+            }
+            return buf;
+        }
+        return esm_browser_stringify(bytes);
+    } // Function#name is not settable on some platforms (#270)
+    try {
+        generateUUID.name = name; // eslint-disable-next-line no-empty
+    } catch (err) {} // For CommonJS default export support
+    generateUUID.DNS = DNS;
+    generateUUID.URL = URL;
+    return generateUUID;
+}
+
+;// CONCATENATED MODULE: ./node_modules/next-auth/node_modules/uuid/dist/esm-browser/md5.js
+/*
+ * Browser-compatible JavaScript MD5
+ *
+ * Modification of JavaScript MD5
+ * https://github.com/blueimp/JavaScript-MD5
+ *
+ * Copyright 2011, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * https://opensource.org/licenses/MIT
+ *
+ * Based on
+ * A JavaScript implementation of the RSA Data Security, Inc. MD5 Message
+ * Digest Algorithm, as defined in RFC 1321.
+ * Version 2.2 Copyright (C) Paul Johnston 1999 - 2009
+ * Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet
+ * Distributed under the BSD License
+ * See http://pajhome.org.uk/crypt/md5 for more info.
+ */ function md5(bytes) {
+    if (typeof bytes === "string") {
+        var msg = unescape(encodeURIComponent(bytes)); // UTF8 escape
+        bytes = new Uint8Array(msg.length);
+        for(var i = 0; i < msg.length; ++i){
+            bytes[i] = msg.charCodeAt(i);
+        }
+    }
+    return md5ToHexEncodedArray(wordsToMd5(bytesToWords(bytes), bytes.length * 8));
+}
+/*
+ * Convert an array of little-endian words to an array of bytes
+ */ function md5ToHexEncodedArray(input) {
+    var output = [];
+    var length32 = input.length * 32;
+    var hexTab = "0123456789abcdef";
+    for(var i = 0; i < length32; i += 8){
+        var x = input[i >> 5] >>> i % 32 & 0xff;
+        var hex = parseInt(hexTab.charAt(x >>> 4 & 0x0f) + hexTab.charAt(x & 0x0f), 16);
+        output.push(hex);
+    }
+    return output;
+}
+/**
+ * Calculate output length with padding and bit length
+ */ function getOutputLength(inputLength8) {
+    return (inputLength8 + 64 >>> 9 << 4) + 14 + 1;
+}
+/*
+ * Calculate the MD5 of an array of little-endian words, and a bit length.
+ */ function wordsToMd5(x, len) {
+    /* append padding */ x[len >> 5] |= 0x80 << len % 32;
+    x[getOutputLength(len) - 1] = len;
+    var a = 1732584193;
+    var b = -271733879;
+    var c = -1732584194;
+    var d = 271733878;
+    for(var i = 0; i < x.length; i += 16){
+        var olda = a;
+        var oldb = b;
+        var oldc = c;
+        var oldd = d;
+        a = md5ff(a, b, c, d, x[i], 7, -680876936);
+        d = md5ff(d, a, b, c, x[i + 1], 12, -389564586);
+        c = md5ff(c, d, a, b, x[i + 2], 17, 606105819);
+        b = md5ff(b, c, d, a, x[i + 3], 22, -1044525330);
+        a = md5ff(a, b, c, d, x[i + 4], 7, -176418897);
+        d = md5ff(d, a, b, c, x[i + 5], 12, 1200080426);
+        c = md5ff(c, d, a, b, x[i + 6], 17, -1473231341);
+        b = md5ff(b, c, d, a, x[i + 7], 22, -45705983);
+        a = md5ff(a, b, c, d, x[i + 8], 7, 1770035416);
+        d = md5ff(d, a, b, c, x[i + 9], 12, -1958414417);
+        c = md5ff(c, d, a, b, x[i + 10], 17, -42063);
+        b = md5ff(b, c, d, a, x[i + 11], 22, -1990404162);
+        a = md5ff(a, b, c, d, x[i + 12], 7, 1804603682);
+        d = md5ff(d, a, b, c, x[i + 13], 12, -40341101);
+        c = md5ff(c, d, a, b, x[i + 14], 17, -1502002290);
+        b = md5ff(b, c, d, a, x[i + 15], 22, 1236535329);
+        a = md5gg(a, b, c, d, x[i + 1], 5, -165796510);
+        d = md5gg(d, a, b, c, x[i + 6], 9, -1069501632);
+        c = md5gg(c, d, a, b, x[i + 11], 14, 643717713);
+        b = md5gg(b, c, d, a, x[i], 20, -373897302);
+        a = md5gg(a, b, c, d, x[i + 5], 5, -701558691);
+        d = md5gg(d, a, b, c, x[i + 10], 9, 38016083);
+        c = md5gg(c, d, a, b, x[i + 15], 14, -660478335);
+        b = md5gg(b, c, d, a, x[i + 4], 20, -405537848);
+        a = md5gg(a, b, c, d, x[i + 9], 5, 568446438);
+        d = md5gg(d, a, b, c, x[i + 14], 9, -1019803690);
+        c = md5gg(c, d, a, b, x[i + 3], 14, -187363961);
+        b = md5gg(b, c, d, a, x[i + 8], 20, 1163531501);
+        a = md5gg(a, b, c, d, x[i + 13], 5, -1444681467);
+        d = md5gg(d, a, b, c, x[i + 2], 9, -51403784);
+        c = md5gg(c, d, a, b, x[i + 7], 14, 1735328473);
+        b = md5gg(b, c, d, a, x[i + 12], 20, -1926607734);
+        a = md5hh(a, b, c, d, x[i + 5], 4, -378558);
+        d = md5hh(d, a, b, c, x[i + 8], 11, -2022574463);
+        c = md5hh(c, d, a, b, x[i + 11], 16, 1839030562);
+        b = md5hh(b, c, d, a, x[i + 14], 23, -35309556);
+        a = md5hh(a, b, c, d, x[i + 1], 4, -1530992060);
+        d = md5hh(d, a, b, c, x[i + 4], 11, 1272893353);
+        c = md5hh(c, d, a, b, x[i + 7], 16, -155497632);
+        b = md5hh(b, c, d, a, x[i + 10], 23, -1094730640);
+        a = md5hh(a, b, c, d, x[i + 13], 4, 681279174);
+        d = md5hh(d, a, b, c, x[i], 11, -358537222);
+        c = md5hh(c, d, a, b, x[i + 3], 16, -722521979);
+        b = md5hh(b, c, d, a, x[i + 6], 23, 76029189);
+        a = md5hh(a, b, c, d, x[i + 9], 4, -640364487);
+        d = md5hh(d, a, b, c, x[i + 12], 11, -421815835);
+        c = md5hh(c, d, a, b, x[i + 15], 16, 530742520);
+        b = md5hh(b, c, d, a, x[i + 2], 23, -995338651);
+        a = md5ii(a, b, c, d, x[i], 6, -198630844);
+        d = md5ii(d, a, b, c, x[i + 7], 10, 1126891415);
+        c = md5ii(c, d, a, b, x[i + 14], 15, -1416354905);
+        b = md5ii(b, c, d, a, x[i + 5], 21, -57434055);
+        a = md5ii(a, b, c, d, x[i + 12], 6, 1700485571);
+        d = md5ii(d, a, b, c, x[i + 3], 10, -1894986606);
+        c = md5ii(c, d, a, b, x[i + 10], 15, -1051523);
+        b = md5ii(b, c, d, a, x[i + 1], 21, -2054922799);
+        a = md5ii(a, b, c, d, x[i + 8], 6, 1873313359);
+        d = md5ii(d, a, b, c, x[i + 15], 10, -30611744);
+        c = md5ii(c, d, a, b, x[i + 6], 15, -1560198380);
+        b = md5ii(b, c, d, a, x[i + 13], 21, 1309151649);
+        a = md5ii(a, b, c, d, x[i + 4], 6, -145523070);
+        d = md5ii(d, a, b, c, x[i + 11], 10, -1120210379);
+        c = md5ii(c, d, a, b, x[i + 2], 15, 718787259);
+        b = md5ii(b, c, d, a, x[i + 9], 21, -343485551);
+        a = safeAdd(a, olda);
+        b = safeAdd(b, oldb);
+        c = safeAdd(c, oldc);
+        d = safeAdd(d, oldd);
+    }
+    return [
+        a,
+        b,
+        c,
+        d
+    ];
+}
+/*
+ * Convert an array bytes to an array of little-endian words
+ * Characters >255 have their high-byte silently ignored.
+ */ function bytesToWords(input) {
+    if (input.length === 0) {
+        return [];
+    }
+    var length8 = input.length * 8;
+    var output = new Uint32Array(getOutputLength(length8));
+    for(var i = 0; i < length8; i += 8){
+        output[i >> 5] |= (input[i / 8] & 0xff) << i % 32;
+    }
+    return output;
+}
+/*
+ * Add integers, wrapping at 2^32. This uses 16-bit operations internally
+ * to work around bugs in some JS interpreters.
+ */ function safeAdd(x, y) {
+    var lsw = (x & 0xffff) + (y & 0xffff);
+    var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
+    return msw << 16 | lsw & 0xffff;
+}
+/*
+ * Bitwise rotate a 32-bit number to the left.
+ */ function bitRotateLeft(num, cnt) {
+    return num << cnt | num >>> 32 - cnt;
+}
+/*
+ * These functions implement the four basic operations the algorithm uses.
+ */ function md5cmn(q, a, b, x, s, t) {
+    return safeAdd(bitRotateLeft(safeAdd(safeAdd(a, q), safeAdd(x, t)), s), b);
+}
+function md5ff(a, b, c, d, x, s, t) {
+    return md5cmn(b & c | ~b & d, a, b, x, s, t);
+}
+function md5gg(a, b, c, d, x, s, t) {
+    return md5cmn(b & d | c & ~d, a, b, x, s, t);
+}
+function md5hh(a, b, c, d, x, s, t) {
+    return md5cmn(b ^ c ^ d, a, b, x, s, t);
+}
+function md5ii(a, b, c, d, x, s, t) {
+    return md5cmn(c ^ (b | ~d), a, b, x, s, t);
+}
+/* harmony default export */ const esm_browser_md5 = (md5);
+
+;// CONCATENATED MODULE: ./node_modules/next-auth/node_modules/uuid/dist/esm-browser/v3.js
+
+
+var v3 = v35("v3", 0x30, esm_browser_md5);
+/* harmony default export */ const esm_browser_v3 = (v3);
+
+;// CONCATENATED MODULE: ./node_modules/next-auth/node_modules/uuid/dist/esm-browser/v4.js
+
+
+function v4(options, buf, offset) {
+    options = options || {};
+    var rnds = options.random || (options.rng || rng)(); // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
+    rnds[6] = rnds[6] & 0x0f | 0x40;
+    rnds[8] = rnds[8] & 0x3f | 0x80; // Copy bytes to buffer, if provided
+    if (buf) {
+        offset = offset || 0;
+        for(var i = 0; i < 16; ++i){
+            buf[offset + i] = rnds[i];
+        }
+        return buf;
+    }
+    return esm_browser_stringify(rnds);
+}
+/* harmony default export */ const esm_browser_v4 = (v4);
+
+;// CONCATENATED MODULE: ./node_modules/next-auth/node_modules/uuid/dist/esm-browser/sha1.js
+// Adapted from Chris Veness' SHA1 code at
+// http://www.movable-type.co.uk/scripts/sha1.html
+function f(s, x, y, z) {
+    switch(s){
+        case 0:
+            return x & y ^ ~x & z;
+        case 1:
+            return x ^ y ^ z;
+        case 2:
+            return x & y ^ x & z ^ y & z;
+        case 3:
+            return x ^ y ^ z;
+    }
+}
+function ROTL(x, n) {
+    return x << n | x >>> 32 - n;
+}
+function sha1(bytes) {
+    var K = [
+        0x5a827999,
+        0x6ed9eba1,
+        0x8f1bbcdc,
+        0xca62c1d6
+    ];
+    var H = [
+        0x67452301,
+        0xefcdab89,
+        0x98badcfe,
+        0x10325476,
+        0xc3d2e1f0
+    ];
+    if (typeof bytes === "string") {
+        var msg = unescape(encodeURIComponent(bytes)); // UTF8 escape
+        bytes = [];
+        for(var i = 0; i < msg.length; ++i){
+            bytes.push(msg.charCodeAt(i));
+        }
+    } else if (!Array.isArray(bytes)) {
+        // Convert Array-like to Array
+        bytes = Array.prototype.slice.call(bytes);
+    }
+    bytes.push(0x80);
+    var l = bytes.length / 4 + 2;
+    var N = Math.ceil(l / 16);
+    var M = new Array(N);
+    for(var _i = 0; _i < N; ++_i){
+        var arr = new Uint32Array(16);
+        for(var j = 0; j < 16; ++j){
+            arr[j] = bytes[_i * 64 + j * 4] << 24 | bytes[_i * 64 + j * 4 + 1] << 16 | bytes[_i * 64 + j * 4 + 2] << 8 | bytes[_i * 64 + j * 4 + 3];
+        }
+        M[_i] = arr;
+    }
+    M[N - 1][14] = (bytes.length - 1) * 8 / Math.pow(2, 32);
+    M[N - 1][14] = Math.floor(M[N - 1][14]);
+    M[N - 1][15] = (bytes.length - 1) * 8 & 0xffffffff;
+    for(var _i2 = 0; _i2 < N; ++_i2){
+        var W = new Uint32Array(80);
+        for(var t = 0; t < 16; ++t){
+            W[t] = M[_i2][t];
+        }
+        for(var _t = 16; _t < 80; ++_t){
+            W[_t] = ROTL(W[_t - 3] ^ W[_t - 8] ^ W[_t - 14] ^ W[_t - 16], 1);
+        }
+        var a = H[0];
+        var b = H[1];
+        var c = H[2];
+        var d = H[3];
+        var e = H[4];
+        for(var _t2 = 0; _t2 < 80; ++_t2){
+            var s = Math.floor(_t2 / 20);
+            var T = ROTL(a, 5) + f(s, b, c, d) + e + K[s] + W[_t2] >>> 0;
+            e = d;
+            d = c;
+            c = ROTL(b, 30) >>> 0;
+            b = a;
+            a = T;
+        }
+        H[0] = H[0] + a >>> 0;
+        H[1] = H[1] + b >>> 0;
+        H[2] = H[2] + c >>> 0;
+        H[3] = H[3] + d >>> 0;
+        H[4] = H[4] + e >>> 0;
+    }
+    return [
+        H[0] >> 24 & 0xff,
+        H[0] >> 16 & 0xff,
+        H[0] >> 8 & 0xff,
+        H[0] & 0xff,
+        H[1] >> 24 & 0xff,
+        H[1] >> 16 & 0xff,
+        H[1] >> 8 & 0xff,
+        H[1] & 0xff,
+        H[2] >> 24 & 0xff,
+        H[2] >> 16 & 0xff,
+        H[2] >> 8 & 0xff,
+        H[2] & 0xff,
+        H[3] >> 24 & 0xff,
+        H[3] >> 16 & 0xff,
+        H[3] >> 8 & 0xff,
+        H[3] & 0xff,
+        H[4] >> 24 & 0xff,
+        H[4] >> 16 & 0xff,
+        H[4] >> 8 & 0xff,
+        H[4] & 0xff
+    ];
+}
+/* harmony default export */ const esm_browser_sha1 = (sha1);
+
+;// CONCATENATED MODULE: ./node_modules/next-auth/node_modules/uuid/dist/esm-browser/v5.js
+
+
+var v5 = v35("v5", 0x50, esm_browser_sha1);
+/* harmony default export */ const esm_browser_v5 = (v5);
+
+;// CONCATENATED MODULE: ./node_modules/next-auth/node_modules/uuid/dist/esm-browser/nil.js
+/* harmony default export */ const nil = ("00000000-0000-0000-0000-000000000000");
+
+;// CONCATENATED MODULE: ./node_modules/next-auth/node_modules/uuid/dist/esm-browser/version.js
+
+function version(uuid) {
+    if (!esm_browser_validate(uuid)) {
+        throw TypeError("Invalid UUID");
+    }
+    return parseInt(uuid.substr(14, 1), 16);
+}
+/* harmony default export */ const esm_browser_version = (version);
+
+;// CONCATENATED MODULE: ./node_modules/next-auth/node_modules/uuid/dist/esm-browser/index.js
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ 935:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -1879,7 +2485,7 @@ function parseUrl(url) {
 
 /***/ }),
 
-/***/ 865:
+/***/ 929:
 /***/ ((module) => {
 
 "use strict";
@@ -2132,11 +2738,13 @@ var RequestCookies = class {
 var ResponseCookies = class {
     constructor(responseHeaders){
         /** @internal */ this._parsed = /* @__PURE__ */ new Map();
-        var _a, _b, _c;
+        var _a, _b;
         this._headers = responseHeaders;
-        const setCookie = // @ts-expect-error See https://github.com/whatwg/fetch/issues/973
-        (_c = (_b = (_a = responseHeaders.getAll) == null ? void 0 : _a.call(responseHeaders, "set-cookie")) != null ? _b : responseHeaders.get("set-cookie")) != null ? _c : [];
-        const cookieStrings = Array.isArray(setCookie) ? setCookie : splitCookiesString(setCookie);
+        const setCookie = (_a = responseHeaders.getSetCookie) == null ? void 0 : _a.call(responseHeaders);
+        (_b = responseHeaders.get("set-cookie")) != null ? _b : [];
+        const cookieStrings = Array.isArray(setCookie) ? setCookie : // TODO: remove splitCookiesString when `getSetCookie` adoption is high enough in Node.js
+        // https://developer.mozilla.org/en-US/docs/Web/API/Headers/getSetCookie#browser_compatibility
+        splitCookiesString(setCookie);
         for (const cookieString of cookieStrings){
             const parsed = parseSetCookie(cookieString);
             if (parsed) this._parsed.set(parsed.name, parsed);
@@ -2234,7 +2842,7 @@ function normalizeCookie(cookie = {
 
 /***/ }),
 
-/***/ 487:
+/***/ 104:
 /***/ ((module) => {
 
 "use strict";
@@ -2362,7 +2970,7 @@ var __dirname = "/";
 
 /***/ }),
 
-/***/ 403:
+/***/ 479:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2594,31 +3202,38 @@ function getNextPathnameInfo(pathname, options) {
     var _options_nextConfig;
     const { basePath, i18n, trailingSlash } = (_options_nextConfig = options.nextConfig) != null ? _options_nextConfig : {};
     const info = {
-        pathname: pathname,
+        pathname,
         trailingSlash: pathname !== "/" ? pathname.endsWith("/") : trailingSlash
     };
     if (basePath && pathHasPrefix(info.pathname, basePath)) {
         info.pathname = removePathPrefix(info.pathname, basePath);
         info.basePath = basePath;
     }
-    if (options.parseData === true && info.pathname.startsWith("/_next/data/") && info.pathname.endsWith(".json")) {
+    let pathnameNoDataPrefix = info.pathname;
+    if (info.pathname.startsWith("/_next/data/") && info.pathname.endsWith(".json")) {
         const paths = info.pathname.replace(/^\/_next\/data\//, "").replace(/\.json$/, "").split("/");
         const buildId = paths[0];
-        info.pathname = paths[1] !== "index" ? "/" + paths.slice(1).join("/") : "/";
         info.buildId = buildId;
+        pathnameNoDataPrefix = paths[1] !== "index" ? "/" + paths.slice(1).join("/") : "/";
+        // update pathname with normalized if enabled although
+        // we use normalized to populate locale info still
+        if (options.parseData === true) {
+            info.pathname = pathnameNoDataPrefix;
+        }
     }
     // If provided, use the locale route normalizer to detect the locale instead
     // of the function below.
-    if (options.i18nProvider) {
-        const result = options.i18nProvider.analyze(info.pathname);
+    if (i18n) {
+        let result = options.i18nProvider ? options.i18nProvider.analyze(info.pathname) : normalizeLocalePath(info.pathname, i18n.locales);
         info.locale = result.detectedLocale;
         var _result_pathname;
         info.pathname = (_result_pathname = result.pathname) != null ? _result_pathname : info.pathname;
-    } else if (i18n) {
-        const pathLocale = normalizeLocalePath(info.pathname, i18n.locales);
-        info.locale = pathLocale.detectedLocale;
-        var _pathLocale_pathname;
-        info.pathname = (_pathLocale_pathname = pathLocale.pathname) != null ? _pathLocale_pathname : info.pathname;
+        if (!result.detectedLocale && info.buildId) {
+            result = options.i18nProvider ? options.i18nProvider.analyze(pathnameNoDataPrefix) : normalizeLocalePath(pathnameNoDataPrefix, i18n.locales);
+            if (result.detectedLocale) {
+                info.locale = result.detectedLocale;
+            }
+        }
     }
     return info;
 } //# sourceMappingURL=get-next-pathname-info.js.map
@@ -2651,7 +3266,7 @@ class NextURL {
         this.analyze();
     }
     analyze() {
-        var _this_Internal_options_nextConfig, _this_Internal_options_nextConfig_i18n, _this_Internal_domainLocale, _this_Internal_options_nextConfig1, _this_Internal_options_nextConfig_i18n1;
+        var _this_Internal_options_nextConfig_i18n, _this_Internal_options_nextConfig, _this_Internal_domainLocale, _this_Internal_options_nextConfig_i18n1, _this_Internal_options_nextConfig1;
         const info = getNextPathnameInfo(this[Internal].url.pathname, {
             nextConfig: this[Internal].options.nextConfig,
             parseData: !undefined,
@@ -2690,7 +3305,7 @@ class NextURL {
         return this[Internal].locale ?? "";
     }
     set locale(locale) {
-        var _this_Internal_options_nextConfig, _this_Internal_options_nextConfig_i18n;
+        var _this_Internal_options_nextConfig_i18n, _this_Internal_options_nextConfig;
         if (!this[Internal].locale || !((_this_Internal_options_nextConfig = this[Internal].options.nextConfig) == null ? void 0 : (_this_Internal_options_nextConfig_i18n = _this_Internal_options_nextConfig.i18n) == null ? void 0 : _this_Internal_options_nextConfig_i18n.locales.includes(locale))) {
             throw new TypeError(`The NextURL configuration includes no locale "${locale}"`);
         }
@@ -2807,7 +3422,7 @@ class NextURL {
 
 /***/ }),
 
-/***/ 635:
+/***/ 423:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2815,23 +3430,23 @@ class NextURL {
 /* harmony export */   n: () => (/* reexport safe */ next_dist_compiled_edge_runtime_cookies__WEBPACK_IMPORTED_MODULE_0__.ResponseCookies),
 /* harmony export */   q: () => (/* reexport safe */ next_dist_compiled_edge_runtime_cookies__WEBPACK_IMPORTED_MODULE_0__.RequestCookies)
 /* harmony export */ });
-/* harmony import */ var next_dist_compiled_edge_runtime_cookies__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(865);
+/* harmony import */ var next_dist_compiled_edge_runtime_cookies__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(929);
 /* harmony import */ var next_dist_compiled_edge_runtime_cookies__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_dist_compiled_edge_runtime_cookies__WEBPACK_IMPORTED_MODULE_0__);
  //# sourceMappingURL=cookies.js.map
 
 
 /***/ }),
 
-/***/ 984:
+/***/ 723:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   x: () => (/* binding */ NextResponse)
 /* harmony export */ });
-/* harmony import */ var _next_url__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(403);
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(982);
-/* harmony import */ var _cookies__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(635);
+/* harmony import */ var _next_url__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(479);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(181);
+/* harmony import */ var _cookies__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(423);
 
 
 
@@ -2887,7 +3502,6 @@ class NextResponse extends Response {
         return this[INTERNALS].cookies;
     }
     static json(body, init) {
-        // @ts-expect-error This is not in lib/dom right now, and we can't augment it.
         const response = Response.json(body, init);
         return new NextResponse(response.body, response);
     }
@@ -2928,7 +3542,7 @@ class NextResponse extends Response {
 
 /***/ }),
 
-/***/ 982:
+/***/ 181:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3065,586 +3679,7 @@ class NextResponse extends Response {
 
 /***/ }),
 
-/***/ 644:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  NIL: () => (/* reexport */ nil),
-  parse: () => (/* reexport */ esm_browser_parse),
-  stringify: () => (/* reexport */ esm_browser_stringify),
-  v1: () => (/* reexport */ esm_browser_v1),
-  v3: () => (/* reexport */ esm_browser_v3),
-  v4: () => (/* reexport */ esm_browser_v4),
-  v5: () => (/* reexport */ esm_browser_v5),
-  validate: () => (/* reexport */ esm_browser_validate),
-  version: () => (/* reexport */ esm_browser_version)
-});
-
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/rng.js
-// Unique ID creation requires a high quality random # generator. In the browser we therefore
-// require the crypto API and do not support built-in fallback to lower quality random number
-// generators (like Math.random()).
-var getRandomValues;
-var rnds8 = new Uint8Array(16);
-function rng() {
-    // lazy load so that environments that need to polyfill have a chance to do so
-    if (!getRandomValues) {
-        // getRandomValues needs to be invoked in a context where "this" is a Crypto implementation. Also,
-        // find the complete implementation of crypto (msCrypto) on IE11.
-        getRandomValues = typeof crypto !== "undefined" && crypto.getRandomValues && crypto.getRandomValues.bind(crypto) || typeof msCrypto !== "undefined" && typeof msCrypto.getRandomValues === "function" && msCrypto.getRandomValues.bind(msCrypto);
-        if (!getRandomValues) {
-            throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");
-        }
-    }
-    return getRandomValues(rnds8);
-}
-
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/regex.js
-/* harmony default export */ const regex = (/^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i);
-
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/validate.js
-
-function validate(uuid) {
-    return typeof uuid === "string" && regex.test(uuid);
-}
-/* harmony default export */ const esm_browser_validate = (validate);
-
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/stringify.js
-
-/**
- * Convert array of 16 byte values to UUID string format of the form:
- * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
- */ var byteToHex = [];
-for(var i = 0; i < 256; ++i){
-    byteToHex.push((i + 0x100).toString(16).substr(1));
-}
-function stringify(arr) {
-    var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-    // Note: Be careful editing this code!  It's been tuned for performance
-    // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
-    var uuid = (byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + "-" + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + "-" + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + "-" + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + "-" + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]]).toLowerCase(); // Consistency check for valid UUID.  If this throws, it's likely due to one
-    // of the following:
-    // - One or more input array values don't map to a hex octet (leading to
-    // "undefined" in the uuid)
-    // - Invalid input values for the RFC `version` or `variant` fields
-    if (!esm_browser_validate(uuid)) {
-        throw TypeError("Stringified UUID is invalid");
-    }
-    return uuid;
-}
-/* harmony default export */ const esm_browser_stringify = (stringify);
-
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/v1.js
-
- // **`v1()` - Generate time-based UUID**
-//
-// Inspired by https://github.com/LiosK/UUID.js
-// and http://docs.python.org/library/uuid.html
-var _nodeId;
-var _clockseq; // Previous uuid creation time
-var _lastMSecs = 0;
-var _lastNSecs = 0; // See https://github.com/uuidjs/uuid for API details
-function v1(options, buf, offset) {
-    var i = buf && offset || 0;
-    var b = buf || new Array(16);
-    options = options || {};
-    var node = options.node || _nodeId;
-    var clockseq = options.clockseq !== undefined ? options.clockseq : _clockseq; // node and clockseq need to be initialized to random values if they're not
-    // specified.  We do this lazily to minimize issues related to insufficient
-    // system entropy.  See #189
-    if (node == null || clockseq == null) {
-        var seedBytes = options.random || (options.rng || rng)();
-        if (node == null) {
-            // Per 4.5, create and 48-bit node id, (47 random bits + multicast bit = 1)
-            node = _nodeId = [
-                seedBytes[0] | 0x01,
-                seedBytes[1],
-                seedBytes[2],
-                seedBytes[3],
-                seedBytes[4],
-                seedBytes[5]
-            ];
-        }
-        if (clockseq == null) {
-            // Per 4.2.2, randomize (14 bit) clockseq
-            clockseq = _clockseq = (seedBytes[6] << 8 | seedBytes[7]) & 0x3fff;
-        }
-    } // UUID timestamps are 100 nano-second units since the Gregorian epoch,
-    // (1582-10-15 00:00).  JSNumbers aren't precise enough for this, so
-    // time is handled internally as 'msecs' (integer milliseconds) and 'nsecs'
-    // (100-nanoseconds offset from msecs) since unix epoch, 1970-01-01 00:00.
-    var msecs = options.msecs !== undefined ? options.msecs : Date.now(); // Per 4.2.1.2, use count of uuid's generated during the current clock
-    // cycle to simulate higher resolution clock
-    var nsecs = options.nsecs !== undefined ? options.nsecs : _lastNSecs + 1; // Time since last uuid creation (in msecs)
-    var dt = msecs - _lastMSecs + (nsecs - _lastNSecs) / 10000; // Per 4.2.1.2, Bump clockseq on clock regression
-    if (dt < 0 && options.clockseq === undefined) {
-        clockseq = clockseq + 1 & 0x3fff;
-    } // Reset nsecs if clock regresses (new clockseq) or we've moved onto a new
-    // time interval
-    if ((dt < 0 || msecs > _lastMSecs) && options.nsecs === undefined) {
-        nsecs = 0;
-    } // Per 4.2.1.2 Throw error if too many uuids are requested
-    if (nsecs >= 10000) {
-        throw new Error("uuid.v1(): Can't create more than 10M uuids/sec");
-    }
-    _lastMSecs = msecs;
-    _lastNSecs = nsecs;
-    _clockseq = clockseq; // Per 4.1.4 - Convert from unix epoch to Gregorian epoch
-    msecs += 12219292800000; // `time_low`
-    var tl = ((msecs & 0xfffffff) * 10000 + nsecs) % 0x100000000;
-    b[i++] = tl >>> 24 & 0xff;
-    b[i++] = tl >>> 16 & 0xff;
-    b[i++] = tl >>> 8 & 0xff;
-    b[i++] = tl & 0xff; // `time_mid`
-    var tmh = msecs / 0x100000000 * 10000 & 0xfffffff;
-    b[i++] = tmh >>> 8 & 0xff;
-    b[i++] = tmh & 0xff; // `time_high_and_version`
-    b[i++] = tmh >>> 24 & 0xf | 0x10; // include version
-    b[i++] = tmh >>> 16 & 0xff; // `clock_seq_hi_and_reserved` (Per 4.2.2 - include variant)
-    b[i++] = clockseq >>> 8 | 0x80; // `clock_seq_low`
-    b[i++] = clockseq & 0xff; // `node`
-    for(var n = 0; n < 6; ++n){
-        b[i + n] = node[n];
-    }
-    return buf || esm_browser_stringify(b);
-}
-/* harmony default export */ const esm_browser_v1 = (v1);
-
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/parse.js
-
-function parse(uuid) {
-    if (!esm_browser_validate(uuid)) {
-        throw TypeError("Invalid UUID");
-    }
-    var v;
-    var arr = new Uint8Array(16); // Parse ########-....-....-....-............
-    arr[0] = (v = parseInt(uuid.slice(0, 8), 16)) >>> 24;
-    arr[1] = v >>> 16 & 0xff;
-    arr[2] = v >>> 8 & 0xff;
-    arr[3] = v & 0xff; // Parse ........-####-....-....-............
-    arr[4] = (v = parseInt(uuid.slice(9, 13), 16)) >>> 8;
-    arr[5] = v & 0xff; // Parse ........-....-####-....-............
-    arr[6] = (v = parseInt(uuid.slice(14, 18), 16)) >>> 8;
-    arr[7] = v & 0xff; // Parse ........-....-....-####-............
-    arr[8] = (v = parseInt(uuid.slice(19, 23), 16)) >>> 8;
-    arr[9] = v & 0xff; // Parse ........-....-....-....-############
-    // (Use "/" to avoid 32-bit truncation when bit-shifting high-order bytes)
-    arr[10] = (v = parseInt(uuid.slice(24, 36), 16)) / 0x10000000000 & 0xff;
-    arr[11] = v / 0x100000000 & 0xff;
-    arr[12] = v >>> 24 & 0xff;
-    arr[13] = v >>> 16 & 0xff;
-    arr[14] = v >>> 8 & 0xff;
-    arr[15] = v & 0xff;
-    return arr;
-}
-/* harmony default export */ const esm_browser_parse = (parse);
-
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/v35.js
-
-
-function stringToBytes(str) {
-    str = unescape(encodeURIComponent(str)); // UTF8 escape
-    var bytes = [];
-    for(var i = 0; i < str.length; ++i){
-        bytes.push(str.charCodeAt(i));
-    }
-    return bytes;
-}
-var DNS = "6ba7b810-9dad-11d1-80b4-00c04fd430c8";
-var URL = "6ba7b811-9dad-11d1-80b4-00c04fd430c8";
-/* harmony default export */ function v35(name, version, hashfunc) {
-    function generateUUID(value, namespace, buf, offset) {
-        if (typeof value === "string") {
-            value = stringToBytes(value);
-        }
-        if (typeof namespace === "string") {
-            namespace = esm_browser_parse(namespace);
-        }
-        if (namespace.length !== 16) {
-            throw TypeError("Namespace must be array-like (16 iterable integer values, 0-255)");
-        } // Compute hash of namespace and value, Per 4.3
-        // Future: Use spread syntax when supported on all platforms, e.g. `bytes =
-        // hashfunc([...namespace, ... value])`
-        var bytes = new Uint8Array(16 + value.length);
-        bytes.set(namespace);
-        bytes.set(value, namespace.length);
-        bytes = hashfunc(bytes);
-        bytes[6] = bytes[6] & 0x0f | version;
-        bytes[8] = bytes[8] & 0x3f | 0x80;
-        if (buf) {
-            offset = offset || 0;
-            for(var i = 0; i < 16; ++i){
-                buf[offset + i] = bytes[i];
-            }
-            return buf;
-        }
-        return esm_browser_stringify(bytes);
-    } // Function#name is not settable on some platforms (#270)
-    try {
-        generateUUID.name = name; // eslint-disable-next-line no-empty
-    } catch (err) {} // For CommonJS default export support
-    generateUUID.DNS = DNS;
-    generateUUID.URL = URL;
-    return generateUUID;
-}
-
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/md5.js
-/*
- * Browser-compatible JavaScript MD5
- *
- * Modification of JavaScript MD5
- * https://github.com/blueimp/JavaScript-MD5
- *
- * Copyright 2011, Sebastian Tschan
- * https://blueimp.net
- *
- * Licensed under the MIT license:
- * https://opensource.org/licenses/MIT
- *
- * Based on
- * A JavaScript implementation of the RSA Data Security, Inc. MD5 Message
- * Digest Algorithm, as defined in RFC 1321.
- * Version 2.2 Copyright (C) Paul Johnston 1999 - 2009
- * Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet
- * Distributed under the BSD License
- * See http://pajhome.org.uk/crypt/md5 for more info.
- */ function md5(bytes) {
-    if (typeof bytes === "string") {
-        var msg = unescape(encodeURIComponent(bytes)); // UTF8 escape
-        bytes = new Uint8Array(msg.length);
-        for(var i = 0; i < msg.length; ++i){
-            bytes[i] = msg.charCodeAt(i);
-        }
-    }
-    return md5ToHexEncodedArray(wordsToMd5(bytesToWords(bytes), bytes.length * 8));
-}
-/*
- * Convert an array of little-endian words to an array of bytes
- */ function md5ToHexEncodedArray(input) {
-    var output = [];
-    var length32 = input.length * 32;
-    var hexTab = "0123456789abcdef";
-    for(var i = 0; i < length32; i += 8){
-        var x = input[i >> 5] >>> i % 32 & 0xff;
-        var hex = parseInt(hexTab.charAt(x >>> 4 & 0x0f) + hexTab.charAt(x & 0x0f), 16);
-        output.push(hex);
-    }
-    return output;
-}
-/**
- * Calculate output length with padding and bit length
- */ function getOutputLength(inputLength8) {
-    return (inputLength8 + 64 >>> 9 << 4) + 14 + 1;
-}
-/*
- * Calculate the MD5 of an array of little-endian words, and a bit length.
- */ function wordsToMd5(x, len) {
-    /* append padding */ x[len >> 5] |= 0x80 << len % 32;
-    x[getOutputLength(len) - 1] = len;
-    var a = 1732584193;
-    var b = -271733879;
-    var c = -1732584194;
-    var d = 271733878;
-    for(var i = 0; i < x.length; i += 16){
-        var olda = a;
-        var oldb = b;
-        var oldc = c;
-        var oldd = d;
-        a = md5ff(a, b, c, d, x[i], 7, -680876936);
-        d = md5ff(d, a, b, c, x[i + 1], 12, -389564586);
-        c = md5ff(c, d, a, b, x[i + 2], 17, 606105819);
-        b = md5ff(b, c, d, a, x[i + 3], 22, -1044525330);
-        a = md5ff(a, b, c, d, x[i + 4], 7, -176418897);
-        d = md5ff(d, a, b, c, x[i + 5], 12, 1200080426);
-        c = md5ff(c, d, a, b, x[i + 6], 17, -1473231341);
-        b = md5ff(b, c, d, a, x[i + 7], 22, -45705983);
-        a = md5ff(a, b, c, d, x[i + 8], 7, 1770035416);
-        d = md5ff(d, a, b, c, x[i + 9], 12, -1958414417);
-        c = md5ff(c, d, a, b, x[i + 10], 17, -42063);
-        b = md5ff(b, c, d, a, x[i + 11], 22, -1990404162);
-        a = md5ff(a, b, c, d, x[i + 12], 7, 1804603682);
-        d = md5ff(d, a, b, c, x[i + 13], 12, -40341101);
-        c = md5ff(c, d, a, b, x[i + 14], 17, -1502002290);
-        b = md5ff(b, c, d, a, x[i + 15], 22, 1236535329);
-        a = md5gg(a, b, c, d, x[i + 1], 5, -165796510);
-        d = md5gg(d, a, b, c, x[i + 6], 9, -1069501632);
-        c = md5gg(c, d, a, b, x[i + 11], 14, 643717713);
-        b = md5gg(b, c, d, a, x[i], 20, -373897302);
-        a = md5gg(a, b, c, d, x[i + 5], 5, -701558691);
-        d = md5gg(d, a, b, c, x[i + 10], 9, 38016083);
-        c = md5gg(c, d, a, b, x[i + 15], 14, -660478335);
-        b = md5gg(b, c, d, a, x[i + 4], 20, -405537848);
-        a = md5gg(a, b, c, d, x[i + 9], 5, 568446438);
-        d = md5gg(d, a, b, c, x[i + 14], 9, -1019803690);
-        c = md5gg(c, d, a, b, x[i + 3], 14, -187363961);
-        b = md5gg(b, c, d, a, x[i + 8], 20, 1163531501);
-        a = md5gg(a, b, c, d, x[i + 13], 5, -1444681467);
-        d = md5gg(d, a, b, c, x[i + 2], 9, -51403784);
-        c = md5gg(c, d, a, b, x[i + 7], 14, 1735328473);
-        b = md5gg(b, c, d, a, x[i + 12], 20, -1926607734);
-        a = md5hh(a, b, c, d, x[i + 5], 4, -378558);
-        d = md5hh(d, a, b, c, x[i + 8], 11, -2022574463);
-        c = md5hh(c, d, a, b, x[i + 11], 16, 1839030562);
-        b = md5hh(b, c, d, a, x[i + 14], 23, -35309556);
-        a = md5hh(a, b, c, d, x[i + 1], 4, -1530992060);
-        d = md5hh(d, a, b, c, x[i + 4], 11, 1272893353);
-        c = md5hh(c, d, a, b, x[i + 7], 16, -155497632);
-        b = md5hh(b, c, d, a, x[i + 10], 23, -1094730640);
-        a = md5hh(a, b, c, d, x[i + 13], 4, 681279174);
-        d = md5hh(d, a, b, c, x[i], 11, -358537222);
-        c = md5hh(c, d, a, b, x[i + 3], 16, -722521979);
-        b = md5hh(b, c, d, a, x[i + 6], 23, 76029189);
-        a = md5hh(a, b, c, d, x[i + 9], 4, -640364487);
-        d = md5hh(d, a, b, c, x[i + 12], 11, -421815835);
-        c = md5hh(c, d, a, b, x[i + 15], 16, 530742520);
-        b = md5hh(b, c, d, a, x[i + 2], 23, -995338651);
-        a = md5ii(a, b, c, d, x[i], 6, -198630844);
-        d = md5ii(d, a, b, c, x[i + 7], 10, 1126891415);
-        c = md5ii(c, d, a, b, x[i + 14], 15, -1416354905);
-        b = md5ii(b, c, d, a, x[i + 5], 21, -57434055);
-        a = md5ii(a, b, c, d, x[i + 12], 6, 1700485571);
-        d = md5ii(d, a, b, c, x[i + 3], 10, -1894986606);
-        c = md5ii(c, d, a, b, x[i + 10], 15, -1051523);
-        b = md5ii(b, c, d, a, x[i + 1], 21, -2054922799);
-        a = md5ii(a, b, c, d, x[i + 8], 6, 1873313359);
-        d = md5ii(d, a, b, c, x[i + 15], 10, -30611744);
-        c = md5ii(c, d, a, b, x[i + 6], 15, -1560198380);
-        b = md5ii(b, c, d, a, x[i + 13], 21, 1309151649);
-        a = md5ii(a, b, c, d, x[i + 4], 6, -145523070);
-        d = md5ii(d, a, b, c, x[i + 11], 10, -1120210379);
-        c = md5ii(c, d, a, b, x[i + 2], 15, 718787259);
-        b = md5ii(b, c, d, a, x[i + 9], 21, -343485551);
-        a = safeAdd(a, olda);
-        b = safeAdd(b, oldb);
-        c = safeAdd(c, oldc);
-        d = safeAdd(d, oldd);
-    }
-    return [
-        a,
-        b,
-        c,
-        d
-    ];
-}
-/*
- * Convert an array bytes to an array of little-endian words
- * Characters >255 have their high-byte silently ignored.
- */ function bytesToWords(input) {
-    if (input.length === 0) {
-        return [];
-    }
-    var length8 = input.length * 8;
-    var output = new Uint32Array(getOutputLength(length8));
-    for(var i = 0; i < length8; i += 8){
-        output[i >> 5] |= (input[i / 8] & 0xff) << i % 32;
-    }
-    return output;
-}
-/*
- * Add integers, wrapping at 2^32. This uses 16-bit operations internally
- * to work around bugs in some JS interpreters.
- */ function safeAdd(x, y) {
-    var lsw = (x & 0xffff) + (y & 0xffff);
-    var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
-    return msw << 16 | lsw & 0xffff;
-}
-/*
- * Bitwise rotate a 32-bit number to the left.
- */ function bitRotateLeft(num, cnt) {
-    return num << cnt | num >>> 32 - cnt;
-}
-/*
- * These functions implement the four basic operations the algorithm uses.
- */ function md5cmn(q, a, b, x, s, t) {
-    return safeAdd(bitRotateLeft(safeAdd(safeAdd(a, q), safeAdd(x, t)), s), b);
-}
-function md5ff(a, b, c, d, x, s, t) {
-    return md5cmn(b & c | ~b & d, a, b, x, s, t);
-}
-function md5gg(a, b, c, d, x, s, t) {
-    return md5cmn(b & d | c & ~d, a, b, x, s, t);
-}
-function md5hh(a, b, c, d, x, s, t) {
-    return md5cmn(b ^ c ^ d, a, b, x, s, t);
-}
-function md5ii(a, b, c, d, x, s, t) {
-    return md5cmn(c ^ (b | ~d), a, b, x, s, t);
-}
-/* harmony default export */ const esm_browser_md5 = (md5);
-
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/v3.js
-
-
-var v3 = v35("v3", 0x30, esm_browser_md5);
-/* harmony default export */ const esm_browser_v3 = (v3);
-
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/v4.js
-
-
-function v4(options, buf, offset) {
-    options = options || {};
-    var rnds = options.random || (options.rng || rng)(); // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
-    rnds[6] = rnds[6] & 0x0f | 0x40;
-    rnds[8] = rnds[8] & 0x3f | 0x80; // Copy bytes to buffer, if provided
-    if (buf) {
-        offset = offset || 0;
-        for(var i = 0; i < 16; ++i){
-            buf[offset + i] = rnds[i];
-        }
-        return buf;
-    }
-    return esm_browser_stringify(rnds);
-}
-/* harmony default export */ const esm_browser_v4 = (v4);
-
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/sha1.js
-// Adapted from Chris Veness' SHA1 code at
-// http://www.movable-type.co.uk/scripts/sha1.html
-function f(s, x, y, z) {
-    switch(s){
-        case 0:
-            return x & y ^ ~x & z;
-        case 1:
-            return x ^ y ^ z;
-        case 2:
-            return x & y ^ x & z ^ y & z;
-        case 3:
-            return x ^ y ^ z;
-    }
-}
-function ROTL(x, n) {
-    return x << n | x >>> 32 - n;
-}
-function sha1(bytes) {
-    var K = [
-        0x5a827999,
-        0x6ed9eba1,
-        0x8f1bbcdc,
-        0xca62c1d6
-    ];
-    var H = [
-        0x67452301,
-        0xefcdab89,
-        0x98badcfe,
-        0x10325476,
-        0xc3d2e1f0
-    ];
-    if (typeof bytes === "string") {
-        var msg = unescape(encodeURIComponent(bytes)); // UTF8 escape
-        bytes = [];
-        for(var i = 0; i < msg.length; ++i){
-            bytes.push(msg.charCodeAt(i));
-        }
-    } else if (!Array.isArray(bytes)) {
-        // Convert Array-like to Array
-        bytes = Array.prototype.slice.call(bytes);
-    }
-    bytes.push(0x80);
-    var l = bytes.length / 4 + 2;
-    var N = Math.ceil(l / 16);
-    var M = new Array(N);
-    for(var _i = 0; _i < N; ++_i){
-        var arr = new Uint32Array(16);
-        for(var j = 0; j < 16; ++j){
-            arr[j] = bytes[_i * 64 + j * 4] << 24 | bytes[_i * 64 + j * 4 + 1] << 16 | bytes[_i * 64 + j * 4 + 2] << 8 | bytes[_i * 64 + j * 4 + 3];
-        }
-        M[_i] = arr;
-    }
-    M[N - 1][14] = (bytes.length - 1) * 8 / Math.pow(2, 32);
-    M[N - 1][14] = Math.floor(M[N - 1][14]);
-    M[N - 1][15] = (bytes.length - 1) * 8 & 0xffffffff;
-    for(var _i2 = 0; _i2 < N; ++_i2){
-        var W = new Uint32Array(80);
-        for(var t = 0; t < 16; ++t){
-            W[t] = M[_i2][t];
-        }
-        for(var _t = 16; _t < 80; ++_t){
-            W[_t] = ROTL(W[_t - 3] ^ W[_t - 8] ^ W[_t - 14] ^ W[_t - 16], 1);
-        }
-        var a = H[0];
-        var b = H[1];
-        var c = H[2];
-        var d = H[3];
-        var e = H[4];
-        for(var _t2 = 0; _t2 < 80; ++_t2){
-            var s = Math.floor(_t2 / 20);
-            var T = ROTL(a, 5) + f(s, b, c, d) + e + K[s] + W[_t2] >>> 0;
-            e = d;
-            d = c;
-            c = ROTL(b, 30) >>> 0;
-            b = a;
-            a = T;
-        }
-        H[0] = H[0] + a >>> 0;
-        H[1] = H[1] + b >>> 0;
-        H[2] = H[2] + c >>> 0;
-        H[3] = H[3] + d >>> 0;
-        H[4] = H[4] + e >>> 0;
-    }
-    return [
-        H[0] >> 24 & 0xff,
-        H[0] >> 16 & 0xff,
-        H[0] >> 8 & 0xff,
-        H[0] & 0xff,
-        H[1] >> 24 & 0xff,
-        H[1] >> 16 & 0xff,
-        H[1] >> 8 & 0xff,
-        H[1] & 0xff,
-        H[2] >> 24 & 0xff,
-        H[2] >> 16 & 0xff,
-        H[2] >> 8 & 0xff,
-        H[2] & 0xff,
-        H[3] >> 24 & 0xff,
-        H[3] >> 16 & 0xff,
-        H[3] >> 8 & 0xff,
-        H[3] & 0xff,
-        H[4] >> 24 & 0xff,
-        H[4] >> 16 & 0xff,
-        H[4] >> 8 & 0xff,
-        H[4] & 0xff
-    ];
-}
-/* harmony default export */ const esm_browser_sha1 = (sha1);
-
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/v5.js
-
-
-var v5 = v35("v5", 0x50, esm_browser_sha1);
-/* harmony default export */ const esm_browser_v5 = (v5);
-
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/nil.js
-/* harmony default export */ const nil = ("00000000-0000-0000-0000-000000000000");
-
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/version.js
-
-function version(uuid) {
-    if (!esm_browser_validate(uuid)) {
-        throw TypeError("Invalid UUID");
-    }
-    return parseInt(uuid.substr(14, 1), 16);
-}
-/* harmony default export */ const esm_browser_version = (version);
-
-;// CONCATENATED MODULE: ./node_modules/uuid/dist/esm-browser/index.js
-
-
-
-
-
-
-
-
-
-
-
-/***/ }),
-
-/***/ 503:
+/***/ 332:
 /***/ ((module) => {
 
 "use strict";
@@ -3660,7 +3695,7 @@ module.exports = _classApplyDescriptorGet, module.exports.__esModule = true, mod
 
 /***/ }),
 
-/***/ 262:
+/***/ 280:
 /***/ ((module) => {
 
 "use strict";
@@ -3680,7 +3715,7 @@ module.exports = _classApplyDescriptorSet, module.exports.__esModule = true, mod
 
 /***/ }),
 
-/***/ 943:
+/***/ 705:
 /***/ ((module) => {
 
 "use strict";
@@ -3696,13 +3731,13 @@ module.exports = _classExtractFieldDescriptor, module.exports.__esModule = true,
 
 /***/ }),
 
-/***/ 590:
+/***/ 278:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
-var classApplyDescriptorGet = __webpack_require__(503);
-var classExtractFieldDescriptor = __webpack_require__(943);
+var classApplyDescriptorGet = __webpack_require__(332);
+var classExtractFieldDescriptor = __webpack_require__(705);
 function _classPrivateFieldGet(receiver, privateMap) {
     var descriptor = classExtractFieldDescriptor(receiver, privateMap, "get");
     return classApplyDescriptorGet(receiver, descriptor);
@@ -3712,13 +3747,13 @@ module.exports = _classPrivateFieldGet, module.exports.__esModule = true, module
 
 /***/ }),
 
-/***/ 188:
+/***/ 780:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
-var classApplyDescriptorSet = __webpack_require__(262);
-var classExtractFieldDescriptor = __webpack_require__(943);
+var classApplyDescriptorSet = __webpack_require__(280);
+var classExtractFieldDescriptor = __webpack_require__(705);
 function _classPrivateFieldSet(receiver, privateMap, value) {
     var descriptor = classExtractFieldDescriptor(receiver, privateMap, "set");
     classApplyDescriptorSet(receiver, descriptor, value);
@@ -3729,7 +3764,7 @@ module.exports = _classPrivateFieldSet, module.exports.__esModule = true, module
 
 /***/ }),
 
-/***/ 735:
+/***/ 846:
 /***/ ((module) => {
 
 "use strict";
@@ -3744,7 +3779,7 @@ module.exports = _interopRequireDefault, module.exports.__esModule = true, modul
 
 /***/ }),
 
-/***/ 57:
+/***/ 947:
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3824,7 +3859,7 @@ async function web_hkdf(digest, ikm, salt, info, keylen) {
 
 /***/ }),
 
-/***/ 81:
+/***/ 319:
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -7963,7 +7998,7 @@ async function generate_secret_generateSecret(alg, options) {
 },
 /******/ __webpack_require__ => { // webpackRuntimeModules
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ var __webpack_exports__ = (__webpack_exec__(474));
+/******/ var __webpack_exports__ = (__webpack_exec__(967));
 /******/ (_ENTRIES = typeof _ENTRIES === "undefined" ? {} : _ENTRIES).middleware_middleware = __webpack_exports__;
 /******/ }
 ]);

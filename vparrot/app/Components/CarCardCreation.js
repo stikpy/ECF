@@ -5,13 +5,8 @@ import MaterialReactTable from "material-react-table";
 import {
   Box,
   Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
   IconButton,
-  Stack,
-  TextField,
+ 
   Tooltip,
 } from "@mui/material";
 import { Delete, Edit, ExpandMore, ChevronRight } from "@mui/icons-material";
@@ -102,9 +97,6 @@ const CarAds = () => {
       {
         accessorKey: "id",
         header: "ID",
-        enableColumnOrdering: false,
-        enableEditing: true,
-        enableSorting: true,
         size: 80,
       },
       {
@@ -123,15 +115,11 @@ const CarAds = () => {
         size: 80,
       },
       {
-        accessorKey: "imageURL",
+        accessorKey: "imageUrl",
         header: "Image",
         size: 80,
-      },
-      {
-        accessorKey: "subRows",
-        header: "",
-        size: 40,
-      },
+      }
+    
     ],
     [],
   );
@@ -152,32 +140,24 @@ const CarAds = () => {
         data={carData}
         editingMode="modal"
         enableColumnOrdering
-        enableEditing
-        onEditingRowSave={() => {}}
-        onEditingRowCancel={() => {}}
-        renderRowActions={({ row, table }) => (
-          <Box sx={{ display: "flex", gap: "1rem" }}>
-            <Tooltip arrow placement="left" title="Edit">
-              <IconButton onClick={() => table.setEditingRow(row)}>
-                <Edit />
-              </IconButton>
-            </Tooltip>
-            <Tooltip arrow placement="right" title="Delete">
-              <IconButton color="error" onClick={() => {}}>
-                <Delete />
-              </IconButton>
-            </Tooltip>
-          </Box>
-        )}
-        renderTopToolbarCustomActions={() => (
-          <Button
-            color="secondary"
-            onClick={handleOpenDialog}
-            variant="contained"
-          >
-            Créer une annonce de voiture
-          </Button>
-        )}
+        // enableEditing
+        // onEditingRowSave={() => {}}
+        // onEditingRowCancel={() => {}}
+        // renderRowActions={({ row, table }) => (
+        //   <Box sx={{ display: "flex", gap: "1rem" }}>
+        //     <Tooltip arrow placement="left" title="Edit">
+        //       <IconButton onClick={() => table.setEditingRow(row)}>
+        //         <Edit />
+        //       </IconButton>
+        //     </Tooltip>
+        //     <Tooltip arrow placement="right" title="Delete">
+        //       <IconButton color="error" onClick={() => {}}>
+        //         <Delete />
+        //       </IconButton>
+        //     </Tooltip>
+        //   </Box>
+        // )}
+        
         enableExpanding
       />
     </div>

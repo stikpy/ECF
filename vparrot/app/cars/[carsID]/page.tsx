@@ -75,11 +75,12 @@ export default function CarDetail() {
             <Link
               className="btn"
               href={`/contactForm?id=${car.id}`}
-              title="Formulmaire de renseignement"
+              title="Formulaire de renseignement"
             >
               <ContactMailIcon />
               Formulaire de contact
             </Link>
+
             <a
               className="btn"
               href="tel:+33123456789"

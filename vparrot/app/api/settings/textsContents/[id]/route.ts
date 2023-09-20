@@ -3,7 +3,7 @@ import { NextResponse, NextRequest } from "next/server";
 
 const prisma = new PrismaClient();
 
-export const GET = async (request: NextRequest) => {
+export const GET = async (request: NextRequest): Promise<NextResponse> => {
   const slug = request.url.split("textsContents/")[1];
   try {
     const content = await prisma.textContent.findFirst({
@@ -19,6 +19,7 @@ export const GET = async (request: NextRequest) => {
       );
     }
 
+    return new NextResponse(JSON.stringify(content), { status: 200 });
   } catch (err) {
     console.error("Erreur lors de la récupération du contenu:", err);
     return new NextResponse(
@@ -30,7 +31,7 @@ export const GET = async (request: NextRequest) => {
   }
 };
 
-export const PUT = async (request: NextRequest) => {
+export const PUT = async (request: NextRequest): Promise<NextResponse> => {
   try {
     const body = await request.json();
     console.log("Request body:", body);

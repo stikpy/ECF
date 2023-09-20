@@ -16,12 +16,12 @@ const Settings = () => {
         {/* Contenu principal */}
         <div className="flex">
         <Sidebar /> {/* Barre latérale à l'intérieur de SettingsLayout */}
-        <div className="flex flex-col  mx-auto gap-4 align-center">
+        <div className="flex flex-col w-full m-4 gap-4 align-center">
           <h2 className="text-center"> CAR DATA</h2>
           <CarCardCreation />
+          
         </div>
         </div>
- 
     </>
   );
 };

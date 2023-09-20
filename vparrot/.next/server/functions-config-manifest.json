@@ -5,10 +5,10 @@
     "/api/auth/profile/admin/[id]": {},
     "/api/auth/profile": {},
     "/api/cars/[id]": {},
-    "/api/services/[id]": {},
     "/api/settings/openingsHours/[id]": {},
+    "/api/services/[id]": {},
     "/api/settings/textsContents/[id]": {},
-    "/api/settings/textsContents": {},
-    "/api/testimonials/[id]": {}
+    "/api/testimonials/[id]": {},
+    "/api/settings/textsContents": {}
   }
 }

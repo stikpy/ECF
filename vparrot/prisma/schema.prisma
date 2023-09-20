@@ -55,8 +55,8 @@ model carPosts {
   createdat   DateTime?    @default(now()) @db.Timestamp(6)
   updatedat   DateTime?    @default(now()) @db.Timestamp(6)
   status      String?      @default("hors ligne") @db.VarChar(20)
-  userId      Int
-  users         users     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      Int?
+  users        users?     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model users {

@@ -15,6 +15,10 @@
         {
           "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?\\/connexionPage(.json)?[\\/#\\?]?$",
           "originalSource": "/connexionPage"
+        },
+        {
+          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?\\/setting(.json)?[\\/#\\?]?$",
+          "originalSource": "/setting"
         }
       ],
       "wasm": [],

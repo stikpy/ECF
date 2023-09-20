@@ -8,6 +8,7 @@ import StarHalfIcon from "@mui/icons-material/StarHalf";
 import Link from "next/link";
 import { useState } from "react";
 import { useSelectedLayoutSegment } from "next/navigation";
+import { signOut, signIn } from "next-auth/react";
 
 type Props = {};
 
@@ -24,7 +25,7 @@ function Sidebar({}: Props) {
         icon: DirectionsCarIcon,
         current: false,
         submenu: [
-            { name: "Add Car", href: "/settings/carsDataManagement/addCar", current: false },
+            { name: "Add Car", href: "/settings/carsDataManagement/addCarForm", current: false },
         ]
       },
       {
@@ -50,7 +51,7 @@ function Sidebar({}: Props) {
   
     return (
       <div id="sidebar" className=" h-screen lg:inset-y-0 lg:flex lg:w-72 lg:flex-col">
-        <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-4  rounded-lg border-r-2">
+        <div className="flex justify-between grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-4  rounded-lg border-r-2">
           <h1 className="text-3-xl font-bold">Logo</h1>
           <nav className=" flex flex-col">
             <ul role="list" className="flex flex-l flex-col gap-y-7">
@@ -103,8 +104,12 @@ function Sidebar({}: Props) {
               </li>
             </ul>
           </nav>
-        </div>
+          <div>
+       <button onClick={() => signOut()} className="btn bg-red-500 w-1/2  mx-auto text-white p-2 rounded-lg">Sign Out</button>
+       <button onClick={() => signIn()} className="btn btn-primary w-1/2 mx-auto text-white p-2 rounded-lg">Sign In</button>
+          </div>
       </div>
+        </div>
     );
   }
   
