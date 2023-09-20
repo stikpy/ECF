@@ -23,12 +23,18 @@ children,
 children: React.ReactNode
 }) {
 return (
-<html lang="fr">
-
+// Need to had the header and footer here
+<html lang="en">
+   {/* <Head>
+    <title>{metadata.title}</title>
+    <meta name="description" content={metadata.description} />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  </Head> */}
+ 
+  
   <body className={inter.className}>
   <ReturnTop/>
-  
-  <header className='sticky w-full '>
+  <header>
   <Header/>
   </header>
   <SessionProvider>

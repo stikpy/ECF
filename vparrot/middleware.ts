@@ -15,5 +15,5 @@ export default withAuth(
 );
 
 export const config = {
-  matcher: ['/connexionPage', '/settings'],
+  matcher: ['/connexionPage', '/settings']
 };
