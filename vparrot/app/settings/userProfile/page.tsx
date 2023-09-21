@@ -1,30 +1,33 @@
-'use client';
+'use client'
 import React, { useState } from "react";
-import Sidebar from "../../Components/Sidebar";
+import Sidebar from "@/app/Components/Sidebar";
 import UserTableView from "@/app/Components/UserTableView";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation"; 
 
-const Settings = () => {
+
+const UserProfile = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+  const { data: session } = useSession();
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
+  
+  if (!session || session.user.role !== "ADMIN" ) {
+    router.push("/accessDenied"); 
+    return null; 
+  }
 
   return (
     <>
-      
-        {/* Contenu principal */}
-        <div className="flex">
-        <Sidebar /> {/* Barre latérale à l'intérieur de SettingsLayout */}
-        <div className="flex flex-col  mx-auto gap-4 align-center">
-          <h2 className="text-center"> USER MANAGEMENT</h2>
-<UserTableView />
+      <div className="flex">
+        <Sidebar />
+        <div className="flex flex-col mx-auto gap-4 align-center">
+          <h2 className="text-center">USER MANAGEMENT</h2>
+          <UserTableView />
         </div>
-          
-        </div>
- 
+      </div>
     </>
   );
 };
 
-export default Settings;
+export default UserProfile;

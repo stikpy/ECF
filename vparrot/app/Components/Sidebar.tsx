@@ -6,7 +6,7 @@ import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { signOut, signIn } from "next-auth/react";
 
@@ -16,6 +16,7 @@ function className(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 function Sidebar({}: Props) {
+
     const [selectedLayoutSegment, setSelectedLayoutSegment] = useState('Dashboard');
     const sidebarOptions = [
       { name: "Dashboard", href: "/settings", icon: HomeIcon, current: true },
@@ -46,11 +47,20 @@ function Sidebar({}: Props) {
             { name: "Add Review", href: "/settings/testimonailsManagement/addReview", current: false },
         ]
       },
+      {
+        name: "Contenu du site",
+        href: "/settings/contentManagement",
+        icon: StarHalfIcon,
+        current: false,
+        submenu: [
+            { name: "Modifier le site", href: "/settings/contentManagement/updateData", current: false },
+        ]
+      },
       { name: "Messages", href: "#", icon: MailOutlineIcon, current: false },
     ];
   
     return (
-      <div id="sidebar" className=" h-screen lg:inset-y-0 lg:flex lg:w-72 lg:flex-col">
+      <div id="sidebar" className=" h-screen h-full lg:inset-y-0 lg:flex lg:w-72 lg:flex-col">
         <div className="flex justify-between grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-4  rounded-lg border-r-2">
           <h1 className="text-3-xl font-bold">Logo</h1>
           <nav className=" flex flex-col">
@@ -80,7 +90,6 @@ function Sidebar({}: Props) {
                         />
                         {option.name}
                       </Link>
-                      {/* Ajoutez un sous-menu ici */}
                       {option.submenu && (
                         <ul className="pl-6 space-y-2">
                           {option.submenu.map((subitem) => (
@@ -105,8 +114,7 @@ function Sidebar({}: Props) {
             </ul>
           </nav>
           <div>
-       <button onClick={() => signOut()} className="btn bg-red-500 w-1/2  mx-auto text-white p-2 rounded-lg">Sign Out</button>
-       <button onClick={() => signIn()} className="btn btn-primary w-1/2 mx-auto text-white p-2 rounded-lg">Sign In</button>
+       <button onClick={() => signOut()} className="btn bg-red-500  mx-auto text-white p-2 rounded-lg">Sign Out</button>
           </div>
       </div>
         </div>

@@ -71,13 +71,6 @@ model users {
   session   Session[]
 }
 
-model VerificationToken {
-  identifier String
-  token      String   @unique
-  expires    DateTime
-
-  @@unique([identifier, token])
-}
 
 model OpeningHours {
   id       Int      @id @default(autoincrement())

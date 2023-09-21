@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Sidebar from "../../Components/Sidebar";
 import CarCardCreation from "@/app/Components/CarCardCreation";
 
-const Settings = () => {
+const CarData = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -26,4 +26,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default CarData;

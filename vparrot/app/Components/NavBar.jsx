@@ -108,10 +108,10 @@ export default function NavBar() {
               <Link href="/#services">Services</Link>
             </li>
             <li className="hover:underline underline-offset-8 shadow-2xl hover:scale-110 ">
-              <Link href="aboutUs">A propos de nous</Link>
+              <Link href="/aboutUs">A propos de nous</Link>
             </li>
             <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
-              <Link href="connexionPage">Connexion</Link>
+              <Link href="/settings">Connexion</Link>
             </li>
           </ul>
         </div>

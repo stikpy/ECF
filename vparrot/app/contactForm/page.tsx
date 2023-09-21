@@ -49,7 +49,7 @@ export default function ContactForm() {
         router.push('/');
       }, 1000);
     }
-  }, [isSent, router, parsedSlug]); 
+  }, [isSent, router, parsedSlug, reset]); 
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-200 relative">
