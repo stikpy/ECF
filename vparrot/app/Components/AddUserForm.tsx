@@ -78,7 +78,7 @@ export default function AddUserForm() {
   };
 
   return (
-    <div className="w-1/4 h-1/4 justify-center  mx-auto my-auto
+    <div className="  justify-center  mx-auto my-auto
          p-6 bg-white rounded-lg shadow-lg">
       <h1 className="text-2xl font-semibold mb-4">Formulaire d'Utilisateur</h1>
       {isSent ? (

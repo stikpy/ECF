@@ -31,11 +31,11 @@ function Sidebar({}: Props) {
       },
       {
         name: "Users",
-        href: "/settings/userProfile",
+        href: "/settings/user",
         icon: ManageAccountsIcon,
         current: false,
         submenu: [
-            { name: "Add User", href: "/settings/userProfile/addUser", current: false },
+            { name: "Add User", href: "/settings/user/userAdd", current: false },
         ]
       },
       {
