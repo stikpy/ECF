@@ -2,10 +2,7 @@
 INSERT INTO users (email, password, firstname, lastname, role)
 VALUES
   ("user1@example.com", "password1", "John", "Doe", "ADMIN"),
-  ("user2@example.com", "password2", "Jane", "Smith", "USER"),
-  ("user3@example.com", "password3", "Bob", "Johnson", "USER"),
-  ("user4@example.com", "password4", "Alice", "Brown", "USER"),
-  ("user5@example.com", "password5", "Eve", "Williams", "USER");
+
 
 -- Insertion des annonces de voitures
 INSERT INTO "carPosts" (title, "imageUrl", description, price, km, year, status, "userId")
@@ -38,11 +35,4 @@ VALUES
   ('Jules', 4, 'Je suis satisfait de mon achat.', true, 'En ligne');
 
 -- Insertion du contenu textuel (textContent)
-INSERT INTO TextContent (slug, title, content, imageUrl)
-VALUES
-  ('header-text', 'À propos de notre garage', 'Bienvenue chez Garage AutoPro, votre source de confiance pour des voitures de qualité et un service exceptionnel. Nous sommes fiers de vous offrir un large choix de véhicules et un personnel dévoué pour vous aider à trouver la voiture parfaite.', 'https://example.com/image1.jpg'),
-  ('presentation-2', 'Notre histoire', 'Depuis plus de 20 ans, Garage AutoPro fournit à nos clients des véhicules fiables et abordables. Notre équipe experte en automobiles est là pour répondre à vos besoins et vous guider tout au long du processus .', 'https://example.com/image2.jpg'),
-  ('presentation-3', 'Nos services', 'Chez Garage AutoPro, nous offrons une gamme complète de services, de la vente de voitures  et à la réparation. Nous nous engageons à vous fournir la meilleure expérience automobile possible.', 'https://example.com/image3.jpg');
 
--- Insertion des services
-SELECT * FROM Services;

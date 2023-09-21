@@ -68,5 +68,5 @@ INSERT INTO "carPosts" (title, "imageUrl", description, price, "userId") VALUES
 ('Nissan GTR de nuit', 'https://images.pexels.com/photos/4674344/pexels-photo-4674344.jpeg?auto=compress&cs=tinysrgb&w=1200', 'Nissan GTR de nuit avec des lumières bleues', 48000, 2), -- Associer à l'utilisateur avec ID 2
 ('Mini Cooper', 'https://images.pexels.com/photos/5660840/pexels-photo-5660840.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load', 'Mini Cooper de couleur verte', 17500, 1); -- Associer à l'utilisateur avec ID 1
 INSERT INTO users (email, password, lastname, firstname, role) VALUES
-('Lea@test.com', 'leapdw', 'Dupont', 'Lea', 'ADMIN'),
-('Sophie@test.com', 'sophiepwd', 'Martin', 'Sophie', 'USER')
+('Lsea@test.com', 'lseapdw', 'Duspont', 'Lea', 'ADMIN'),
+('Sopshie@test.com', 'sosphiepwd', 'Martin', 'Sophie', 'USER')
