@@ -46,4 +46,4 @@ npm start
 Pour accéder à l'interface d'administration depuis le site, utilisez les informations suivantes :
 
 Email : vincent@parrot.com
-Mot de passe : 1Garage2Folie!
+Mot de passe : 1Garage2Fou
