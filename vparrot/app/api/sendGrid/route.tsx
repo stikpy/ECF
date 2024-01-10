@@ -10,18 +10,16 @@ const sendEmailSchema = z.object({
 });
 
 async function sendEmail(data: { name: string; email: string; message: string; subject: string }) {
-  const sendgridApiKey = "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";
+  const sendgridApiKey = process.env.SENDGRID_API_KEY;
+  if (!sendgridApiKey) {
+    console.error('SENDGRID_API_KEY is not defined');
+    return false;
+  }
   sgMail.setApiKey(sendgridApiKey);
 
-  // const msg = {
-  //   from: "contact@vparrot.online",
-  //   to: "gabriel.khaldi@gmail.com",
-  //   subject: `Message from ${data.name}`,
-  //   html: `<strong>From:</strong> ${data.name} <br/><strong>Email:</strong> ${data.email}   <br/><strong>Sujet:</strong>${data.subject} <br/><strong>Message:</strong>${data.message}`,
-  // };
   const msg = {
     from: "contact@vparrot.online",
-    to: "gabriel.khaldi@gmail.com",
+    to: "vincent-parrot@vparrot.online",
     templateId: 'd-a6a3e052e5ae411e850a368fd860a093',
     dynamic_template_data: {
       surname: data.name,
@@ -30,7 +28,6 @@ async function sendEmail(data: { name: string; email: string; message: string; s
       content: data.message,
     }
   };
-
   try {
     await sgMail.send(msg);
     return true;

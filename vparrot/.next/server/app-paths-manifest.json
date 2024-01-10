@@ -1,13 +1,14 @@
 {
   "/page": "app/page.js",
-  "/contactForm/page": "app/contactForm/page.js",
   "/api/cars/route": "app/api/cars/route.js",
   "/api/testimonials/route": "app/api/testimonials/route.js",
-  "/cars/[carsID]/page": "app/cars/[carsID]/page.js",
-  "/api/services/route": "app/api/services/route.js",
-  "/settings/user/userAdd/page": "app/settings/user/userAdd/page.js",
-  "/api/settings/openingsHours/route": "app/api/settings/openingsHours/route.js",
   "/api/settings/textsContents/route": "app/api/settings/textsContents/route.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/api/cars/[id]/route": "app/api/cars/[id]/route.js"
+  "/api/services/route": "app/api/services/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/api/settings/openingsHours/route": "app/api/settings/openingsHours/route.js",
+  "/cars/[carsID]/page": "app/cars/[carsID]/page.js",
+  "/api/cars/[id]/route": "app/api/cars/[id]/route.js",
+  "/contactForm/page": "app/contactForm/page.js",
+  "/api/sendGrid/route": "app/api/sendGrid/route.js"
 }
