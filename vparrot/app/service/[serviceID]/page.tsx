@@ -33,7 +33,7 @@ export default function ServiceDetail() {
         }
       })();
     }
-  }, [id]);
+  }, []);
 
   if (!service) {
     return (

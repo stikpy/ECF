@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 
 const UserSchema = Zod.object({
   email: Zod.string().email(),
-  password: Zod.string().min(4),
+  password: Zod.string().min(12),
 });
 
 export const authOptions: AuthOptions = {
@@ -20,11 +20,11 @@ export const authOptions: AuthOptions = {
     CredentialsProvider({
       name: 'Email and Password',
       credentials: {
-        email: { label: 'Email', type: 'email', placeholder: 'hello@example.com' },
+        email: { label: 'Email', type: 'email', placeholder: 'mon@mail.com' },
         password: { label: 'Password', type: 'password', placeholder: '********' },
       },
       async authorize(credentials) {
-        // Vérifier que credentials n'est pas undefined
+
         if (!credentials) {
           console.log("Les informations de connexion sont manquantes.");
           return null;
@@ -47,7 +47,7 @@ export const authOptions: AuthOptions = {
         );
       
         if (!isValidPassword) {
-          console.log("Mot de passe incorrect.");
+          console.log("Mot de passe ou nom d'utilisateur incorrect.");
           return null;
         }
       
@@ -66,7 +66,7 @@ export const authOptions: AuthOptions = {
       if (user) token.role = user.role;
       return token;
     },
-    session({ session, token, user }) {
+    session({ session, token }) {
       if (session?.user) {
         session.user.role = token?.role;
       }
@@ -74,8 +74,21 @@ export const authOptions: AuthOptions = {
     },
    
   },
- 
 
+  // callbacks: {
+  //   async jwt({ token, account }) {
+  //     if (account) {
+  //       token.accessToken = account.access_token
+  //     }
+  //     return token
+  //   },
+  //   async session({ session, token, user }) {
+  //     session.user.role = token.role
+  //     return session
+  //   }
+  // },
+ 
+ 
 };
 
 const handler = NextAuth(authOptions);

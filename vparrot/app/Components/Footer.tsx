@@ -17,7 +17,6 @@ export default function Footer() {
     const fetchData = async () => {
       try {
         const response = await axios.get<OpeningHour[]>("/api/settings/openingsHours");
-        // Tri des jours de la semaine par ordre croissant (ascendant)
         response.data.sort((a, b) => a.id - b.id);
         setData(response.data);
       } catch (error) {
@@ -76,11 +75,11 @@ export default function Footer() {
 
       <div>
         <span className="footer-title">Legal</span>
-        <Link href="cguv" className="link link-hover" title="Conditions générales d'utilisation">
+        <Link href="cgu" className="link link-hover" title="Conditions générales d'utilisation">
           Conditions générales d'utilisation
         </Link>
 
-        <Link href="#" title="Gestion des cookies" className="link link-hover">
+        <Link href="cookies" title="Gestion des cookies" className="link link-hover">
           Cookie policy
         </Link>
       </div>

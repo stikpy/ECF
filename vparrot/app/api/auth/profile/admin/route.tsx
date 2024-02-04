@@ -39,6 +39,29 @@ export async function POST(request: NextRequest) {
   }
 }
 
+export async function PUT(request: NextRequest) {
+  try {
+    const data = await request.json();
+
+    const user = await prisma.users.update({
+      where: {
+        id: data.id,
+      },
+      data: {
+        email: data.email,
+        firstname: data.name,
+        lastname: data.lastname,
+        password: data.password,
+      
+      },
+    });
+
+    return new NextResponse(JSON.stringify(user), { status: 200 });
+  } catch (err) {
+    return new NextResponse(JSON.stringify({ message: 'Error updating user' }), { status: 500 });
+  }
+}
+
 export async function DELETE(request: NextRequest) {
   try {
     const data = await request.json();

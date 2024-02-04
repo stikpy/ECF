@@ -8,7 +8,7 @@ import { getServerSession } from "next-auth";
 
 export default async function Page() {
   const session = await getServerSession(authOptions);
-  console.log("sessionnn", session);
+  console.log("session", session);
   if (session?.user?.role === "ADMIN") {
     return (
       <>

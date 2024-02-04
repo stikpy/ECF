@@ -53,11 +53,7 @@ export const POST = async (request: NextRequest) => {
         description,
         price,
         imageUrl: imageUrl,
-        users: {
-          // votre logique pour ajouter des utilisateurs,
-          // par exemple, en utilisant le nom d'utilisateur de l'utilisateur connecté
         },
-      },
       include: {
         users: true,
       },

@@ -12,8 +12,7 @@ async function UserAdd({}: Props) {
 
   // Vérifiez si l'utilisateur est connecté et a le rôle d'ADMIN
   if (!session || session.user.role !== "ADMIN") {
-    // Si l'utilisateur n'est pas ADMIN, redirigez-le vers une page d'accès refusé ou ailleurs.
-    // Changez le chemin en fonction de votre structure de fichiers.
+
     return (
         <div className="flex text-center mx-auto">
       <Sidebar />

@@ -3,10 +3,10 @@ import React, { ReactNode } from 'react';
 import { SessionProvider as NextAuthSessionProvider } from "next-auth/react";
 
 type SessionProviderProps = {
-  children: ReactNode; // Définissez le type pour children
+  children: ReactNode; 
 };
 
-const SessionProvider: React.FC<SessionProviderProps> = ({ children }) => { // Utilisez le type ici
+const SessionProvider: React.FC<SessionProviderProps> = ({ children }) => { 
   return (
     <NextAuthSessionProvider>
       {children}

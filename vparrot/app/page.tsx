@@ -67,6 +67,7 @@ export default function Home() {
           testimonialResponse,
           textContentResponse,
           serviceResponse,
+        
         ] = await Promise.all([
           axios.get("/api/cars"),
           axios.get("/api/testimonials"),
@@ -78,14 +79,14 @@ export default function Home() {
         setTestimonials(testimonialResponse.data);
         setTexts(textContentResponse.data);
         setservicesData(serviceResponse.data);
-        setFilters({ ...filter, price: carResponse.data });
+        setFilters(f => ({ ...f, price: carResponse.data }));
       } catch (error) {
         console.error("Erreur de récupération des données:", error);
       }
     };
 
     fetchData();
-  }, [pathname, searchParams, filter]);
+  }, [pathname, searchParams]);
 
   function getContentBySlug(slug: string): string {
     const content = texts.find((item: TextContent) => item.slug === slug);

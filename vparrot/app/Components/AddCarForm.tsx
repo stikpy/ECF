@@ -7,14 +7,15 @@ import { useState } from "react";
 interface IFormData {
   title: string;
   description: string;
-  price: number;
+  price: string; 
   imageUrl: string;
-  km: number;
-  year: number;
+  km: string; 
+  year: string; 
 }
 
 export default function AddCarForm() {
   const [isSent, setIsSent] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const {
     register,
     handleSubmit,
@@ -24,42 +25,37 @@ export default function AddCarForm() {
 
   const onSubmit: SubmitHandler<IFormData> = async (data) => {
     try {
-      const car = {
-        title: data.title,
-        description: data.description,
-        price: Number(data.price),
-        imageUrl: data.imageUrl,
-        km: Number(data.km),
-        year: Number(data.year),
+    
+      const formattedData = {
+        ...data,
+        price: parseInt(data.price),
+        km: parseInt(data.km),
+        year: parseInt(data.year),
       };
 
-      const response = await axios.post("/api/cars", car);
+      const response = await axios.post("/api/cars", formattedData);
 
-      if (response.status === 200) {
+      if (response.status >= 200 && response.status < 300) {
         reset();
         setIsSent(true);
-      } else {
-        console.error(
-          "Erreur lors de la création de l'annonce de voiture:",
-          response.data
-        );
-        // Gérez les erreurs ici, par exemple, affichez un message d'erreur
+        setErrorMessage("");
       }
     } catch (error) {
       console.error("Erreur lors de la soumission du formulaire:", error);
-      // Gérez les erreurs ici, par exemple, affichez un message d'erreur
+      setIsSent(false);
+      setErrorMessage("Erreur lors de la création de l'annonce de voiture. Veuillez réessayer.");
     }
   };
 
   return (
     <div className="w-1/4 h-1/4 justify-center mx-auto my-auto p-6 bg-white rounded-lg shadow-lg">
-      <h1 className="text-2xl font-semibold mb-4">
-        Créer une annonce de voiture
-      </h1>
+      <h1 className="text-2xl font-semibold mb-4">Créer une annonce de voiture</h1>
       {isSent ? (
         <div className="text-green-500">Annonce créée avec succès.</div>
       ) : (
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <>
+          {errorMessage && <div className="text-red-500">{errorMessage}</div>}
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div className="flex flex-col">
             <label className="text-lg font-medium">Titre</label>
             <input
@@ -96,11 +92,11 @@ export default function AddCarForm() {
               {...register("price", {
                 required: "Ce champ est requis",
                 pattern: {
-                  value: /^[0-9]*$/, // Accepte uniquement des nombres
+                  value: /^[0-9]*$/, 
                   message: "Veuillez entrer un prix valide.",
                 },
               })}
-              type="number" // Utilisez type="number" pour le champ de prix
+              type="number" 
               className={`border rounded p-2 ${
                 errors.price ? "border-red-500" : ""
               }`}
@@ -156,6 +152,7 @@ export default function AddCarForm() {
             Créer l'annonce
           </button>
         </form>
+        </>
       )}
     </div>
   );

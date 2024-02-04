@@ -1,23 +1,21 @@
-import React from 'react'
-import Sidebar from '@/app/Components/Sidebar'
-import UserTableView from '@/app/Components/UserTableView'
+import React from "react";
+import Sidebar from "@/app/Components/Sidebar";
+import UserTableView from "@/app/Components/UserTableView";
 
 
+;
 
-type Props = {}
-
-function User({}: Props) {
+function User() {
   return (
-    
-    <div className='flex  text-center mx-auto'>
-    <Sidebar />
-    <div className='flex mx-auto'>
-
-    <UserTableView />
+    <div className="flex  text-center mx-auto">
+      <Sidebar />
+      <div className="flex mx-auto">
+     
+        <UserTableView />
+      
+      </div>
     </div>
-    </div>
-    
-  )
+  );
 }
 
-export default User
+export default User;

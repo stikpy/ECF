@@ -1,10 +1,9 @@
 'use client';
-// CarFilter.tsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CarCardView from "./CarCardView";
 
-type CarCardProps = {
+interface CarCardProps {
   id: number;
   imageUrl: string;
   title: string;
@@ -12,7 +11,7 @@ type CarCardProps = {
   price: number;
   km: number;
   year: number;
-};
+}
 
 export default function CarFilter() {
   const [cardData, setCardData] = useState<CarCardProps[]>([]);
@@ -34,7 +33,6 @@ export default function CarFilter() {
         console.error("Erreur de récupération des données:", error);
       }
     };
-
     fetchData();
   }, []);
 

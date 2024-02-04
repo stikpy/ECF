@@ -12,15 +12,25 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/cars/[carsID]/page": [
+    "/settings/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/cars/[carsID]/page.js"
+      "static/chunks/app/settings/page.js"
     ],
-    "/contactForm/page": [
+    "/settings/user/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/contactForm/page.js"
+      "static/chunks/app/settings/user/page.js"
+    ],
+    "/settings/testimonailsManagement/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/settings/testimonailsManagement/page.js"
+    ],
+    "/TestimonialForm/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/TestimonialForm/page.js"
     ]
   }
 }

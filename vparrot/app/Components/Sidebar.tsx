@@ -7,7 +7,7 @@ import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useSelectedLayoutSegment } from "next/navigation";
+import { redirect } from "next/navigation";
 import { signOut, signIn } from "next-auth/react";
 
 type Props = {};
@@ -113,8 +113,9 @@ function Sidebar({}: Props) {
               </li>
             </ul>
           </nav>
-          <div>
-       <button onClick={() => signOut()} className="btn bg-red-500  mx-auto text-white p-2 rounded-lg">Sign Out</button>
+          <div className="flex gap-4 justify-center">
+       {/* <button onClick={() => signIn()} className="btn bg-green-500  mx-auto text-white p-2 rounded-lg">Se Connecter</button> */}
+       <button onClick={() => signOut({ callbackUrl: '/'})} className="btn bg-red-500  mx-auto text-white p-2 rounded-lg">Déconnexion</button>
           </div>
       </div>
         </div>

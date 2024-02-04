@@ -7,31 +7,31 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Account {
-  id                 String  @id @default(cuid())
-  userId             Int
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.Text
-  session_state      String?
+// model Account {
+//   id                 String  @id @default(cuid())
+//   userId             Int
+//   type               String
+//   provider           String
+//   providerAccountId  String
+//   refresh_token      String?  @db.Text
+//   access_token       String?  @db.Text
+//   expires_at         Int?
+//   token_type         String?
+//   scope              String?
+//   id_token           String?  @db.Text
+//   session_state      String?
 
-  user users @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   user users @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@unique([provider, providerAccountId])
-}
+//   @@unique([provider, providerAccountId])
+// }
 
 model Session {
   id           String   @id @default(cuid())
   sessionToken String   @unique
   userId       Int
   expires      DateTime
-  users         users     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  // users         users     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model testimonials {
@@ -42,6 +42,7 @@ model testimonials {
   message     String?   @db.VarChar(255)
   status      String?   @default("hors ligne") @db.VarChar(20)
   isValidated Boolean?  @default(false)
+
 }
 
 model carPosts {
@@ -52,9 +53,6 @@ model carPosts {
   imageUrl    String?      @db.VarChar(255)
   km          Int?
   year        Int?
-  createdat   DateTime?    @default(now()) @db.Timestamp(6)
-  updatedat   DateTime?    @default(now()) @db.Timestamp(6)
-  status      String?      @default("hors ligne") @db.VarChar(20)
   userId      Int?
   users        users?     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
@@ -66,9 +64,7 @@ model users {
   firstname String?    @db.VarChar(255)
   lastname  String?    @db.VarChar(255)
   role      String    @db.VarChar(50)
-  account   Account[]
   carPosts  carPosts[]
-  session   Session[]
 }
 
 
@@ -76,6 +72,7 @@ model OpeningHours {
   id       Int      @id @default(autoincrement())
   day      String  
   timeSlots String[] 
+  modifiers   Modifier[]
 }
 
 model TextContent {
@@ -83,6 +80,7 @@ model TextContent {
   slug     String   @unique
   title    String?
   content  String
+  modifiers   Modifier[]
 
 }
 
@@ -92,4 +90,37 @@ model Services {
   description String?
   imageUrl String?
   descriptionShort String?
+  modifiers   Modifier[]
+}
+
+model ContactForm{
+id Int @id @default(autoincrement())
+lastname String @db.VarChar(255)
+firstname String @db.VarChar(255)
+phone String @db.VarChar(50)
+message String @db.VarChar(255)
+subject String @db.VarChar(255)
+email String @db.VarChar(255)
+}
+
+model CarDetails {
+  id Int @id @default(autoincrement())
+  brand String @db.VarChar(50)
+  model String @db.VarChar(50)
+  power Int @db.Integer()
+  fuelType String @db.VarChar(50)
+  transmission String @db.VarChar(50)
+  color String @db.VarChar(50)
+  fishHand Boolean
+}
+
+model Modifier{
+  id Int @id @default(autoincrement())
+  openingHoursId     Int?
+  textContentId      Int?
+  servicesId         Int?
+  openingHour        OpeningHours?     @relation(fields: [openingHoursId], references: [id], onDelete: Cascade)
+  textContent        TextContent?      @relation(fields: [textContentId], references: [id], onDelete: Cascade)
+  services           Services?         @relation(fields: [servicesId], references: [id], onDelete: Cascade)
+
 }

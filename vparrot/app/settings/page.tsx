@@ -6,9 +6,7 @@ import { useSession } from "next-auth/react";
 
 const Settings = () => {
 
-
   const { data: session } = useSession();
-
   const userRole = session?.user?.role;
 
   return (
@@ -27,12 +25,11 @@ const Settings = () => {
             </p>
             {userRole === "ADMIN" ? (
               <p className="text-sm text-green-600">
-                En tant qu'administrateur, vous avez accès à toutes les fonctionnalités du site
-                et vous pouvez gérer les paramètres.
+                En tant qu'administrateur, vous avez accès à toutes les fonctionnalités du site et vous pouvez gérer les paramètres.
               </p>
             ) : (
               <p className="text-sm text-red-600">
-                En tant qu'utilisateur, certaines fonctionnalités sont limitées.
+                En tant qu'utilisateur, certaines fonctionnalités vous sont limitées.
               </p>
             )}
           </div>
