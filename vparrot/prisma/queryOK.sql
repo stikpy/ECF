@@ -26,10 +26,10 @@ INSERT INTO testimonials (name, rating, message, "isValidated", status)
 VALUES
   ('Alice', 5, 'Excellent service, je recommande vivement !', true, 'En ligne'),
   ('Bob', 4, 'Le personnel est très compétent et sympathique.', true, 'En ligne'),
-  ('David', 3, 'Un bon endroit pour acheter des voitures d.', true, 'En ligne'),
+  ('David', 4, 'Un bon endroit pour acheter des voitures d.', true, 'En ligne'),
   ('Élise', 4, 'Le service client était exceptionnel.', true, 'En ligne'),
   ('Hugo', 5, 'Le garage a une grande sélection de voitures.', true, 'En ligne'),
-  ('Inès', 3, 'Les prix sont raisonnables.', true, 'En ligne'),
+  ('Inès', 4, 'Les prix sont raisonnables.', true, 'En ligne'),
   ('Jules', 4, 'Je suis satisfait de mon achat.', true, 'En ligne');
 
 INSERT INTO "OpeningHours" (day, "timeSlots")VALUES

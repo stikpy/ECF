@@ -9,11 +9,12 @@ export default withAuth(
   {
     callbacks: {
       authorized: ({ token }) => token?.role === 'ADMIN' || token?.role === 'USER', 
-      
+
+  
     },
   }
 );
 
 export const config = {
-  matcher: ['/connexionPage', '/settings']
+  matcher: ['/settings/']
 };

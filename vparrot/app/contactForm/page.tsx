@@ -47,7 +47,7 @@ export default function ContactForm() {
     if (isSent) {
       setTimeout(() => {
         router.push('/');
-      }, 1000);
+      }, 2000);
     }
   }, [isSent, router, parsedSlug, reset]); 
 

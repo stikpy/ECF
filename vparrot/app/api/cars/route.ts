@@ -4,6 +4,15 @@ import { NextResponse, NextRequest } from "next/server";
 
 const prisma = new PrismaClient();
 
+interface CarData {
+  title: string;
+  description: string;
+  price: number;
+  imageUrl: string;
+  km: number;
+  year: number;
+}
+
 // GET /api/cars
 export async function GET(request: NextRequest) {
   try {
@@ -23,20 +32,9 @@ export async function GET(request: NextRequest) {
 // POST /api/cars
 export async function POST(request: NextRequest) {
   try {
-    const data = await request.json();
-    const { title, description, price, imageUrl, km, year } = data;
-
-    // Créez une nouvelle voiture en utilisant les données de la requête
+    const data: CarData = await request.json();
     const car = await prisma.carPosts.create({
-      data: {
-        title,
-        description,
-        price,
-        imageUrl,
-        km,
-        year,
-         // Fournissez les données de la relation users ici si elles sont disponibles
-      },
+      data,
     });
 
     return new NextResponse(JSON.stringify(car), { status: 201 });
@@ -48,4 +46,3 @@ export async function POST(request: NextRequest) {
     );
   }
 }
-

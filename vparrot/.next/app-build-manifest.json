@@ -1,36 +1,26 @@
 {
   "pages": {
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
-    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/settings/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/settings/page.js"
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
     ],
-    "/settings/user/page": [
+    "/cgu/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/settings/user/page.js"
+      "static/chunks/app/cgu/page.js"
     ],
-    "/settings/testimonailsManagement/page": [
+    "/cookies/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/settings/testimonailsManagement/page.js"
-    ],
-    "/TestimonialForm/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/TestimonialForm/page.js"
+      "static/chunks/app/cookies/page.js"
     ]
   }
 }

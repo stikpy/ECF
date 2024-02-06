@@ -7,12 +7,11 @@ import { Inter } from 'next/font/google'
 import SessionProvider from './providers';
 import Footer from './Components/Footer';
 import ReturnTop from './Components/ReturnTop';
-import Head from 'next/head';
 
 const inter = Inter({ subsets: ['latin'] })
 
 
-export const metadata= {
+export const metadata: Metadata = {
 title: 'Garage V. Parrot',
 description: 'Garage V. Parrot, votre spécialiste en vente et mécanique automobile',
 
@@ -25,13 +24,6 @@ children: React.ReactNode
 }) {
 return (
 <html lang="fr">
-  <Head>
-    <title>{!metadata.title}</title>
-    <meta name="description" content={metadata.description} />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  </Head>
- 
-  
   <body className={inter.className}>
   <ReturnTop/>
   <header>

@@ -1,16 +1,23 @@
-'use client';
+
 import React, { useState } from "react";
 import Sidebar from "@/app/Components/Sidebar";
 import AddTestimonial from "@/app/Components/Addtestimonial";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
-const AddReview = () => {
-  const [isOpen, setIsOpen] = useState(false);
+async function  AddReview () {
+  const session = await getServerSession(authOptions);
+  if (!session) {
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
-
-  return (
+    return (
+        <div className="flex text-center mx-auto">
+      <Sidebar />
+      <div className="  justify-center flex mx-auto">
+   <p className='  m-auto text-center font-bold' >Accés refusé</p>
+      </div>
+    </div>
+    );
+  } else return (
     <>
       
         {/* Contenu principal */}

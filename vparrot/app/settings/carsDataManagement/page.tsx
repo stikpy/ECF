@@ -1,16 +1,25 @@
-'use client';
+
 import React, { useState } from "react";
 import Sidebar from "../../Components/Sidebar";
 import CarCardCreation from "@/app/Components/CarCardCreation";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
 
-const CarData = () => {
-  const [isOpen, setIsOpen] = useState(false);
+async function CarData  ()  {
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
 
-  return (
+  const session = await getServerSession(authOptions);
+  if (!session) {
+
+    return (
+        <div className="flex text-center mx-auto">
+      <Sidebar />
+      <div className="  justify-center flex mx-auto">
+   <p className='  m-auto text-center font-bold' >Accés refusé</p>
+      </div>
+    </div>
+    );
+  } else return (
     <>
       
         {/* Contenu principal */}

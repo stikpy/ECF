@@ -6,6 +6,8 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 
+
+
 interface OpeningHours {
   id: number;
   day: string;
@@ -27,11 +29,14 @@ interface Service {
 }
 
 const Content = () => {
+
+  
   const [openingHours, setOpeningHours] = useState<OpeningHours[]>([]);
   const [textContent, setTextContent] = useState<TextContent>({ content: "" });
   const [services, setServices] = useState<Service[]>([]);
   const { data: session } = useSession();
   const router = useRouter();
+  const userRole = session?.user?.role;
 
   // Chargement initial des données depuis l'API
   useEffect(() => {
@@ -90,12 +95,22 @@ const Content = () => {
       await axios.put("/api/textContent", textContent);
       await axios.put("/api/services", services);
       // Rediriger l'utilisateur après la sauvegarde
-      router.push("/admin/dashboard"); // Changer la route en fonction de votre projet
+      router.push("/admin/dashboard"); 
     } catch (error) {
       console.error("Erreur lors de la sauvegarde des modifications : ", error);
     }
   };
 
+  if (userRole !== "ADMIN") {
+    return (
+      <div className="flex text-center mx-auto">
+    <Sidebar />
+    <div className="  justify-center flex mx-auto">
+ <p className='  m-auto text-center font-bold' >Accés refusé</p>
+    </div>
+  </div>
+  );
+  }
   return (
     <div className="flex">
       <Sidebar />

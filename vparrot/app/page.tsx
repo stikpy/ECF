@@ -3,7 +3,6 @@
 
 import { usePathname, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import CarCardView from "./Components/CarCardView";
 import TestimonialCard from "./Components/TestimonialCardView";
 import Link from "next/link";
 import axios from "axios";
@@ -14,47 +13,31 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-type TestimonialProps = {
+interface TestimonialProps {
   id: number;
   name: string;
   date: string;
   rating: number;
   message: string;
   isValidated: boolean;
-};
-
-type CarCardProps = {
-  id: number;
-  imageUrl: string;
-  title: string;
-  description: string;
-  price: number;
-  km: number;
-  year: number;
-};
+}
 
 interface TextContent {
   slug: string;
   content: string;
 }
 
-type ServiceDataProps = {
+interface ServiceDataProps {
   imageUrl: string;
   title: string;
   descriptionShort: string;
   slug: string;
   id: number;
-};
+}
 
 export default function Home() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [filter, setFilters] = useState({
-    price: "",
-    year: "",
-    title: "",
-  });
-  const [cars, setCars] = useState<CarCardProps[]>([]);
   const [testimonials, setTestimonials] = useState<TestimonialProps[]>([]);
   const [texts, setTexts] = useState<TextContent[]>([]);
   const [servicesData, setservicesData] = useState<ServiceDataProps[]>([]);
@@ -62,24 +45,16 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [
-          carResponse,
-          testimonialResponse,
-          textContentResponse,
-          serviceResponse,
-        
-        ] = await Promise.all([
-          axios.get("/api/cars"),
-          axios.get("/api/testimonials"),
-          axios.get(`/api/settings/textsContents`),
-          axios.get(`/api/services`),
-        ]);
+        const [testimonialResponse, textContentResponse, serviceResponse] =
+          await Promise.all([
+            axios.get("/api/testimonials"),
+            axios.get(`/api/settings/textsContents`),
+            axios.get(`/api/services`),
+          ]);
 
-        setCars(carResponse.data);
         setTestimonials(testimonialResponse.data);
         setTexts(textContentResponse.data);
         setservicesData(serviceResponse.data);
-        setFilters(f => ({ ...f, price: carResponse.data }));
       } catch (error) {
         console.error("Erreur de récupération des données:", error);
       }
@@ -108,23 +83,6 @@ export default function Home() {
 
   const slug = "header-text";
   const content = getContentBySlug(slug);
-
-  const filteredCars = cars.filter((car: CarCardProps) => {
-    return (
-      (filter.price ? car.price <= parseInt(filter.price) : true) &&
-      (filter.year ? car.year >= parseInt(filter.year) : true) &&
-      (filter.title ? car.title.includes(filter.title) : true)
-    );
-  });
-
-  let minPrice =
-    filteredCars.length > 0
-      ? Math.min(...filteredCars.map((car: CarCardProps) => car.price))
-      : 0;
-  let maxPrice =
-    filteredCars.length > 0
-      ? Math.max(...filteredCars.map((car: CarCardProps) => car.price))
-      : 0;
 
   const settings = {
     className: "center",
@@ -181,7 +139,6 @@ export default function Home() {
           <h2 className="text-center text-3xl">SERVICES</h2>
           {descriptionShort.map((descriptionShort: ServiceDataProps | null) => {
             return descriptionShort ? (
-              <>
                 <ServiceData
                   key={descriptionShort.id}
                   imageUrl={descriptionShort.imageUrl}
@@ -189,7 +146,6 @@ export default function Home() {
                   title={descriptionShort.title}
                   id={descriptionShort.id}
                 />
-              </>
             ) : null;
           })}
         </section>
@@ -199,23 +155,7 @@ export default function Home() {
           <h2 className="text-center text-3xl" id="carsPosts">
             VEHICULES D'OCCASION
           </h2>
-
           <CarsFilter />
-
-          <div className="m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-            {filteredCars.map((car: CarCardProps) => (
-              <CarCardView
-                key={car.id}
-                id={car.id}
-                imageUrl={car.imageUrl}
-                title={car.title}
-                description={car.description}
-                price={car.price}
-                km={car.km}
-                year={car.year}
-              />
-            ))}
-          </div>
         </section>
 
         {/* Testimonial list section */}

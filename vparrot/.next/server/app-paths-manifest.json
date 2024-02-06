@@ -1,12 +1,5 @@
 {
+  "/cookies/page": "app/cookies/page.js",
   "/page": "app/page.js",
-  "/settings/page": "app/settings/page.js",
-  "/TestimonialForm/page": "app/TestimonialForm/page.js",
-  "/api/cars/route": "app/api/cars/route.js",
-  "/settings/user/page": "app/settings/user/page.js",
-  "/api/testimonials/route": "app/api/testimonials/route.js",
-  "/api/services/route": "app/api/services/route.js",
-  "/settings/testimonailsManagement/page": "app/settings/testimonailsManagement/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/api/settings/textsContents/route": "app/api/settings/textsContents/route.js"
+  "/cgu/page": "app/cgu/page.js"
 }

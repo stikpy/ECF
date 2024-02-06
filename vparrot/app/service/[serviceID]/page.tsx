@@ -4,7 +4,7 @@ import Image from "next/image";
 import axios from "axios";
 import { usePathname } from "next/navigation";
 
-type ServicePropsType = {
+interface ServicePropsType {
   id: number;
   imageUrl: string;
   title: string;
@@ -33,7 +33,7 @@ export default function ServiceDetail() {
         }
       })();
     }
-  }, []);
+  }, [id]);
 
   if (!service) {
     return (

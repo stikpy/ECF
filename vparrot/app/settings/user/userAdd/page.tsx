@@ -3,7 +3,6 @@ import Sidebar from '@/app/Components/Sidebar';
 import AddUserForm from '@/app/Components/AddUserForm';
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
-import { useRouter } from "next/navigation";
 
 type Props = {};
 
