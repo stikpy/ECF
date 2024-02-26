@@ -1,51 +1,27 @@
 /* eslint-disable react/no-unescaped-entities */
-"use client";
-import { useEffect } from "react";
+
+
 import Link from "next/link";
 import Image from "next/image";
 
 export default function NavBar() {
-  useEffect(() => {
-    const scrollFunction = () => {
-      const navlist = document.getElementById("navlist");
-      const logo = document.getElementById("logo");
 
-      if (
-        document.body.scrollTop > 60 ||
-        document.documentElement.scrollTop > 60
-      ) {
-        if (navlist) navlist.style.padding = "15px 10px";
-        if (logo) {
-          (logo.style.height = "90px"), (logo.style.width = "90px");
-        }
-      } else {
-        if (navlist) navlist.style.padding = "30px 10px";
-        if (logo) {
-          (logo.style.height = "180px"), (logo.style.width = "180px");
-        }
-      }
-    };
-
-    window.addEventListener("scroll", scrollFunction);
-
-    return () => {
-      window.removeEventListener("scroll", scrollFunction);
-    };
-  }, []);
 
   return (
     <>
-      <nav id="navlist" className=" flex justify-between navbar bg-gradient-to-r  z-70 top-0 p-5 w-full">
+      <nav id="navlist" className=" flex justify-between navbar bg-gradient-to-r  z-70 top-0  w-full">
 
-        <Link href="/">
-          <Image
-            id="logo"
-            src="/logo.jpg"
-            alt="logo"
-            width={180}
-            height={180}
-            className="rounded-full object-cover	 ml-10  transition-all duration-300"
-          />
+        <Link href="/" className="justify-center" title="Accueil">
+        <Image
+  id="logo"
+  src="/logo.jpg"
+  alt="logo"
+  width={100}
+  height={100}
+  className="rounded-full "
+
+/>
+
         </Link>
 
         {/* Mobile display */}
@@ -93,25 +69,25 @@ export default function NavBar() {
         </div>
 
         {/* Desktop display */}
-        <div className="flex justify-end gap-10 hidden px-2 mx-2 md:flex">
+        <div className="flex justify-end gap-10 hidden  md:flex">
           <ul className="flex  gap-10 ">
             <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
-              <Link href="/">Accueil</Link>
+              <Link  href="/" title="Accueil">Accueil</Link>
             </li>
             <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
-              <Link href="/#carsPosts">Véhuicules d'occasion</Link>
+              <Link href="/#carsPosts" title="Véhuicules d'occasion">Véhuicules d'occasion</Link>
             </li>
             <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
-              <Link href="/#testimonials">Avis</Link>
+              <Link href="/#testimonials" title="Avis">Avis</Link>
             </li>
             <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
-              <Link href="/#services">Services</Link>
+              <Link href="/#services" title="Services">Services</Link>
             </li>
             <li className="hover:underline underline-offset-8 shadow-2xl hover:scale-110 ">
-              <Link href="/aboutUs">A propos de nous</Link>
+              <Link href="/aboutUs" title="A propos de nous">A propos de nous</Link>
             </li>
             <li className="hover:underline underline-offset-8 drop-shadow-2xl hover:scale-110 ">
-              <Link href="/settings">Connexion</Link>
+              <Link href="/settings" title="Connexion">Connexion</Link>
             </li>
           </ul>
         </div>

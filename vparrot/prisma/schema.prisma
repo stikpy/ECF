@@ -45,27 +45,9 @@ model testimonials {
 
 }
 
-model carPosts {
-  id          Int          @id @default(autoincrement())
-  title       String?      @db.VarChar(255)
-  description String?
-  price       Int?
-  imageUrl    String?      @db.VarChar(255)
-  km          Int?
-  year        Int?
-  userId      Int?
-  users        users?     @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
 
-model users {
-  id        Int        @id @default(autoincrement())
-  email     String    @unique @db.VarChar(255)
-  password  String    @db.VarChar(255)
-  firstname String?    @db.VarChar(255)
-  lastname  String?    @db.VarChar(255)
-  role      String    @db.VarChar(50)
-  carPosts  carPosts[]
-}
+
+
 
 
 model OpeningHours {
@@ -93,6 +75,28 @@ model Services {
   modifiers   Modifier[]
 }
 
+model carPosts {
+  id          Int          @id @default(autoincrement())
+  title       String?      @db.VarChar(255)
+  description String?
+  price       Int?
+  imageUrl    String?      @db.VarChar(255)
+  km          Int?
+  year        Int?
+  userId      Int?
+  users        users?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model users {
+  id        Int        @id @default(autoincrement())
+  email     String    @unique @db.VarChar(255)
+  password  String    @db.VarChar(255)
+  firstname String?    @db.VarChar(255)
+  lastname  String?    @db.VarChar(255)
+  role      String    @db.VarChar(50)
+  carPosts  carPosts[]
+}
+
 model ContactForm{
 id Int @id @default(autoincrement())
 lastname String @db.VarChar(255)
@@ -111,7 +115,7 @@ model CarDetails {
   fuelType String @db.VarChar(50)
   transmission String @db.VarChar(50)
   color String @db.VarChar(50)
-  fishHand Boolean
+  firstHand Boolean
 }
 
 model Modifier{

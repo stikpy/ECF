@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
+import prisma from '@/app/utils/db';
 
-const prisma = new PrismaClient({
-  log: ['query', 'error', 'warn'],
-});
+
 
 interface CarData {
   title: string;

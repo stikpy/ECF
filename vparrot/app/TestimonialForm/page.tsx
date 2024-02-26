@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 
 
 
-type ITestimonialTypeProps = {
+interface ITestimonialTypeProps {
   name: string;
   rating: number;
   message: string;
@@ -17,6 +17,8 @@ export default function ContactForm() {
   const [isSent, setIsSent] = useState(false);
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ITestimonialTypeProps>();
   const router = useRouter();
+  const allowSafeCharsRegex = /^[a-zA-Z0-9 .,!?'"-]+$/;
+
   
  
 
@@ -28,51 +30,73 @@ export default function ContactForm() {
       console.error('Erreur lors de l’envoi du témoignage:', error);
     }
   };
-  
-  
+
   useEffect(() => {
     if (isSent) {
       setTimeout(() => {
         router.push('/');
-      }, 5000);
+      }, 2000);
     }
   });
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-200 relative">
-      <div className="absolute inset-0 flex blur-sm justify-center items-center">
-        <Image src="/images/background.svg" alt="background" layout="fill" objectFit="cover" className="backdrop-blur-md"/>
+    <div className="flex justify-center items-center min-h-screen bg-gray-200 p-4">
+      <div className="absolute inset-0 z-0 blur-sm">
+        <Image src="/images/background.svg" alt="image abstraite" layout="fill" objectFit="cover" className="backdrop-blur-md"/>
       </div>
-      <div className="bg-white bg-opacity-40 p-8 rounded-lg shadow-md w-1/3 z-10">
-        <h1 className="text-2xl mb-4">Ajoutez un témoignage</h1>
+      <div className="relative z-10 w-full max-w-lg px-4 py-8 bg-white bg-opacity-90 rounded-lg shadow-md">
+        <h1 className="text-2xl mb-4 text-center">Ajoutez un témoignage</h1>
         {isSent ? (
-          <div className="text-green-500">Votre message a été envoyé avec succès.</div>
+          <div className="text-green-500 text-center">Votre message a été envoyé avec succès.</div>
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div className="flex flex-col">
-              <label className="text-lg font-medium">Nom:</label>
-              <input {...register('name', { required: 'Name is required' })} className="border rounded p-2" />
+              <label htmlFor="name" className="text-lg font-medium">Nom:</label>
+              <input
+                id="name"
+                {...register('name', {
+                  required: 'Le champs nom est requis',
+                  validate: value => allowSafeCharsRegex.test(value) || "Le nom contient des caractères invalides"
+                })} 
+                className="border rounded p-2"
+              />
               {errors.name && <p className="text-red-500">{errors.name.message}</p>}
             </div>
             
             <div className="flex flex-col">
-              <label className="text-lg font-medium">Message:</label>
-              <textarea {...register('message', { required: 'Message is required' })} className="border rounded p-2"></textarea>
+              <label htmlFor="message" className="text-lg font-medium">Message:</label>
+              <textarea
+                id="message"
+                {...register('message', {
+                  required: 'Le champs message est requis',
+                  validate: value => allowSafeCharsRegex.test(value) || "Le message contient des caractères invalides"
+                })}
+                className="border rounded p-2"
+              ></textarea>
               {errors.message && <p className="text-red-500">{errors.message.message}</p>}
             </div>
-            <div className="flex flex-row space-x-2">
+            
+            <fieldset className="flex flex-row justify-center sm:justify-start">
+              <legend className="text-lg font-medium">Note:</legend>
               {[1, 2, 3, 4, 5].map((ratingValue) => (
-                <div key={ratingValue}>
-                  <input {...register('rating', { required: 'Rating is required' })} type="radio" id={`rating-${ratingValue}`} name="rating" value={ratingValue} />
-                  <label htmlFor={`rating-${ratingValue}`}>{ratingValue}</label>
-                </div>
+                <label key={ratingValue} className="flex items-center mx-1">
+                  <input
+                    {...register('rating', { required: 'Le champs note est requis' })}
+                    type="radio"
+                    id={`rating-${ratingValue}`}
+                    value={ratingValue}
+                  />
+                  <span className="ml-1">{ratingValue}</span>
+                </label>
               ))}
-            </div>
+            </fieldset>
             {errors.rating && <p className="text-red-500">{errors.rating.message}</p>}
-            <button type="submit" className="bg-blue-500 text-white p-2 rounded">Envoyer</button>
+            
+            <button type="submit" className="w-full sm:w-auto bg-blue-500 text-white p-2 rounded">Envoyer</button>
           </form>
         )}
       </div>
     </div>
   );
+  
 }

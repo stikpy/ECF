@@ -2479,6 +2479,10 @@ details.collapse summary::-webkit-details-marker {
   margin-left: -0.5rem;
   margin-right: -0.5rem;
 }
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
 .mx-10 {
   margin-left: 2.5rem;
   margin-right: 2.5rem;
@@ -2523,8 +2527,8 @@ details.collapse summary::-webkit-details-marker {
 .mb-6 {
   margin-bottom: 1.5rem;
 }
-.ml-10 {
-  margin-left: 2.5rem;
+.ml-1 {
+  margin-left: 0.25rem;
 }
 .ml-4 {
   margin-left: 1rem;
@@ -2774,6 +2778,9 @@ details.collapse summary::-webkit-details-marker {
 .bg-opacity-80 {
   --tw-bg-opacity: 0.8;
 }
+.bg-opacity-90 {
+  --tw-bg-opacity: 0.9;
+}
 .bg-\[url\(\'\/images\/iStock-865559764\.jpg\'\)\] {
   background-image: url('/images/iStock-865559764.jpg');
 }
@@ -2794,10 +2801,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .stroke-current {
   stroke: currentColor;
-}
-.object-cover {
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 .p-2 {
   padding: 0.5rem;
@@ -2842,6 +2845,10 @@ details.collapse summary::-webkit-details-marker {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
 .pb-4 {
   padding-bottom: 1rem;
 }
@@ -2854,14 +2861,8 @@ details.collapse summary::-webkit-details-marker {
 .pt-16 {
   padding-top: 4rem;
 }
-.pt-20 {
-  padding-top: 5rem;
-}
 .pt-32 {
   padding-top: 8rem;
-}
-.pt-60 {
-  padding-top: 15rem;
 }
 .text-center {
   text-align: center;
@@ -2880,16 +2881,20 @@ details.collapse summary::-webkit-details-marker {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
 }
-.text-7xl {
-  font-size: 4.5rem;
+.text-6xl {
+  font-size: 3.75rem;
   line-height: 1;
 }
-.text-8xl {
-  font-size: 6rem;
+.text-7xl {
+  font-size: 4.5rem;
   line-height: 1;
 }
 .text-lg {
@@ -3037,14 +3042,6 @@ details.collapse summary::-webkit-details-marker {
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
           backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-.duration-300 {
-  transition-duration: 300ms;
-}
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -3170,8 +3167,8 @@ img {
     margin-top: 0px;
   }
 
-  .sm\:hidden {
-    display: none;
+  .sm\:w-auto {
+    width: auto;
   }
 
   .sm\:grid-cols-2 {
@@ -3180,6 +3177,10 @@ img {
 
   .sm\:flex-col {
     flex-direction: column;
+  }
+
+  .sm\:justify-start {
+    justify-content: flex-start;
   }
 }
 
@@ -3222,6 +3223,16 @@ img {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
+
+  .md\:text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
+  .md\:text-8xl {
+    font-size: 6rem;
+    line-height: 1;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -3261,7 +3272,7 @@ img {
   \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /* cyrillic-ext */
 @font-face {
-  font-family: '__Inter_e66fe9';
+  font-family: '__Inter_aaf875';
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
@@ -3270,7 +3281,7 @@ img {
 }
 /* cyrillic */
 @font-face {
-  font-family: '__Inter_e66fe9';
+  font-family: '__Inter_aaf875';
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
@@ -3279,7 +3290,7 @@ img {
 }
 /* greek-ext */
 @font-face {
-  font-family: '__Inter_e66fe9';
+  font-family: '__Inter_aaf875';
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
@@ -3288,16 +3299,16 @@ img {
 }
 /* greek */
 @font-face {
-  font-family: '__Inter_e66fe9';
+  font-family: '__Inter_aaf875';
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
   src: url(/_next/static/media/51ed15f9841b9f9d-s.woff2) format('woff2');
-  unicode-range: U+0370-03FF;
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
 }
 /* vietnamese */
 @font-face {
-  font-family: '__Inter_e66fe9';
+  font-family: '__Inter_aaf875';
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
@@ -3306,22 +3317,22 @@ img {
 }
 /* latin-ext */
 @font-face {
-  font-family: '__Inter_e66fe9';
+  font-family: '__Inter_aaf875';
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
   src: url(/_next/static/media/d6b16ce4a6175f26-s.woff2) format('woff2');
-  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
 @font-face {
-  font-family: '__Inter_e66fe9';
+  font-family: '__Inter_aaf875';
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
   src: url(/_next/static/media/c9a5bc6a7c948fb0-s.p.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}@font-face {font-family: '__Inter_Fallback_e66fe9';src: local("Arial");ascent-override: 90.20%;descent-override: 22.48%;line-gap-override: 0.00%;size-adjust: 107.40%
-}.__className_e66fe9 {font-family: '__Inter_e66fe9', '__Inter_Fallback_e66fe9';font-style: normal
+}@font-face {font-family: '__Inter_Fallback_aaf875';src: local("Arial");ascent-override: 90.20%;descent-override: 22.48%;line-gap-override: 0.00%;size-adjust: 107.40%
+}.__className_aaf875 {font-family: '__Inter_aaf875', '__Inter_Fallback_aaf875';font-style: normal
 }
 

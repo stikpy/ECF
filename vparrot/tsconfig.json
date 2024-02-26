@@ -24,6 +24,6 @@
       },
       "typeRoots": ["./types", "./node_modules/@types"],
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/Components/NavBar.jsx", "app/Components/Header.jsx", "app/carActions.jsx", "app/api/route.mjs", "app/contactForm/page.tsx", "app/api/sendGrid/route.tsx", "app/api/auth/[...nextauth]/route.ts", "app/connectionPage/page.tsx", "app/connectionPage/route.js", "app/Components/SignOut.tsx", "app/Components/UserTableView.jsx", "app/Components/CarCardView.tsx", "app/Components/CarCardCreation.js", "app/Components/TestimonialCardView.js", "app/Components/TestimonialTableView.js", "app/settings/layout.tsx", "app/settings/userProfile/page.jsx", "app/settings/userProfile/addUser/page.jsx", "app/settings/user/page.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/Components/NavBar.jsx", "app/Components/Header.jsx", "app/carActions.jsx", "app/api/route.mjs", "app/contactForm/page.tsx", "app/api/sendGrid/route.tsx", "app/api/auth/[...nextauth]/route.ts", "app/connectionPage/page.tsx", "app/connectionPage/route.js", "app/Components/SignOut.tsx", "app/Components/UserTableView.jsx", "app/Components/CarCardView.tsx", "app/Components/CarCardCreation.js", "app/Components/TestimonialCardView.js", "app/Components/TestimonialTableView.js", "app/settings/layout.tsx", "app/settings/userProfile/page.jsx", "app/settings/userProfile/addUser/page.jsx", "app/settings/user/page.tsx", "app/utils/db.ts"],
   "exclude": ["node_modules"]
 }

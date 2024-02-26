@@ -7,7 +7,7 @@ import axios from "axios";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
 
-type CarPropsType = {
+interface ICarProps  {
   id: number;
   imageUrl: string;
   title: string;
@@ -19,8 +19,8 @@ type CarPropsType = {
 
 export default function CarDetail() {
   const pathname = usePathname();
-  const id = pathname.trim().split("/cars/")[1];
-  const [car, setCar] = useState<CarPropsType | null>(null);
+  const id = parseInt(pathname.trim().split("/cars/")[1]);
+  const [car, setCar] = useState<ICarProps | null>(null);
 
   useEffect(() => {
     if (id) {
@@ -33,9 +33,9 @@ export default function CarDetail() {
           console.error("Error fetching car data:", error);
         }
       })();
-    }
+    } 
   }, [id]);
-
+ 
   if (!car) {
     return (
       <div className="flex h-screen justify-center items-center">
@@ -49,7 +49,7 @@ export default function CarDetail() {
         <div className="card w-full  shadow-xl cursor-pointer text-center rounded-0">
           <h1 className="card-title justify-center text-7xl m-8">
             {car.title}
-          </h1>
+          </h1>4
           <div className="flex justify-center items-center ">
             <Image
               className="rounded-3xl	"

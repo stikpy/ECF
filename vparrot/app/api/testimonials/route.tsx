@@ -1,8 +1,7 @@
 // /app/api/testimonials/[id]/route.tsx
-import { PrismaClient } from "@prisma/client";
+import prisma from '@/app/utils/db';
 import { NextResponse, NextRequest } from "next/server";
 
-const prisma = new PrismaClient();
 
 export async function GET(request: NextRequest) {
   try {

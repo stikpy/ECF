@@ -1,7 +1,7 @@
-import { PrismaClient } from '@prisma/client';
+import prisma from '@/app/utils/db';
 import { NextRequest, NextResponse } from 'next/server';
 
-const prisma = new PrismaClient();
+
 
 async function getUsers() {
   const users = await prisma.users.findMany();
@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
-    console.log("Data reçue:", data);
+   
 
     const user = await prisma.users.create({
       data: {

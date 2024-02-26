@@ -45,12 +45,12 @@ export default function ServiceDetail() {
 
   return (
     <>
-    <div className="flex flex-col h-full bg-base-100 pt-60"> {/* pt-20 ajouté ici */}
-        <h1 className="card-title justify-center text-7xl m-8">
+    <div className="flex flex-col h-full bg-base-100 "> 
+        <h1 className="card-title justify-center text-4xl md:text-7xl m-8">
           {service.title}
         </h1>
 
-        <div className="flex justify-center items-center mb-36 gap-4 flex-col md:flex-row ">
+        <div className="flex justify-center items-center mb-36 gap-4 flex-col lg:flex-row ">
           <Image
             className="rounded-3xl m-4 "
             src={service.imageUrl}

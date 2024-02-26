@@ -1,8 +1,7 @@
 // /app/api/cars/route.tsx
-import { PrismaClient } from "@prisma/client";
+import prisma from '@/app/utils/db';
 import { NextResponse, NextRequest } from "next/server";
 
-const prisma = new PrismaClient();
 
 interface CarData {
   title: string;
@@ -11,6 +10,7 @@ interface CarData {
   imageUrl: string;
   km: number;
   year: number;
+  userId: number;
 }
 
 // GET /api/cars

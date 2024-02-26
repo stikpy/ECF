@@ -39,12 +39,12 @@ export default function CarFilter() {
   const applyFilters = () => {
     const filtered = cardData.filter((data) => {
       return (
-        (minPrice === "" || data.price >= parseFloat(minPrice)) &&
-        (maxPrice === "" || data.price <= parseFloat(maxPrice)) &&
+        (minPrice === "" || data.price >= parseInt(minPrice)) &&
+        (maxPrice === "" || data.price <= parseInt(maxPrice)) &&
         (minYear === "" || data.year >= parseInt(minYear)) &&
         (maxYear === "" || data.year <= parseInt(maxYear)) &&
-        (minKm === "" || data.km >= parseFloat(minKm)) &&
-        (maxKm === "" || data.km <= parseFloat(maxKm))
+        (minKm === "" || data.km >= parseInt(minKm)) &&
+        (maxKm === "" || data.km <= parseInt(maxKm))
       );
     });
     setFilteredCars(filtered);
@@ -70,8 +70,9 @@ export default function CarFilter() {
             <div>
               <label htmlFor="minPrice">Prix Minimum:</label>
               <input
+                inputMode="numeric"
                 className="input input-bordered w-full max-w-xs"
-                type="text"
+                type="number"
                 id="minPrice"
                 name="minPrice"
                 placeholder=""
@@ -82,8 +83,9 @@ export default function CarFilter() {
             <div>
               <label htmlFor="maxPrice">Prix Maximum:</label>
               <input
-                className="input input-bordered w-full max-w-xs"
-                type="text"
+                 inputMode="numeric"
+                 className="input input-bordered w-full max-w-xs"
+                 type="number"
                 id="maxPrice"
                 name="maxPrice"
                 placeholder=""
@@ -94,8 +96,9 @@ export default function CarFilter() {
             <div>
               <label htmlFor="minYear">Année Minimum:</label>
               <input
-                className="input input-bordered w-full max-w-xs"
-                type="text"
+                 inputMode="numeric"
+                 className="input input-bordered w-full max-w-xs"
+                 type="number"
                 id="minYear"
                 name="minYear"
                 placeholder=""
@@ -106,8 +109,9 @@ export default function CarFilter() {
             <div>
               <label htmlFor="maxYear">Année Maximum:</label>
               <input
-                className="input input-bordered w-full max-w-xs"
-                type="text"
+                 inputMode="numeric"
+                 className="input input-bordered w-full max-w-xs"
+                 type="number"
                 id="maxYear"
                 name="maxYear"
                 placeholder=""
@@ -118,8 +122,9 @@ export default function CarFilter() {
             <div>
               <label htmlFor="minKm">Kilométrage Minimum:</label>
               <input
-                className="input input-bordered w-full max-w-xs"
-                type="text"
+               inputMode="numeric"
+               className="input input-bordered w-full max-w-xs"
+               type="number"
                 id="minKm"
                 name="minKm"
                 placeholder=""
@@ -130,8 +135,9 @@ export default function CarFilter() {
             <div>
               <label htmlFor="maxKm">Kilométrage Maximum:</label>
               <input
-                className="input input-bordered w-full max-w-xs"
-                type="text"
+                 inputMode="numeric"
+                 className="input input-bordered w-full max-w-xs"
+                 type="number"
                 id="maxKm"
                 name="maxKm"
                 placeholder=""

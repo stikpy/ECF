@@ -1,7 +1,6 @@
-import { PrismaClient } from "@prisma/client";
+import prisma from '@/app/utils/db';
 import { NextResponse, NextRequest } from "next/server";
 
-const prisma = new PrismaClient();
 
 export const GET = async (request: NextRequest): Promise<NextResponse> => {
   const slug = request.url.split("textsContents/")[1];

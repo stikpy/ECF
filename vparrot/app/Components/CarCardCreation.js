@@ -2,27 +2,24 @@
 
 import React, { useCallback, useMemo, useState, useEffect } from "react";
 import MaterialReactTable from "material-react-table";
-import {
-  Box,
-  Button,
-  IconButton,
- 
-  Tooltip,
-} from "@mui/material";
-import { Delete, Edit, ExpandMore, ChevronRight } from "@mui/icons-material";
 import axios from "axios";
+import { useSession } from "next-auth/react"
+
 
 const CarAds = () => {
-  const [open, setOpen] = useState(false);
+
+  const { data: session } = useSession()
+  const id = parseInt(session?.user?.id);
   const [formData, setFormData] = useState({
     title: "",
     description: "",
     price: 0,
     imageURL: "",
     subRows: [],
+    userId: id || 0,
   });
   const [carData, setCarData] = useState([]);
-
+  
   const handleOpenDialog = () => {
     setOpen(true);
   };
@@ -48,8 +45,12 @@ const CarAds = () => {
       subRows: [],
     });
   };
-
   const handleSubmit = async () => {
+    if (!formData.userId) {
+      console.log("L'ID de l'utilisateur est manquant.");
+      return; // Empêche la soumission si l'ID de l'utilisateur est manquant
+    }
+    
     try {
       const response = await axios.post("/api/cars", formData);
       console.log("Annonce de voiture créée avec succès :", response.data);
@@ -57,12 +58,10 @@ const CarAds = () => {
       resetForm();
       fetchCarData();
     } catch (error) {
-      console.error(
-        "Erreur lors de la création de l'annonce de voiture :",
-        error,
-      );
+      console.error("Erreur lors de la création de l'annonce de voiture :", error);
     }
   };
+  
 
   const fetchCarData = async () => {
     try {
@@ -140,24 +139,6 @@ const CarAds = () => {
         data={carData}
         editingMode="modal"
         enableColumnOrdering
-        // enableEditing
-        // onEditingRowSave={() => {}}
-        // onEditingRowCancel={() => {}}
-        // renderRowActions={({ row, table }) => (
-        //   <Box sx={{ display: "flex", gap: "1rem" }}>
-        //     <Tooltip arrow placement="left" title="Edit">
-        //       <IconButton onClick={() => table.setEditingRow(row)}>
-        //         <Edit />
-        //       </IconButton>
-        //     </Tooltip>
-        //     <Tooltip arrow placement="right" title="Delete">
-        //       <IconButton color="error" onClick={() => {}}>
-        //         <Delete />
-        //       </IconButton>
-        //     </Tooltip>
-        //   </Box>
-        // )}
-        
         enableExpanding
       />
     </div>

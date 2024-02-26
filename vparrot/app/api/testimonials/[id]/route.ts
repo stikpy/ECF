@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
+import prisma from '@/app/utils/db';
 
-const prisma = new PrismaClient();
 
 export const GET = async (request: NextRequest) => {
   const id = request.url.split("testimonials/")[1];

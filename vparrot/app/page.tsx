@@ -111,6 +111,8 @@ export default function Home() {
     ],
   };
 
+  
+
   return (
     <>
       <main>
@@ -119,12 +121,12 @@ export default function Home() {
           <div className="hero h-screen bg-[url('/images/iStock-865559764.jpg')] bg-cover bg-center">
             <div className="hero-overlay bg-opacity-50"></div>
             <div className="flex hero-content text-center text-neutral-content flex-col justify-evenly">
-              <h1 className="mb-5 text-8xl no-wrap font-bold">
+              <h1 className="mb-5 text-6xl md:text-8xl no-wrap font-bold">
                 Garage V. Parrot
               </h1>
               <p
                 data-slug="header-text"
-                className="mt-10 text-2xl sm:hidden md:block"
+                className="mt-10 text-2xl hidden md:block "
               >
                 {content}
               </p>
@@ -146,6 +148,7 @@ export default function Home() {
                   title={descriptionShort.title}
                   id={descriptionShort.id}
                 />
+                
             ) : null;
           })}
         </section>
@@ -167,10 +170,9 @@ export default function Home() {
             <Image
               className="rounded-lg shadow-lg m-4"
               src="/images/iStock-1440540891.jpg"
-              alt="car"
+              alt="image de témoignages"
               width={500}
               height={100}
-              priority
             />
             <div className="flex flex-row sm:flex-col m-4">
               <p className="text-lg font-bold self-center mb-20 underline">
@@ -209,3 +211,7 @@ export default function Home() {
     </>
   );
 }
+
+
+
+

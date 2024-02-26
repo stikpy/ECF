@@ -6,8 +6,6 @@ import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { redirect } from "next/navigation";
 import SignOut from "../Components/SignOut";
 
 
@@ -17,40 +15,38 @@ function className(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 function Sidebar({}: Props) {
-  const [selectedLayoutSegment, setSelectedLayoutSegment] =
-    useState("Dashboard");
   const sidebarOptions = [
-    { name: "Dashboard", href: "/settings", icon: HomeIcon, current: true },
+    { name: "Espace d'administration", href: "/settings", icon: HomeIcon, current: false},
     {
-      name: "Cars",
+      name: "Annonce en ligne",
       href: "/settings/carsDataManagement",
       icon: DirectionsCarIcon,
       current: false,
       submenu: [
         {
-          name: "Add Car",
+          name: "Ajouter une annonce",
           href: "/settings/carsDataManagement/addCarForm",
           current: false,
         },
       ],
     },
     {
-      name: "Users",
+      name: "Utilisateurs",
       href: "/settings/user",
       icon: ManageAccountsIcon,
       current: false,
       submenu: [
-        { name: "Add User", href: "/settings/user/userAdd", current: false },
+        { name: "Ajouter un utilisateur", href: "/settings/user/userAdd", current: false },
       ],
     },
     {
-      name: "Reviews",
+      name: "Témoignages",
       href: "/settings/testimonailsManagement",
       icon: StarHalfIcon,
       current: false,
       submenu: [
         {
-          name: "Add Review",
+          name: "Ajouter un témoignage",
           href: "/settings/testimonailsManagement/addReview",
           current: false,
         },
@@ -78,7 +74,7 @@ function Sidebar({}: Props) {
       className=" h-screen h-full lg:inset-y-0 lg:flex lg:w-72 lg:flex-col"
     >
       <div className="flex justify-between grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-4  rounded-lg border-r-2">
-        <h1 className="text-3-xl font-bold">Logo</h1>
+
         <nav className=" flex flex-col">
           <ul role="list" className="flex flex-l flex-col gap-y-7">
             <li>
@@ -93,7 +89,7 @@ function Sidebar({}: Props) {
                           : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
                         "group flex items-center px-2 py-2 text-sm font-medium rounded-md",
                       )}
-                      onClick={(e) => setSelectedLayoutSegment(option.name)}
+                      
                     >
                       <option.icon
                         className={className(

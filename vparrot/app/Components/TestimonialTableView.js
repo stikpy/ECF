@@ -5,27 +5,18 @@ import { MaterialReactTable } from "material-react-table";
 import {
   Box,
   Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
   IconButton,
-  MenuItem,
-  Stack,
-  TextField,
-  Tooltip,
-  Checkbox,
+
 } from "@mui/material";
 
 import {  CheckCircle as CheckCircleIcon} from "@mui/icons-material";
 import ClearOutlinedIcon  from '@mui/icons-material/ClearOutlined';
 
 import axios from "axios";
-import router from "next/router";
+
 
 export default function UserTestimonials ()  {
   const [data, setData] = useState([]);
-  const [selectedRows, setSelectedRows] = useState([]);
   const [pendingChanges, setPendingChanges] = useState({});
 
   const handleSaveRowEdits = async ({ cell, values }) => {
@@ -53,13 +44,11 @@ export default function UserTestimonials ()  {
   const toggleValidation = (row, isValidated) => {
     setPendingChanges({
       ...pendingChanges,
-      [row.id]: { ...row, isValidated: isValidated }
+      [row.id]: { ...row, isValidated: isValidated, status: isValidated ? "En ligne" : "Hors ligne" },
     });
   };
 
-  const handleSelectAll = () => {
-    setSelectedRows(data.map((row) => row.id));
-  };
+
 
   const columns = [
     {
